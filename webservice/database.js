@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 config={
-	mongoUrl: 'mongodb://admin:admin@ds025583.mlab.com:25583/ws_final_project'
+	mongoUrl: 'mongodb://<user>:<pass>@ds025583.mlab.com:25583/ws_final_project'
 };
 
 

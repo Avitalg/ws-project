@@ -1,0 +1,14 @@
+{
+  "name": "ex11",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ws.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Avital Glazer",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}

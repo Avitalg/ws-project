@@ -19,7 +19,7 @@ app.get('/project/getAllLooks', products.getLook);
 app.get('/project/getLookByCategory/:category', products.getLookByCategory);
 app.get('/project/getAllCategories', products.getAllCategories);
 app.get('/project/getUsers', products.getUsers);
-app.get('/project/getWishList', products.getWishList);
+app.get('/project/getWishList/:username', products.getWishList);
 
 
 app.listen(port);

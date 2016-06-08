@@ -59,14 +59,13 @@ exports.getUsers = function(req,res){
 	});
 }
 
-
 exports.getWishList = function(req,res){
-	User.find({},
-	function(err,userRes){
-		console.log("docs: "+userRes);
-		res.json(userRes);
-		return;
+	username= req.params.username;
+	User.findOne({"username":username},"wish_list", function(err,wishList){
+		Product.find({"id":{$in:wishList.wish_list}},function(err,data){
+			console.log("data:"+data);
+			res.json(data);
+			return;
+		})
 	});
 }
-
-

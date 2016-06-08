@@ -1,5 +1,8 @@
 var mongoose = require('mongoose');
 var Product = require('./product');
+var Look=require('./look');
+var Category=require('./category');
+var User=require('./user');
 var db = require('./database');
 
 exports.getData = function(req,res){
@@ -17,3 +20,53 @@ exports.getCategory = function(req, res){
 		res.json(data);
 	});
 };
+
+exports.getLook = function(req,res){
+	Look.find({},
+	function(err,lookRes){
+		console.log("docs: "+lookRes);
+		res.json(lookRes);
+		return;
+	});
+}
+
+exports.getLookByCategory = function(req,res){
+	category = req.params.category;
+	Look.find({'look': category},
+	function(err,lookSteps){
+		console.log("docs: "+lookSteps);
+		res.json(lookSteps);
+		return;
+	});
+}
+
+
+exports.getAllCategories = function(req,res){
+	Category.find({},
+	function(err,categoryRes){
+		console.log("docs: "+categoryRes);
+		res.json(categoryRes);
+		return;
+	});
+}
+
+exports.getUsers = function(req,res){
+	User.find({},
+	function(err,userRes){
+		console.log("docs: "+userRes);
+		res.json(userRes);
+		return;
+	});
+}
+
+
+exports.getWishList = function(req,res){
+	User.find({},
+	function(err,userRes){
+		console.log("docs: "+userRes);
+		res.json(userRes);
+		return;
+	});
+}
+
+

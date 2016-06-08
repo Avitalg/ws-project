@@ -15,6 +15,12 @@ app.use(function(req, res, next){
 
 app.get('/project/getAllProducts', products.getData);
 app.get('/project/getCategory/:id', products.getCategory);
+app.get('/project/getAllLooks', products.getLook);
+app.get('/project/getLookByCategory/:category', products.getLookByCategory);
+app.get('/project/getAllCategories', products.getAllCategories);
+app.get('/project/getUsers', products.getUsers);
+app.get('/project/getWishList', products.getWishList);
+
 
 app.listen(port);
 

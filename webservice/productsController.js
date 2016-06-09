@@ -6,66 +6,151 @@ var User=require('./user');
 var db = require('./database');
 
 exports.getData = function(req,res){
-	Product.find({},
+	Product.findOne({},
 	function(err,docs){
-		console.log("docs: "+docs);
-		res.json(docs);
+		if(err){
+			res.status(500);
+			res.json({"error":err});
+		}else if(!docs){
+			res.status(404);
+			res.json({"error": "No data found"});
+		}else{
+			res.status(200);
+			res.json(docs);
+		}
 		return;
 	});
 }
 
 exports.getCategory = function(req, res){
 	category = req.params.id;
-	Product.find({'category':category}, function(err, data){
-		res.json(data);
-	});
+	if(!category){
+		res.status(404);
+		res.json({"error":"Category name wasn't entered"});
+	}else{
+		Product.findOne({'category':category}, function(err, data){
+			if(err){
+				res.status(500);
+				res.json({"error":err});
+			}else if(!data){
+				res.status(404);
+				res.json([{"error":"Category doesn't exist"}]);
+			}else{
+				res.status(200);
+				res.json(data);
+			}
+		});
+	}
+		return;
 };
 
 exports.getLook = function(req,res){
-	Look.find({},
+	Look.findOne({},
 	function(err,lookRes){
-		console.log("docs: "+lookRes);
-		res.json(lookRes);
+		if(err){
+			res.status(500);
+			res.json({"error":err});
+		}else if(!lookRes){
+			res.status(404);
+			res.json({"error":"Look doesn't exist"});
+		}else{
+			res.status(200);
+			res.json(lookRes);
+		}
 		return;
 	});
 }
 
 exports.getLookByCategory = function(req,res){
 	category = req.params.category;
-	Look.find({'look': category},
+	Look.findOne({'look': category},
 	function(err,lookSteps){
-		console.log("docs: "+lookSteps);
-		res.json(lookSteps);
+		if(err){
+			res.status(500);
+			res.json({"error":err});
+		}else if(!lookSteps){
+			res.status(404);
+			res.json({"error":"Look doesn't exist."});
+		}else{
+			res.tatus(200);
+			res.json(lookSteps);
+		}
 		return;
 	});
 }
 
 
 exports.getAllCategories = function(req,res){
-	Category.find({},
-	function(err,categoryRes){
-		console.log("docs: "+categoryRes);
-		res.json(categoryRes);
-		return;
-	});
+	if(err){
+		res.status(500);
+		res.json({"error":"Can't find categories"});
+	}else{
+		Category.findOne({},
+		function(err,categoryRes){
+			if(err){
+				res.status(500);
+				res.json({"error":err});
+			}else if(!categoryRes){
+				res.status(404);
+				res.json({"error":"No category found"});
+			}else{	
+				res.status(200);
+				res.json(categoryRes);
+			}
+		});
+	}
+	return;
 }
 
 exports.getUsers = function(req,res){
-	User.find({},
+	User.findOne({},
 	function(err,userRes){
-		console.log("docs: "+userRes);
-		res.json(userRes);
+		if(err){
+			res.status(500);
+			res.json({"error": "No result found."});
+
+		}else if(!userRes){
+			res.status(404);
+			res.json({"error":"Can't find users"});
+		}else{
+			res.status(200);
+			res.json(userRes);
+		}
 		return;
 	});
 }
 
 exports.getWishList = function(req,res){
 	username= req.params.username;
-	User.findOne({"username":username},"wish_list", function(err,wishList){
-		Product.find({"id":{$in:wishList.wish_list}},function(err,data){
-			console.log("data:"+data);
-			res.json(data);
-			return;
-		})
-	});
+	if(!username){
+		res.status(404);
+		res.json({"error":"Username wasn't sopplyed"});
+	}else{	
+		User.findOne({"username":username},"wish_list", function(err,wishList){
+			if(err){
+				res.status(500);
+				res.json({"error":err});
+			}else if(!wishList){
+				res.status(404);
+				res.json({"error":"User doesn't exist"});
+			}else{	
+				Product.find({"id":{$in:wishList.wish_list}},function(err,data){
+					if(err){
+						res.status(500);
+						res.json({"error": err});
+					}else{
+						res.status(200);
+						res.json(data);
+					}
+					
+				})
+			}
+		});
+	}
+	return;
+}
+
+exports.allRest = function(req,res){
+	res.status(404);
+		res.json({"error":"Entered wrong URL"});
 }

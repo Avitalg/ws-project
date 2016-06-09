@@ -20,6 +20,7 @@ app.get('/project/getLookByCategory/:category', products.getLookByCategory);
 app.get('/project/getAllCategories', products.getAllCategories);
 app.get('/project/getUsers', products.getUsers);
 app.get('/project/getWishList/:username', products.getWishList);
+app.get('*',products.allRest);
 
 
 app.listen(port);

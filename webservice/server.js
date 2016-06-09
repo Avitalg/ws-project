@@ -13,13 +13,13 @@ app.use(function(req, res, next){
 	next();
 });
 
-app.get('/project/getAllProducts', products.getData);
-app.get('/project/getCategory/:id', products.getCategory);
-app.get('/project/getAllLooks', products.getLook);
-app.get('/project/getLookByCategory/:category', products.getLookByCategory);
-app.get('/project/getAllCategories', products.getAllCategories);
-app.get('/project/getUsers', products.getUsers);
-app.get('/project/getWishList/:username', products.getWishList);
+app.get('/api/getAllProducts', products.getData);
+app.get('/api/getCategory/:id', products.getCategory);
+app.get('/api/getAllLooks', products.getLook);
+app.get('/api/getLookByCategory/:category', products.getLookByCategory);
+app.get('/api/getAllCategories', products.getAllCategories);
+app.get('/api/getUsers', products.getUsers);
+app.get('/api/getWishList/:username', products.getWishList);
 app.get('*',products.allRest);
 
 

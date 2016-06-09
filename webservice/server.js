@@ -14,8 +14,8 @@ app.use(function(req, res, next){
 });
 
 app.get('/api/getAllProducts', products.getData);
-app.get('/api/getCategory/:id', products.getCategory);
-app.get('/api/getAllLooks', products.getLook);
+app.get('/api/getCategoryProducts/:category', products.getCategoryProducts);
+app.get('/api/getAllLooks', products.getLooks);
 app.get('/api/getLookByCategory/:category', products.getLookByCategory);
 app.get('/api/getAllCategories', products.getAllCategories);
 app.get('/api/getUsers', products.getUsers);

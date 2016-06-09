@@ -22,8 +22,8 @@ exports.getData = function(req,res){
 	});
 }
 
-exports.getCategory = function(req, res){
-	category = req.params.id;
+exports.getCategoryProducts = function(req, res){
+	category = req.params.category;
 	if(!category){
 		res.status(404);
 		res.json({"error":"Category name wasn't entered"});
@@ -44,15 +44,12 @@ exports.getCategory = function(req, res){
 		return;
 };
 
-exports.getLook = function(req,res){
-	Look.findOne({},
+exports.getLooks = function(req,res){
+	Look.find({},
 	function(err,lookRes){
 		if(err){
 			res.status(500);
 			res.json({"error":err});
-		}else if(!lookRes){
-			res.status(404);
-			res.json({"error":"Look doesn't exist"});
 		}else{
 			res.status(200);
 			res.json(lookRes);
@@ -81,37 +78,25 @@ exports.getLookByCategory = function(req,res){
 
 
 exports.getAllCategories = function(req,res){
-	if(err){
-		res.status(500);
-		res.json({"error":"Can't find categories"});
-	}else{
-		Category.findOne({},
-		function(err,categoryRes){
-			if(err){
-				res.status(500);
-				res.json({"error":err});
-			}else if(!categoryRes){
-				res.status(404);
-				res.json({"error":"No category found"});
-			}else{	
-				res.status(200);
-				res.json(categoryRes);
-			}
-		});
-	}
+	Category.find({},
+	function(err,categoryRes){
+		if(err){
+			res.status(500);
+			res.json({"error":err});
+		}else{	
+			res.status(200);
+			res.json(categoryRes);
+		}
+	});
 	return;
 }
 
 exports.getUsers = function(req,res){
-	User.findOne({},
+	User.find({},
 	function(err,userRes){
 		if(err){
 			res.status(500);
 			res.json({"error": "No result found."});
-
-		}else if(!userRes){
-			res.status(404);
-			res.json({"error":"Can't find users"});
 		}else{
 			res.status(200);
 			res.json(userRes);

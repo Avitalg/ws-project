@@ -1,19 +1,22 @@
 var categories = angular.module('product', [
     'ngRoute'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $locationProvider ) {
     $routeProvider
       .when('/', {
         templateUrl: 'product.html',
-        controller: 'productCtrl',
-        controllerAs: 'main'
-      })
+        controller: 'productCtrl'
+        })
       .otherwise({
         redirectTo: '/'
       });
+
+      
+       $locationProvider.html5Mode(true);
   });
 
-categories.controller('productCtrl', ['$scope','$http','$location', function($scope, $http, $location){
+categories.controller('productCtrl', ['$scope','$http','$location','$window',
+ function($scope, $http, $location, $window){
 	
 	var prodId = $location.search().id;
 
@@ -22,6 +25,6 @@ categories.controller('productCtrl', ['$scope','$http','$location', function($sc
 		$scope.prod = data;
 	})
 	.error(function(data, status){
-		console.log(data);
+		$window.location.href = '/index.html';
 	});
 }]);

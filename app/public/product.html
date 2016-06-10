@@ -2,6 +2,7 @@
 <html lang="en" ng-app="product">
 <head>
 	<meta charset="UTF-8">
+	<base href="/" />
 	<script src="js/lib/angular/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
 	<script src="js/dev/product.js"></script>
@@ -12,13 +13,24 @@
 </head>
 <body ng-controller="productCtrl">
 	<div class="container">
-		<header>
-			<h3>{{prod.name}}</h3>
-			<p>{{prod.short_desc}}</p>
-		</header>
-		<div class="prodData">
-			<p>Price: {{prod.price}}</p>
-			<p>{{prod.description}}</p>
+		<div class ="productDetails">
+			<header class="productHead">
+				<h3>{{prod.name}}</h3>
+				<p>{{prod.short_desc}}</p>
+			</header>
+			<div class="prodData">
+				<p>{{prod.description}}</p>
+			</div>
+		</div>
+		<div class="prodPic">
+			<img src="">
+		</div>
+		<div class="buyProd">
+			<img src="">
+			<p>
+				<h6>{{prod.name}}</h6>
+				<p>{{prod.price}}</p>
+			</p>
 		</div>
 	</div>
 </body>

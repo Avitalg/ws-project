@@ -5,10 +5,24 @@
     height: 58px;
 }
 
+//------shop page---------
+
 .shop_menu li{
 	float: left;
 }
 
 .shop_menu ul{
 	 list-style-type: none;
+}
+
+
+//------product page---------
+
+.container .productHead p{
+	border-bottom: 1px solid grey;
+}
+
+.productDetails{
+	float:right;
+	border-bottom: 3px solid black;
 }

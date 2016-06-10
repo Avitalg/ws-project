@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="shop">
+<head>
+	<meta charset="UTF-8">
+	<script src="js/lib/angular/angular.min.js"></script>
+	<script src="js/dev/shop.js"></script>
+	<link rel="stylesheet" href="css/lib/bootstrap.min.css">
+	<link rel="stylesheet" href="css/lib/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="css/dev/style.css">
+	<title>Shop</title>
+</head>
+<body ng-controller="shopCtrl">
+	<div class="container">
+		hello
+		<div class="shop_menu">
+			<ul>
+				<li ng-repeat="rule in rules"><img src="images/{{rule.image_hover}}"
+	 title="{{rule.name}}"> </li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

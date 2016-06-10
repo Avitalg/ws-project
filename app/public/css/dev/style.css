@@ -4,3 +4,11 @@
     width: 171px;
     height: 58px;
 }
+
+.shop_menu li{
+	float: left;
+}
+
+.shop_menu ul{
+	 list-style-type: none;
+}

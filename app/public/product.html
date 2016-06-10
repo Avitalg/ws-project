@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="product">
+<head>
+	<meta charset="UTF-8">
+	<script src="js/lib/angular/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
+	<script src="js/dev/product.js"></script>
+	<link rel="stylesheet" href="css/lib/bootstrap.min.css">
+	<link rel="stylesheet" href="css/lib/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="css/dev/style.css">
+	<title>Shop</title>
+</head>
+<body ng-controller="productCtrl">
+	<div class="container">
+		<header>
+			<h3>{{prod.name}}</h3>
+			<p>{{prod.short_desc}}</p>
+		</header>
+		<div class="prodData">
+			<p>Price: {{prod.price}}</p>
+			<p>{{prod.description}}</p>
+		</div>
+	</div>
+</body>
+</html>

@@ -6,20 +6,39 @@ var User=require('./user');
 var db = require('./database');
 
 exports.getData = function(req,res){
-	Product.findOne({},
+	Product.find({},
 	function(err,docs){
 		if(err){
 			res.status(500);
 			res.json({"error":err});
-		}else if(!docs){
-			res.status(404);
-			res.json({"error": "No data found"});
 		}else{
 			res.status(200);
 			res.json(docs);
 		}
 		return;
 	});
+}
+
+exports.getProduct = function(req, res){
+	id = req.params.id;
+	if(!id){
+		res.status(404);
+		res.json({"error":"Category name wasn't entered"});
+	}else{
+		Product.findOne({'id':id}, function(err, data){
+			if(err){
+				res.status(500);
+				res.json({"error":err});
+			}else if(!data){
+				res.status(404);
+				res.json([{"error":"Category doesn't exist"}]);
+			}else{
+				res.status(200);
+				res.json(data);
+			}
+		});
+	}
+		return;
 }
 
 exports.getCategoryProducts = function(req, res){

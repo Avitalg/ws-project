@@ -14,6 +14,7 @@ app.use(function(req, res, next){
 });
 
 app.get('/api/getAllProducts', products.getData);
+app.get('/api/getProduct/:id', products.getProduct);
 app.get('/api/getCategoryProducts/:category', products.getCategoryProducts);
 app.get('/api/getAllLooks', products.getLooks);
 app.get('/api/getLookByCategory/:category', products.getLookByCategory);

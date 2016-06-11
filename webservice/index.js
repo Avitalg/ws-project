@@ -1,2 +1,1 @@
-require('./database');
-require('./server');
+require('./server.js');

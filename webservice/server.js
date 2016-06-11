@@ -1,6 +1,11 @@
 var express = require('express');
 var app = express();
-var products = require('./productsController');
+var db = require('./database');
+var products = require('./product/controller');
+var categories = require('./category/controller');
+var users = require('./user/controller');
+var looks = require('./look/controller');
+
 var port = process.env.PORT || 3000;
 
 app.set('port', port);
@@ -13,40 +18,45 @@ app.use(function(req, res, next){
 	next();
 });
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~LOOK~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+app.get('/api/getAllLooks', looks.getLooks);
+app.get('/api/getLookByCategory/:category', looks.getLookByCategory);
+app.get('/api/getLook/:look', looks.getLook);
+app.get('/api/addLook/:look/:image', looks.addLook);
+app.get('/api/updateLook/:look/:image', looks.updateLook);
+app.get('/api/removeLook/:look', looks.removeLook);
+app.get('/api/addStepToLook/:look/:image/:desc/:prodId', looks.addStepToLook);
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CATEGORY~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+app.get('/api/getAllCategories', categories.getAllCategories);
+app.get('/api/getCategory/:category', categories.getCategory);
+app.get('/api/removeCategory/:category', categories.removeCategory);
+app.get('/api/addCategory/:id/:name/:image/:himage', categories.addCategory);
+app.get('/api/updateCategory/:id/:name/:image/:himage', categories.updateCategory);
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~USER~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+app.get('/api/getUsers', users.getUsers);
+app.get('/api/getUser/:username', users.getUser);
+app.get('/api/removeUser/:username', users.removeUser);
+app.get('/api/addUser/:username/:picture/:admin', users.addUser);
+app.get('/api/updateUser/:username/:picture/:admin', users.updateUser);
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~PRODUCT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 app.get('/api/getAllProducts', products.getProducts);
 app.get('/api/getProduct/:id', products.getProduct);
 app.get('/api/addProduct/:id/:name/:price/:sdesc/:desc/:category', products.addProduct);
 app.get('/api/updateProduct/:id/:name/:price/:sdesc/:desc/:category', products.updateProduct);
 app.get('/api/removeProduct/:id', products.removeProduct);
-
 app.get('/api/getCategoryProducts/:category', products.getCategoryProducts);
-app.get('/api/getAllLooks', products.getLooks);
-app.get('/api/getLookByCategory/:category', products.getLookByCategory);
-app.get('/api/getLook/:look', products.getLook);
-app.get('/api/addLook/:look/:image', products.addLook);
-app.get('/api/updateLook/:look/:image', products.updateLook);
-app.get('/api/removeLook/:look', products.removeLook);
-app.get('/api/addStepToLook/:look/:image/:desc/:prodId', products.addStepToLook);
-
-
-app.get('/api/getAllCategories', products.getAllCategories);
-app.get('/api/getCategory/:category', products.getCategory);
-app.get('/api/removeCategory/:id', products.removeCategory);
-app.get('/api/addCategory/:id/:name/:image/:himage', products.addCategory);
-
-//check bellow
-app.get('/api/updateCategory/:id/:name/:image/:himage', products.updateCategory);
-
-app.get('/api/removeCategory/:id', products.removeCategory);
-app.get('/api/getUsers', products.getUsers);
-app.get('/api/getUser/:username', products.getUser);
-app.get('/api/removeUser/:username', products.removeUser);
-
-app.get('/api/addUser/:username/:picture/:admin', products.addUser);
-app.get('/api/updateUser/:username/:picture/:admin', products.updateUser);
 app.get('/api/getWishList/:username', products.getWishList);
 app.get('/api/addToWishList/:username/:prodId', products.addToWishList);
 app.get('/api/removeFromWishList/:username/:prodId', products.removeFromWishList);
+
 app.get('*',products.allRest);
 
 

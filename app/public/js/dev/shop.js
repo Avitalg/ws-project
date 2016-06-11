@@ -5,7 +5,7 @@ var categories = angular.module('shop', [], function($locationProvider) {
 categories.controller('shopCtrl', ['$scope','$http','$window', function($scope, $http, $window){
 	$http.get("http://localhost:3000/api/getAllCategories")
 	.success(function(data){
-		$scope.rules = data;
+		$scope.catrgories = data;
 		console.log(data);
 	})
 	.error(function(data, status){

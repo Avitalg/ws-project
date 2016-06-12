@@ -113,7 +113,8 @@ exports.addLook = function(req,res){
 
 
 exports.addStepToLook = function(req,res){
-	var _look = req.params.look,
+	var _number = req.params.number,
+		_look = req.params.look,
 		_image = req.params.image,
 		_desc = req.params.desc,
 		_prod = req.params.prodId;
@@ -131,6 +132,7 @@ exports.addStepToLook = function(req,res){
 				res.json({error:err});
 			} else {
 				var newStep = {
+							"number" : _number,
 							"face_image" : _image,
 							"description" : _desc,
 							"product_id" : _prod
@@ -144,6 +146,39 @@ exports.addStepToLook = function(req,res){
 	}
 	return;
 }
+ 
+exports.removeStepFromLook = function(req,res){
+	var _number = req.params.number,
+		_look = req.params.look;
+
+	if(!_look){
+		res.status(500);
+		res.json({"error":"No look name was entered"});
+	} else {
+		Look.findOne({ "look": _look },"steps", function (err, lookRes){
+			if(!lookRes){
+				res.status(404);
+				res.json({error: "The look "+_look+" doesn't exist"});
+			}else if(err){
+				res.status(500);
+				res.json({error:err});
+			} else {
+				console.log("look::"+lookRes.steps[0]);
+				for(var i=0; i<lookRes.steps.length;i++){
+					if(lookRes.steps[i].number == _number){
+						console.log("here");
+						lookRes.steps.pull(lookRes.steps[i]);
+					}
+				}
+			  	lookRes.save();
+			  	res.status(200);
+			  	res.json({"success":"succeed remove step from look."});
+			}
+		});
+	}
+	return;
+}
+
 
 
 exports.getLookByCategory = function(req,res){

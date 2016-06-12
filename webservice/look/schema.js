@@ -6,6 +6,7 @@ var looksSchema = new schema({
     image: String,
     steps: [
         {
+        	"number": {type:Number, required:true},
             "face_image": String,
             "description": String,
             "product_id": Number

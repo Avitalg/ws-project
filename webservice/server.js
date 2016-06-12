@@ -26,7 +26,9 @@ app.get('/api/getLook/:look', looks.getLook);
 app.get('/api/addLook/:look/:image', looks.addLook);
 app.get('/api/updateLook/:look/:image', looks.updateLook);
 app.get('/api/removeLook/:look', looks.removeLook);
-app.get('/api/addStepToLook/:look/:image/:desc/:prodId', looks.addStepToLook);
+app.get('/api/addStepToLook/:look/:number/:image/:desc/:prodId', looks.addStepToLook);
+app.get('/api/removeStepFromLook/:look/:number', looks.removeStepFromLook);
+
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CATEGORY~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

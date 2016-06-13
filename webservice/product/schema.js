@@ -5,6 +5,7 @@ var productSchema = new schema({
 	id: {type:Number, index:1, required:true, unique:true},
 	name: String,
 	price: String,
+    image:String,
 	short_desc: String,
 	description: String,
 	category: String

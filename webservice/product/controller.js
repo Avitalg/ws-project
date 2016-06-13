@@ -20,6 +20,7 @@ exports.addProduct = function(req,res){
 	var _id = req.params.id,
 		_name = req.params.name,
 		_price = req.params.price,
+		_image=req.params.image,
 		_short_desc = req.params.sdesc,
 		_desc = req.params.desc,
 		_category = req.params.category;
@@ -32,6 +33,7 @@ exports.addProduct = function(req,res){
 		  id: _id,
 		  name: _name,
 		  price: _price,
+		  image:_image,
 		  short_desc: _short_desc,
 		  description: _desc,
 		  category: _category
@@ -58,6 +60,7 @@ exports.updateProduct = function(req,res){
 	var _id = req.params.id,
 		_name = req.params.name,
 		_price = req.params.price,
+		_image=req.params.image,
 		_short_desc = req.params.sdesc,
 		_desc = req.params.desc,
 		_category = req.params.category;
@@ -76,6 +79,7 @@ exports.updateProduct = function(req,res){
 			} else {
 				prod.name = _name;
 			  	prod.price = _price;
+			  	prod.image = _image;
 			  	prod.short_desc = _short_desc;
 			  	prod.desc = _desc;
 			  	prod.category = _category;

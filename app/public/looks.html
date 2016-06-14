@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="MakeUpApp">
+<html lang="en" ng-app="Looks">
 <head>
     <link rel="stylesheet" href="css/lib/bootstrap.min.css">
     <link rel="stylesheet" href="css/lib/bootstrap-theme.min.css">
@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
-<body ng-controller="MakeUpCtrl">
+<body ng-controller="LookCtrl">
 <div >
 <a href="index.html" alt="Logo" title="Logo" id="logo"></a>
 </div>
@@ -24,10 +24,21 @@
     </ul>
   </div>
 </nav>
-<div ng-repeat="products in product.products" >
-<div>{{products.image}}</div>
- <div>{{products.description}}</div>
-</div>
+<main>
+<div class="container" ng-repeat="looks in look.looks" >
+<article id="glam"></article> 
+<div>{{looks.image}}</div>
 
+<article id="fresh"></article> 
+<div>{{looks.image}}</div>
+
+<article id="smoky"></article> 
+<div>{{looks.image}}</div>
+
+<article id="color"></article> 
+<div>{{looks.image}}</div>
+
+</div>
+</main>
 </body>
 </html>

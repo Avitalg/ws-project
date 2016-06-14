@@ -2,7 +2,7 @@ var MakeUpApp = angular.module('MakeUpApp',[]);
 
 
 MakeUpApp.run(function($http) {
-    $http.get("http://localhost:3000//api/getAllProducts").success(function(data){
+    $http.get("http://localhost:3000/api/getAllProducts").success(function(data){
         console.log(data);
         model.products = data;
     });
@@ -14,6 +14,9 @@ var model = {
 
 MakeUpApp.controller('MakeUpCtrl',function($scope) {
     $scope.product = model;
+
+
+    
 
   /*  $scope.incompleteCount = function() {
         var count=0;

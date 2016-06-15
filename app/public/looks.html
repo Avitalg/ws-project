@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="Looks">
 <head>
+    <script src="js/lib/angular/angular.min.js"></script>
+    <script src="js/dev/looks.js"></script>
     <link rel="stylesheet" href="css/lib/bootstrap.min.css">
     <link rel="stylesheet" href="css/lib/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/dev/style.css">
@@ -17,28 +19,26 @@
       <a class="navbar-brand" href="#">MakeUp house</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Products</a></li>
-      <li><a href="#">Looks</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li class="active"><a href="looks.html">Looks</a></li>
       <li><a href="#">Workshop</a></li> 
       <li><a href="#">wishList</a></li> 
     </ul>
   </div>
 </nav>
-<main>
-<div class="container" ng-repeat="looks in look.looks" >
-<article id="glam"></article> 
-<div>{{looks.image}}</div>
 
-<article id="fresh"></article> 
-<div>{{looks.image}}</div>
-
-<article id="smoky"></article> 
-<div>{{looks.image}}</div>
-
-<article id="color"></article> 
-<div>{{looks.image}}</div>
-
+<div ng-repeat="looks in mylook.looks">
+    <div id={{looks.look}}><img ng-src=images/{{looks.image}}></div>
 </div>
-</main>
 </body>
 </html>
+
+<!-->
+
+<div ng-repeat="products in product.products" >
+    <div id="prodDiv">
+      <a href="product.html?id={{products.id}}"><div id ="prodImg"><img ng-src=images/{{products.image}}></div></a>
+      <div id="prodDes">{{products.name}}</div>
+    </div>
+</div>
+<-->

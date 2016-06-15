@@ -10,7 +10,7 @@ header, footer, main, nav, aside, section, article{
 
 
 #logo{
-    background-image: url("../images/logo.jpg");
+    background-image: url("../../images/logo.jpg");
     display: block;
     width: 171px;
     height: 58px;
@@ -39,9 +39,92 @@ header, footer, main, nav, aside, section, article{
 }
 
 //-------products page--------
+.container{
+    width: 110px;
+    float: left;
+}
+#prodDiv{
+   border-style: solid;
+    border-width: 5px;
+    width: 117px;
+    float: left;
+    position: relative;
+    margin-top: 60px;
+    margin-right: -2%;
+    margin-left: 8%;
+}
+
+
 #prodImg{
-    height: 101px;
-    width: 102px;
+     height: 111px;
+    width: 111px;
     border-style: solid;
     border-width: 5px;
 }
+
+a{
+    color: rgba(255,255,255,.15);
+    text-decoration: none;
+}
+
+//-------looks page--------
+
+#lookDiv{
+   /* border-style: solid;
+    border-width: 5px;
+    float: left;
+    position: relative;*/
+    border-style: solid;
+    border-width: 5px;
+    width: 700px;
+
+    float: left;
+    position: relative;
+    margin-top: 60px;
+    margin-right: -2%;
+    margin-left: 8%;
+
+}
+
+
+#fresh{
+     float: left;
+    width: 400px;
+    border-style: solid;
+    border-width: 5px;
+    margin-top: 60px;
+    margin-right: 2%;
+    margin-left: 20%;
+}
+
+#glam{
+      border-style: solid;
+    border-width: 5px;
+    margin-top: 78px;
+    margin-right: 21%;
+    margin-left: 51%;
+}
+
+#color{
+    float: left;
+    width: 400px;
+    border-style: solid;
+    border-width: 5px;
+    margin-top: 25px;
+    margin-right: 13%;
+    margin-left: 20%;
+
+}
+
+#smoky{
+    float: left;
+    width: 390px;
+    border-style: solid;
+    border-width: 5px;
+    margin-top: -17%;
+    margin-right: 47%;
+    margin-left: 51%;
+}
+
+
+

@@ -13,7 +13,7 @@ var modelook = {
 };
 
 Looks.controller('LookCtrl',function($scope) {
-    $scope.look = model;
+    $scope.mylook = modelook;
 
   /*  $scope.incompleteCount = function() {
         var count=0;

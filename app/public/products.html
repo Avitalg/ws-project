@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="MakeUpApp">
 <head>
+    <script src="js/lib/angular/angular.min.js"></script>
+    <script src="js/dev/makeup.js"></script>
     <link rel="stylesheet" href="css/lib/bootstrap.min.css">
     <link rel="stylesheet" href="css/lib/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/dev/style.css">
@@ -8,7 +10,7 @@
     <title>Document</title>
 </head>
 <body ng-controller="MakeUpCtrl">
-<div >
+<div>
 <a href="index.html" alt="Logo" title="Logo" id="logo"></a>
 </div>
     <nav class="navbar navbar-default">
@@ -18,16 +20,17 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Products</a></li>
-      <li><a href="#">Looks</a></li>
+      <li><a href="looks.html">Looks</a></li>
       <li><a href="#">Workshop</a></li> 
       <li><a href="#">wishList</a></li> 
     </ul>
   </div>
 </nav>
 <div ng-repeat="products in product.products" >
- <div id ="prodImg">{{products.image}}</div>
- <div id="prodDes">{{products.description}}</div>
-
+    <div id="prodDiv">
+      <a href="product.html?id={{products.id}}"><div id ="prodImg"><img ng-src=images/{{products.image}}></div></a>
+      <div id="prodDes">{{products.name}}</div>
+    </div>
 </div>
 
 </body>

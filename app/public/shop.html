@@ -7,15 +7,28 @@
 	<link rel="stylesheet" href="css/lib/bootstrap.min.css">
 	<link rel="stylesheet" href="css/lib/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="css/dev/style.css">
+	<link rel="stylesheet" href="css/dev/shop.css">
 	<title>Shop</title>
 </head>
 <body ng-controller="shopCtrl">
 	<div class="container">
-		hello
+		<nav class="navbar navbar-default">
+	      <div class="container-fluid">
+	        <div class="navbar-header">
+	          <a class="navbar-brand" href="index.html">MakeUp house</a>
+	        </div>
+	        <ul class="nav navbar-nav">
+	          <li><a href="products.html">Products</a></li>
+	          <li><a href="looks.html">Looks</a></li>
+	          <li class="active"><a href="shop.html">Workshop</a></li> 
+	          <li><a href="#">wishList</a></li> 
+	        </ul>
+	      </div>
+	    </nav>
+
 		<div class="shop_menu">
 			<ul>
-				<li ng-repeat="category in catrgories"><img src="images/{{category.image_hover}}"
-	 title="{{category.name}}"> </li>
+				<li ng-repeat="category in catrgories" id ={{category.name}}><a href="products.html"><img ng-src="images/{{category.image}}" alt="{{category.name}}" title="{{category.name}}"></a> </li>
 			</ul>
 		</div>
 	</div>

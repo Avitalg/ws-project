@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="MakeUpApp">
-<head>
-    <script src="js/lib/angular/angular.min.js"></script>
-    <script src="js/dev/makeup.js"></script>
-    <link rel="stylesheet" href="css/lib/bootstrap.min.css">
-    <link rel="stylesheet" href="css/lib/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="css/dev/style.css">
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body ng-controller="MakeUpCtrl">
-<div>
-<a href="index.html" alt="Logo" title="Logo" id="logo"></a>
-</div>
-    <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">MakeUp house</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Products</a></li>
-      <li><a href="looks.html">Looks</a></li>
-      <li><a href="#">Workshop</a></li> 
-      <li><a href="#">wishList</a></li> 
-    </ul>
+  <head>
+      <script src="js/lib/angular/angular.min.js"></script>
+      <script src="js/dev/makeup.js"></script>
+      <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+      <link rel="stylesheet" href="css/lib/bootstrap-theme.min.css">
+      <link rel="stylesheet" href="css/dev/style.css">
+      <meta charset="UTF-8">
+      <title>Document</title>
+  </head>
+  <body ng-controller="MakeUpCtrl">
+  <div>
+  <a href="index.html" alt="Logo" title="Logo" id="logo"></a>
   </div>
-</nav>
-<div ng-repeat="products in product.products" >
-    <div id="prodDiv">
-      <a href="product.html?id={{products.id}}"><div id ="prodImg"><img ng-src=images/{{products.image}}></div></a>
-      <div id="prodDes">{{products.name}}</div>
+      <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">MakeUp house</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="products.html">Products</a></li>
+          <li><a href="looks.html">Looks</a></li>
+          <li><a href="shop.html">Workshop</a></li> 
+          <li><a href="#">wishList</a></li> 
+        </ul>
+      </div>
+    </nav>
+    <div ng-repeat="products in product.products" >
+        <div id="prodDiv">
+          <a href="product.html?id={{products.id}}"><div id ="prodImg"><img ng-src=images/{{products.image}}></div></a>
+          <div id="prodDes">{{products.name}}</div>
+        </div>
     </div>
-</div>
 
-</body>
+  </body>
 </html>

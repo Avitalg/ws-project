@@ -9,29 +9,51 @@
 	<link rel="stylesheet" href="css/lib/bootstrap.min.css">
 	<link rel="stylesheet" href="css/lib/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="css/dev/style.css">
-	<title>Shop</title>
+	<link rel="stylesheet" href="css/dev/product.css">
+	<title>Product</title>
 </head>
 <body ng-controller="productCtrl">
+	<nav class="navbar navbar-default">
+	      <div class="container-fluid">
+	        <div class="navbar-header">
+	          <a class="navbar-brand" href="index.html">MakeUp house</a>
+	        </div>
+	        <ul class="nav navbar-nav">
+	          <li class="active"><a href="products.html">Products</a></li>
+	          <li><a href="looks.html">Looks</a></li>
+	          <li><a href="shop.html">Workshop</a></li> 
+	          <li><a href="#">wishList</a></li> 
+	        </ul>
+	      </div>
+	    </nav>
+
+
 	<div class="container">
 		<div class ="productDetails">
 			<header class="productHead">
-				<h3>{{prod.name}}</h3>
+				<h4>{{prod.name}}</h4>
 				<p>{{prod.short_desc}}</p>
 			</header>
 			<div class="prodData">
 				<p>{{prod.description}}</p>
 			</div>
 		</div>
-		<div class="prodPic">
-			<img src="">
-		</div>
-		<div class="buyProd">
-			<img src="">
-			<p>
-				<h6>{{prod.name}}</h6>
-				<p>{{prod.price}}</p>
-			</p>
-		</div>
+		<section>
+			<div class="prodPic">
+				<img ng-src="images/eyeshadow-big.jpg">
+			</div>
+			<div class="buyProd">
+				<p>
+					<h6>{{prod.name}}</h6>
+					<p>{{prod.price}}</p>
+				</p>
+				<p id="cart">
+					<a  href="#"></a>
+				</p>
+				
+			</div>
+		</section>
+		
 	</div>
 </body>
 </html>

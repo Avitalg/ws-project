@@ -20,7 +20,7 @@ categories.controller('productCtrl', ['$scope','$http','$location','$window',
 	
 	var prodId = $location.search().id;
 
-	$http.get("http://localhost:3000/api/getProduct/"+prodId)
+	$http.get("https://webserviceproj.herokuapp.com/api/getProduct/"+prodId)
 	.success(function(data){
 		$scope.prod = data;
 	})

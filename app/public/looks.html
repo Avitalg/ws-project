@@ -10,35 +10,27 @@
     <title>Document</title>
 </head>
 <body ng-controller="LookCtrl">
-<div >
-<a href="index.html" alt="Logo" title="Logo" id="logo"></a>
-</div>
-    <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">MakeUp house</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="products.html">Products</a></li>
-      <li class="active"><a href="looks.html">Looks</a></li>
-      <li><a href="#">Workshop</a></li> 
-      <li><a href="#">wishList</a></li> 
-    </ul>
+  <div >
+    <a href="index.html" alt="Logo" title="Logo" id="logo"></a>
   </div>
-</nav>
-
-<div ng-repeat="looks in mylook.looks">
-    <div id={{looks.look}}><img ng-src=images/{{looks.image}}></div>
-</div>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">MakeUp house</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="products.html">Products</a></li>
+        <li class="active"><a href="looks.html">Looks</a></li>
+        <li><a href="shop.html">Workshop</a></li> 
+        <li><a href="#">wishList</a></li> 
+      </ul>
+    </div>
+  </nav>
+  <div class ="looksItems">
+      <div ng-repeat="looks in mylook.looks">
+        <div id={{looks.look}}><img ng-src=images/{{looks.image}}></div>
+      </div>
+  </div>
+ 
 </body>
 </html>
-
-<!-->
-
-<div ng-repeat="products in product.products" >
-    <div id="prodDiv">
-      <a href="product.html?id={{products.id}}"><div id ="prodImg"><img ng-src=images/{{products.image}}></div></a>
-      <div id="prodDes">{{products.name}}</div>
-    </div>
-</div>
-<-->

@@ -1,0 +1,30 @@
+li{
+    float:left;
+}
+
+.shop_menu{
+    width: 80%;
+    margin: 0 auto;
+
+}
+
+.container{
+    margin: 0 auto;
+}
+
+#face, #eyes{
+    margin-right:4px;
+}
+
+#tools, #lips{
+    margin-left: 4px;
+}
+
+#eyes, #lips{
+    margin-top: 4px;
+}
+
+#tools, #face{
+    margin-bottom: 4px;
+}
+

@@ -51,8 +51,8 @@ app.get('/api/updateUser/:username/:picture/:admin', users.updateUser);
 
 app.get('/api/getAllProducts', products.getProducts);
 app.get('/api/getProduct/:id', products.getProduct);
-app.get('/api/addProduct/:id/:name/:price/:sdesc/:desc/:category', products.addProduct);
-app.get('/api/updateProduct/:id/:name/:price/:sdesc/:desc/:category', products.updateProduct);
+app.get('/api/addProduct/:id/:name/:price/:sdesc/:desc/:category/:image/:bimage', products.addProduct);
+app.get('/api/updateProduct/:id/:name/:price/:sdesc/:desc/:category/:image/:bimage', products.updateProduct);
 app.get('/api/removeProduct/:id', products.removeProduct);
 app.get('/api/getCategoryProducts/:category', products.getCategoryProducts);
 app.get('/api/getWishList/:username', products.getWishList);

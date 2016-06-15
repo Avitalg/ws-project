@@ -1,7 +1,6 @@
 # ws-project
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~LOOK~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+##LOOK
 https://webserviceproj.herokuapp.com/api/getAllLooks', looks.getLooks);
 https://webserviceproj.herokuapp.com/api/getLookByCategory/:category', looks.getLookByCategory);
 https://webserviceproj.herokuapp.com/api/getLook/:look', looks.getLook);
@@ -12,16 +11,14 @@ https://webserviceproj.herokuapp.com/api/addStepToLook/:look/:number/:image/:des
 https://webserviceproj.herokuapp.com/api/removeStepFromLook/:look/:number', looks.removeStepFromLook);
 
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CATEGORY~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
+##CATEGORY
 https://webserviceproj.herokuapp.com/api/getAllCategories', categories.getAllCategories);
 https://webserviceproj.herokuapp.com/api/getCategory/:category', categories.getCategory);
 https://webserviceproj.herokuapp.com/api/removeCategory/:category', categories.removeCategory);
 https://webserviceproj.herokuapp.com/api/addCategory/:id/:name/:image/:himage', categories.addCategory);
 https://webserviceproj.herokuapp.com/api/updateCategory/:id/:name/:image/:himage', categories.updateCategory);
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~USER~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+##USER
 
 https://webserviceproj.herokuapp.com/api/getUsers', users.getUsers);
 https://webserviceproj.herokuapp.com/api/getUser/:username', users.getUser);
@@ -29,7 +26,7 @@ https://webserviceproj.herokuapp.com/api/removeUser/:username', users.removeUser
 https://webserviceproj.herokuapp.com/api/addUser/:username/:picture/:admin', users.addUser);
 https://webserviceproj.herokuapp.com/api/updateUser/:username/:picture/:admin', users.updateUser);
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~PRODUCT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+##PRODUCT
 
 https://webserviceproj.herokuapp.com/api/getAllProducts', products.getProducts);
 https://webserviceproj.herokuapp.com/api/getProduct/:id', products.getProduct);

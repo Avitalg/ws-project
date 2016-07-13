@@ -5,6 +5,7 @@
   "main": "ws.js",
   "scripts": {
     "start": "node server.js",
+    "cloudinary":"//513781999244473:gvOtr37u4QK9jv6Nl4lWO-3rHME@desbjknxm",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Avital Glazer",

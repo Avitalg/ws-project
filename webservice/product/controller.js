@@ -254,12 +254,6 @@ exports.uploadImage = function(req,res, next){
 	var imgType = req.body.type;
 	var url = req.body.url;
 
-	 cloudinary.config({
-        cloud_name: 'desbjknxm',
-        api_key: '513781999244473',
-        api_secret: 'gvOtr37u4QK9jv6Nl4lWO-3rHME'
-    });
-
     cloudinary.uploader.upload(url, function(result) {
         if(!prodId){
            res.status(404);

@@ -283,7 +283,7 @@ exports.uploadImage = function(req,res){
            }
            data.save();
            res.status(200);
-           res.json({"success":"succeed update the product."});
+           res.json({"success":result.url});
          }
      });
      }

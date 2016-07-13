@@ -33,8 +33,8 @@ exports.addProduct = function(req,res){
 		  id: _id,
 		  name: _name,
 		  price: _price,
-		  image:"",
-		  big_image: "",
+		  image:"image_url",
+		  big_image: "image_url",
 		  short_desc: _short_desc,
 		  description: _desc,
 		  category: _category
@@ -79,8 +79,8 @@ exports.updateProduct = function(req,res){
 			} else {
 				prod.name = _name;
 			  	prod.price = _price;
-			  	prod.image = "";
-			  	prod.big_image = "";
+			  	prod.image = "image_url";
+			  	prod.big_image = "image_url";
 			  	prod.short_desc = _short_desc;
 			  	prod.desc = _desc;
 			  	prod.category = _category;

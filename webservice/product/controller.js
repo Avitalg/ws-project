@@ -261,6 +261,7 @@ exports.uploadImage = function(req,res){
     });
 
     cloudinary.uploader.upload(url, function(result) {
+    	res.json({"url":result.url});
         if(!prodId){
            res.status(404);
            res.json({"error":"Category name wasn't entered"});
@@ -275,7 +276,7 @@ exports.uploadImage = function(req,res){
           }else{
           switch(imgType){
         	case 'image':
-        		data.image = "image";
+        		data.image = result.url;
         		break;
         	case 'bimage':
         		data.big_image = "bigimage";

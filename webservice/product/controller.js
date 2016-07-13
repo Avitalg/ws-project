@@ -275,10 +275,10 @@ exports.uploadImage = function(req,res){
           }else{
           switch(imgType){
         	case 'image':
-        		data.image = result.url;
+        		data.image = "image";
         		break;
         	case 'bimage':
-        		data.big_image = result.url;
+        		data.big_image = "bigimage";
                	break;
            }
            data.save();

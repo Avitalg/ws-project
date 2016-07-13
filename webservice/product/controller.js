@@ -1,6 +1,7 @@
 var Product = require('./schema');
 var User=require('../user/schema');
 var cloudinary = require('cloudinary');
+var path = require("path");
 
 exports.getProducts = function(req,res){
 	Product.find({},
@@ -252,36 +253,29 @@ exports.removeFromWishList= function(req, res){
 exports.uploadImage = function(req,res, next){
 	var prodId = req.body.id;
 	var imgType = req.body.type;
-	var url = req.body.url;
-
-    cloudinary.uploader.upload(url, function(result) {
-        if(!prodId){
-           res.status(404);
-           res.json({"error":"Category name wasn't entered"});
-        }else{
-       	   Product.findOne({'id':prodId}, function(err, data){
-      	  if(err){
-        	res.status(500);
+	var url = path.normalize(req.body.url);
+    Product.findOne({'id':prodId}, function(err, data){
+       if(err){
+      	 	res.status(500);
         	res.json({"error":err});
-          }else if(!data){
+        }else if(!data){
         	res.status(404);
         	res.json([{"error":"Product doesn't exist"}]);
-          }else{
+        }else{
           switch(imgType){
         	case 'image':
         		data.image = result.url;
         		break;
-        	case 'bimage':
-        		data.big_image = "bigimage";
+        	default:
+        		data.big_image = result.url;
                	break;
-           }
-           data.save();
-           res.status(200);
-           res.json({"success":result.url});
-         }
-     });
-     }
-   });//function
+        }
+        data.save();
+        res.status(200);
+        res.json({"success":"Product was updated"});
+        }
+   });
+
  };
 
 

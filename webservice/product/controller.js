@@ -249,7 +249,7 @@ exports.removeFromWishList= function(req, res){
 	return;
 }
 
-exports.uploadImage = function(req,res){
+exports.uploadImage = function(req,res, next){
 	var prodId = req.body.id;
 	var imgType = req.body.type;
 	var url = req.body.url;

@@ -10,6 +10,7 @@
   "author": "Avital Glazer",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.13.4",
     "mongoose": "^4.4.20"
   }

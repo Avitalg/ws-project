@@ -1,5 +1,6 @@
 var Product = require('./schema');
 var User=require('../user/schema');
+var cloudinary = require('cloudinary');
 
 exports.getProducts = function(req,res){
 	Product.find({},
@@ -20,8 +21,6 @@ exports.addProduct = function(req,res){
 	var _id = req.params.id,
 		_name = req.params.name,
 		_price = req.params.price,
-		_image=req.params.image,
-		_bimage=req.params.bimage,
 		_short_desc = req.params.sdesc,
 		_desc = req.params.desc,
 		_category = req.params.category;
@@ -34,8 +33,8 @@ exports.addProduct = function(req,res){
 		  id: _id,
 		  name: _name,
 		  price: _price,
-		  image:_image,
-		  big_image: _bimage,
+		  image:"",
+		  big_image: "",
 		  short_desc: _short_desc,
 		  description: _desc,
 		  category: _category
@@ -62,8 +61,6 @@ exports.updateProduct = function(req,res){
 	var _id = req.params.id,
 		_name = req.params.name,
 		_price = req.params.price,
-		_image=req.params.image,
-		_bimage = req.params.bimage,
 		_short_desc = req.params.sdesc,
 		_desc = req.params.desc,
 		_category = req.params.category;
@@ -82,8 +79,8 @@ exports.updateProduct = function(req,res){
 			} else {
 				prod.name = _name;
 			  	prod.price = _price;
-			  	prod.image = _image;
-			  	prod.big_image = _bimage;
+			  	prod.image = "";
+			  	prod.big_image = "";
 			  	prod.short_desc = _short_desc;
 			  	prod.desc = _desc;
 			  	prod.category = _category;
@@ -251,6 +248,49 @@ exports.removeFromWishList= function(req, res){
 	}
 	return;
 }
+
+exports.uploadImage = function(req,res){
+	var prodId = req.body.id;
+	var imgType = req.body.type;
+	var url = req.body.url;
+
+	 cloudinary.config({
+        cloud_name: 'desbjknxm',
+        api_key: '513781999244473',
+        api_secret: 'gvOtr37u4QK9jv6Nl4lWO-3rHME'
+    });
+
+    cloudinary.uploader.upload(url, function(result) {
+        if(!prodId){
+           res.status(404);
+           res.json({"error":"Category name wasn't entered"});
+        }else{
+       	   Product.findOne({'id':prodId}, function(err, data){
+      	  if(err){
+        	res.status(500);
+        	res.json({"error":err});
+          }else if(!data){
+        	res.status(404);
+        	res.json([{"error":"Product doesn't exist"}]);
+          }else{
+          switch(imgType){
+        	case 'image':
+        		data.image = result.url;
+        		break;
+        	case 'bimage':
+        		data.big_image = result.url;
+               	break;
+           }
+           data.save();
+           res.status(200);
+           res.json({"success":"succeed update the product."});
+         }
+     });
+     }
+   });//function
+ };
+
+
 
 exports.allRest = function(req,res){
 	res.status(404);

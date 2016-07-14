@@ -68,18 +68,27 @@ exports.addUser = function(req,res){
 		  admin: _admin,
 		  wish_list: []
 		});
-
-		user.save(function(err){
-			if(err){
+		User.findOne({ "username": _username }, function (err, resultUser){
+			if(!resultUser){
+					user.save(function(saveErr){
+					if(saveErr){
+						res.status(500);
+						res.json({error:saveErr});
+					} else{
+						res.status(200);
+   						res.json({"success":"User was saved"});
+   					}
+   				});
+			}else if(err){
 				res.status(500);
 				res.json({error:err});
-			} else{
+			} else {
 				res.status(200);
-   					res.json({"success":"User was saved"});
-   				}
-		});
+   				res.json({"error":"Username already exist"});
+			}
+			return;
+	});
 	}
-	return;
 
 }
 

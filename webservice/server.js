@@ -51,8 +51,8 @@ app.get('/api/updateCategory/:id/:name/:image/:himage', categories.updateCategor
 app.get('/api/getUsers', users.getUsers);
 app.get('/api/getUser/:username', users.getUser);
 app.get('/api/removeUser/:username', users.removeUser);
-app.get('/api/addUser/:username/:picture/:admin', users.addUser);
-app.get('/api/updateUser/:username/:picture/:admin', users.updateUser);
+app.get('/api/addUser/:username/:admin', users.addUser);
+app.get('/api/updateUser/:username/:admin', users.updateUser);
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~PRODUCT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

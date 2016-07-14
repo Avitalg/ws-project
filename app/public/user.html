@@ -1,11 +1,13 @@
-<html lang="en">
+<html lang="en" ng-app="Users">
 <head>
+  <script src="js/lib/angular/angular.min.js"></script>
+  <script src="js/dev/user.js"></script>
   <script  src="https://code.jquery.com/jquery-3.0.0.min.js"   integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="   crossorigin="anonymous"></script>
   <meta name="google-signin-scope" content="profile email">
   <meta name="google-signin-client_id" content="531479800503-6lvg1h8gotm5e80p7vcll0q3hfilbg81.apps.googleusercontent.com">
   <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
-<body>
+<body ng-controller="UserCtrl">
 <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>   //sign in button
 <script>
   function onSignIn(googleUser) {   // when user auth this function will call

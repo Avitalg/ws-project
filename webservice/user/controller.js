@@ -57,7 +57,6 @@ exports.removeUser = function(req,res){
 
 exports.addUser = function(req,res){
 	var _username = req.params.username,
-		_picture = req.params.picture,
 		_admin = req.params.admin;
 
 	if(!_username){
@@ -66,7 +65,6 @@ exports.addUser = function(req,res){
 	} else {
 		var user = new User({
 		  username: _username,
-		  picture: _picture,
 		  admin: _admin,
 		  wish_list: []
 		});
@@ -87,7 +85,6 @@ exports.addUser = function(req,res){
 
 exports.updateUser = function(req,res){
 	var _username = req.params.username,
-		_picture = req.params.picture,
 		_admin = req.params.admin;
 
 	if(!_username){
@@ -103,7 +100,6 @@ exports.updateUser = function(req,res){
 				res.json({error:err});
 			} else {
 				user.username = _username;
-			  	user.picture = _picture;
 			  	user.admin = _admin;
 			  	user.save();
 			  	res.status(200);

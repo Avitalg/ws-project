@@ -252,8 +252,9 @@ exports.removeFromWishList= function(req, res){
 
 exports.uploadProdImage = function(req,res, next){
 	var prodId = req.body.id;
-	var imgType = req.body.type;
-	var url = path.normalize(req.body.url);
+	var url1 = path.normalize(req.body.image);
+	var url2 = path.normalize(req.body.bimage);
+
     Product.findOne({'id':prodId}, function(err, prod){
        if(err){
       	 	res.status(500);
@@ -262,17 +263,12 @@ exports.uploadProdImage = function(req,res, next){
         	res.status(404);
         	res.json([{"error":"Product doesn't exist"}]);
         }else{
-          switch(imgType){
-        	case 'image':
-        		prod.image = url;
-        		break;
-        	default:
-        		prod.big_image = url;
-               	break;
-        }
-        prod.save();
-        res.status(200);
-        res.json({"success":"Image was uploaded"});
+        	prod.image = url1;
+        	prod.big_image = url2;
+  
+	        prod.save();
+	        res.status(200);
+	        res.json({"success":"Image was uploaded"});
         }
    });
 
@@ -283,4 +279,4 @@ exports.uploadProdImage = function(req,res, next){
 exports.allRest = function(req,res){
 	res.status(404);
 		res.json({"error":"Wrong URL. Please check the API."});
-}
+};

@@ -38,7 +38,7 @@ exports.getLook = function(req, res){
 
 exports.updateLook= function(req,res){
 	var _look = req.body.look,
-		_image = req.body.image;
+		_image = path.normalize(req.body.url);
 
 	if(!_look){
 		res.status(500);
@@ -84,7 +84,7 @@ exports.removeLook = function(req,res){
  
 exports.addLook = function(req,res){
 	var _look = req.body.look,
-		_image = req.body.image;
+		_image = path.normalize(req.body.url);
 
 	if(!_look){
 		res.status(500);
@@ -115,7 +115,7 @@ exports.addLook = function(req,res){
 exports.addStepToLook = function(req,res){
 	var _number = req.body.number,
 		_look = req.body.look,
-		_image = req.body.image,
+		_image = path.normalize(req.body.url),
 		_desc = req.body.desc,
 		_prod = req.body.prodId;
 

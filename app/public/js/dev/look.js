@@ -45,11 +45,6 @@ Look.controller('lookCtrl', ['$scope','$http','$location','$window',
              $scope.getProd(step.product_id); //in a loop getprod gets id of product
           });
 
-         /*
-        $scope.steps = $scope.mylook.steps;
-        for(var i=0;i<$scope.steps.length;i++){
-            $scope.getProd($scope.steps[i]);
-        }*/
           $scope.getIndex = function(pos) {
             switch(pos){
               case "left":

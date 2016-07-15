@@ -37,7 +37,7 @@ Look.controller('lookCtrl', ['$scope','$http','$location','$window',
     .success(function(data){
        // console.log(data);
          $scope.mylook = data.steps; //mylook=steps
-             console.log($scope.mylook);
+             console.log($scope.mylook[0].face_image);
 
           angular.forEach($scope.mylook,function(step){
              $scope.getProd(step.product_id); //in a loop getprod gets id of product

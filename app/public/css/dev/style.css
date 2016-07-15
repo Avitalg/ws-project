@@ -132,7 +132,7 @@ a{
 #wrapper{
     margin:0px auto;
     //width:1000px;
-     max-width: 1000px;
+   //  max-width: 1000px;
 }
 
 
@@ -142,6 +142,38 @@ a{
 
 .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
-      width: 70%;
+      width: 60%;
       margin: auto;
   }
+
+  .lookDetails{
+    height: 100%;
+    width:100px;
+    background-color: yellow;
+    float: left;
+  }
+
+#mygallery{
+    width: 80%;
+    height: 100%;
+    float: left;
+}
+
+.prodLook{
+     border-style: solid;
+    border-width: 5px;
+    width: 900px;
+    float: left;
+    position: relative;
+    margin-top: 60px;
+    margin-right: 8%;
+    margin-left: 8%;
+}
+
+.prodItem{
+     height: 111px;
+    width: 111px;
+    border-style: solid;
+    border-width: 5px;
+    float: left;
+}

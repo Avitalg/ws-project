@@ -6,8 +6,40 @@
     <link rel="stylesheet" href="css/dev/style.css">
     <meta charset="UTF-8">
     <title>Document</title>
+    <script src="js/lib/angular/angular.min.js"></script>
+    <script  src="https://code.jquery.com/jquery-3.0.0.min.js"   integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="   crossorigin="anonymous"></script>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="531479800503-6lvg1h8gotm5e80p7vcll0q3hfilbg81.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script>
+  function onSignIn(googleUser) {   // when user auth this function will call
+    // Useful data for your client-side scripts:
+    var profile = googleUser.getBasicProfile();
+   console.log("Email: " + profile.getEmail());
+   localStorage.setItem("email",profile.getEmail());
+   if(localStorage.email=="admin@gmail.com")
+    localStorage.setItem("admin",true);
+    else{
+      localStorage.setItem("admin",false);
+    }
+       console.log(localStorage.email);
+
+  };
+</script>
+  <script src="js/dev/user.js"></script>
 </head>
-<body>
+<body ng-controller="UserCtrl">
+<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" ></div><br>  //sign in button
+
+<a href="#" onclick="signOut();">Sign out</a>   //sign out button
+<script>
+function signOut() {
+var auth2 = gapi.auth2.getAuthInstance();
+auth2.disconnect().then(function () {
+    console.log('User signed out.');
+});
+}
+</script>
   <div >
   <div >
     <a href="index.html" alt="Logo" title="Logo" id="logo"></a>

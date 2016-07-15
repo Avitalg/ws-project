@@ -127,3 +127,21 @@ a{
     position: relative;
     text-align: center;
 }
+
+
+#wrapper{
+    margin:0px auto;
+    //width:1000px;
+     max-width: 1000px;
+}
+
+
+.clear{
+    clear:both;
+}
+
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }

@@ -1,6 +1,6 @@
 var User = angular.module('User',[]);
-
-
+4
+/*
 Looks.run(function($http) {
     $http.get("https://webserviceproj.herokuapp.com/api/getAllLooks").success(function(data){
         console.log(data);
@@ -10,23 +10,21 @@ Looks.run(function($http) {
 
 var modelUser = {
     
-};
+};*/
 
-User.controller('UserCtrl',function($scope) {
-    $scope.myuser = modeluser;
-    
+User.controller('UserCtrl',function($scope, $http ) {
 
-  /*  $scope.incompleteCount = function() {
-        var count=0;
-        angular.forEach($scope.todo.items, function(item) {
-            if(!item.done) {count++;}
+
+   // $scope.myuser = localStorage.email;
+   //$scope.addUser=function(){
+        $http.get("https://webserviceproj.herokuapp.com/api/addUser/"+localStorage.email+"/"+localStorage.admin)
+        .success(function(data){
+            $scope.User = data;
+            console.log(data);
+        })
+        .error(function(data, status){
+            console.log(data);
         });
-        return count;
-    };
-    $scope.warningLevel = function () {
-        return $scope.incompleteCount() < 3 ? "label-success":"label-warning";
-    };
-    $scope.addNewItem = function(actionText) {
-        $scope.todo.items.push({ action: actionText, done:false});
-    };*/
+//};
+
 });

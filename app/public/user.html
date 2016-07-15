@@ -1,15 +1,11 @@
-<html lang="en" ng-app="Users">
+<html lang="en" ng-app="User">
 <head>
   <script src="js/lib/angular/angular.min.js"></script>
-  <script src="js/dev/user.js"></script>
   <script  src="https://code.jquery.com/jquery-3.0.0.min.js"   integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="   crossorigin="anonymous"></script>
   <meta name="google-signin-scope" content="profile email">
   <meta name="google-signin-client_id" content="531479800503-6lvg1h8gotm5e80p7vcll0q3hfilbg81.apps.googleusercontent.com">
   <script src="https://apis.google.com/js/platform.js" async defer></script>
-</head>
-<body ng-controller="UserCtrl">
-<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>   //sign in button
-<script>
+  <script>
   function onSignIn(googleUser) {   // when user auth this function will call
     // Useful data for your client-side scripts:
     var profile = googleUser.getBasicProfile();
@@ -20,13 +16,19 @@
  //  console.log("Image URL: " + profile.getImageUrl());
    console.log("Email: " + profile.getEmail());
    localStorage.setItem("email",profile.getEmail());
-   console.log(localStorage.email);
+   if(localStorage.email=="admin@gmail.com")
+    localStorage.setItem("admin",true);
+    else{
+      localStorage.setItem("admin",false);
+    }
+       console.log(localStorage.email);
 
-    // The ID token you need to pass to your backend:
-//    var id_token = googleUser.getAuthResponse().id_token; //also optional
-//    console.log("ID Token: " + id_token);
   };
 </script>
+  <script src="js/dev/user.js"></script>
+</head>
+<body ng-controller="UserCtrl">
+<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" ></div><br>  //sign in button
 
 <a href="#" onclick="signOut();">Sign out</a>   //sign out button
 <script>

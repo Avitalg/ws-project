@@ -15,19 +15,6 @@ li{
     margin: 0 auto;
 }
 
-#face, #eyes{
-    margin-right:4px;
+#face, #eyes, #tools, #lips{
+    margin: 4px;
 }
-
-#tools, #lips{
-    margin-left: 4px;
-}
-
-#eyes, #lips{
-    margin-top: 4px;
-}
-
-#tools, #face{
-    margin-bottom: 4px;
-}
-

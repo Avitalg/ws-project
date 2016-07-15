@@ -1,0 +1,22 @@
+.form-control{
+    height:inherit;
+}
+
+.input{
+    margin-bottom: 10px;
+}
+
+input[type="file"]{
+   width: inherit;
+}
+
+.imageUpload{
+    float: left;
+    width: 45%;
+    margin-top: 5px;
+}
+
+.addItem{
+    float: right;
+    width: 50%;
+}

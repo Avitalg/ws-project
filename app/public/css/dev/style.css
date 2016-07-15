@@ -8,12 +8,57 @@ header, footer, main, nav, aside, section, article{
     display : block;
 }
 
+body{
+    direction: rtl;
+}
+
+//----Main Nav-------
+.main-menu{
+    background: #fff;
+    border: 1px solid white;
+}
+
+..navbar-default{
+    background: #fff;
+}
+
+.main-menu ul{
+    list-style: none;
+    float: right;
+
+}
+
+.main-menu li {
+    float: right;
+    margin-left: 24px;
+    width: 100px;
+    text-align: center;
+    font-size: 15px;
+    color: #646568;
+    border-bottom: 4px solid #646568;
+    padding: 0;
+
+}
+
+
+.main-menu li a, .main-menu li a:visited, .main-menu li a:hover, .main-menu li a:active {
+    color: #646568;
+    text-decoration: none;
+    padding: 0;
+    margin-top: 30px;
+
+}
 
 #logo{
-    background-image: url("../../images/logo.jpg");
     display: block;
-    width: 171px;
-    height: 58px;
+    background: url('../../images/logo1.jpg'); 
+    width: 160px;
+    height: 65px;
+}
+
+.container-fluid{
+    background: #fff;
+    border: 1px solid #fff;
 }
 
 //------shop page---------

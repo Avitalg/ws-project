@@ -23,6 +23,7 @@ Look.controller('lookCtrl', ['$scope','$http','$location','$window',
     $scope.slide = 1;
     var prodlook = $location.search().look;
     $scope.prod = model;
+    $scope.slide=0;
     $scope.getProd = function(prodId) {
         $http.get("https://webserviceproj.herokuapp.com/api/getProduct/"+prodId)
         .success(function(data){
@@ -57,11 +58,23 @@ Look.controller('lookCtrl', ['$scope','$http','$location','$window',
               break;
             }
          console.log($scope.slide);
+         for(var i=0;i<$scope.slide;i++){
+          document.getElementById("prodItem").innerHTML = 
+          $scope.prod[i].image;
+         }
+         // switch($scope.slide){
+         // case "1":
+         // result=1;
+         // break;
+         // case "1":
+         // result=2;
+         // break;
+         //}
 
      };
 
 
-
+    
 
     })
     .error(function(data, status){
@@ -70,3 +83,4 @@ Look.controller('lookCtrl', ['$scope','$http','$location','$window',
 
 
 }]);
+

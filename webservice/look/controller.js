@@ -37,8 +37,8 @@ exports.getLook = function(req, res){
 }
 
 exports.updateLook= function(req,res){
-	var _look = req.params.look,
-		_image = req.params.image;
+	var _look = req.body.look,
+		_image = req.body.image;
 
 	if(!_look){
 		res.status(500);
@@ -83,8 +83,8 @@ exports.removeLook = function(req,res){
 }
  
 exports.addLook = function(req,res){
-	var _look = req.params.look,
-		_image = req.params.image;
+	var _look = req.body.look,
+		_image = req.body.image;
 
 	if(!_look){
 		res.status(500);
@@ -113,11 +113,11 @@ exports.addLook = function(req,res){
 
 
 exports.addStepToLook = function(req,res){
-	var _number = req.params.number,
-		_look = req.params.look,
-		_image = req.params.image,
-		_desc = req.params.desc,
-		_prod = req.params.prodId;
+	var _number = req.body.number,
+		_look = req.body.look,
+		_image = req.body.image,
+		_desc = req.body.desc,
+		_prod = req.body.prodId;
 
 	if(!_look){
 		res.status(500);
@@ -177,24 +177,4 @@ exports.removeStepFromLook = function(req,res){
 		});
 	}
 	return;
-}
-
-
-
-exports.getLookByCategory = function(req,res){
-	category = req.params.category;
-	Look.findOne({'look': category},
-	function(err,lookSteps){
-		if(err){
-			res.status(500);
-			res.json({"error":err});
-		}else if(!lookSteps){
-			res.status(404);
-			res.json({"error":"Look doesn't exist."});
-		}else{
-			res.status(200);
-			res.json(lookSteps);
-		}
-		return;
-	});
 }

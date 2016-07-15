@@ -30,10 +30,10 @@ app.use(function(req, res, next){
 app.get('/api/getAllLooks', looks.getLooks);
 app.get('/api/getLookByCategory/:category', looks.getLookByCategory);
 app.get('/api/getLook/:look', looks.getLook);
-app.get('/api/addLook/:look/:image', looks.addLook);
-app.get('/api/updateLook/:look/:image', looks.updateLook);
+app.post('/api/addLook', looks.addLook);
+app.post('/api/updateLook', looks.updateLook);
 app.get('/api/removeLook/:look', looks.removeLook);
-app.get('/api/addStepToLook/:look/:number/:image/:desc/:prodId', looks.addStepToLook);
+app.post('/api/addStepToLook', looks.addStepToLook);
 app.get('/api/removeStepFromLook/:look/:number', looks.removeStepFromLook);
 
 
@@ -43,8 +43,10 @@ app.get('/api/removeStepFromLook/:look/:number', looks.removeStepFromLook);
 app.get('/api/getAllCategories', categories.getAllCategories);
 app.get('/api/getCategory/:category', categories.getCategory);
 app.get('/api/removeCategory/:category', categories.removeCategory);
-app.get('/api/addCategory/:id/:name/:image/:himage', categories.addCategory);
-app.get('/api/updateCategory/:id/:name/:image/:himage', categories.updateCategory);
+app.get('/api/addCategory/:id/:name', categories.addCategory);
+app.get('/api/updateCategory/:id/:name', categories.updateCategory);
+app.post('/api/uploadCategoryImage', products.uploadCategoryImage);
+
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~USER~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -65,7 +67,7 @@ app.get('/api/getCategoryProducts/:category', products.getCategoryProducts);
 app.get('/api/getWishList/:username', products.getWishList);
 app.get('/api/addToWishList/:username/:prodId', products.addToWishList);
 app.get('/api/removeFromWishList/:username/:prodId', products.removeFromWishList);
-app.post('/api/uploadImage', products.uploadImage);
+app.post('/api/uploadProdImage', products.uploadProdImage);
 app.get('*',products.allRest);
 
 

@@ -58,9 +58,7 @@ exports.removeCategory = function(req,res){
 
 exports.addCategory = function(req,res){
 	var _id = req.params.id,
-		_name = req.params.name,
-		_image = req.params.image,
-		_himage = req.params.himage;
+		_name = req.params.name;
 
 	if(!_id){
 		res.status(500);
@@ -69,8 +67,7 @@ exports.addCategory = function(req,res){
 		var category = new Category({
 		  id: _id,
 		  name: _name,
-		  image: _image,
-		  image_hover: _himage
+		  image: "url"
 		});
 
 		//if User exist, won't save him.
@@ -91,9 +88,7 @@ exports.addCategory = function(req,res){
 
 exports.updateCategory = function(req,res){
 	var _id = req.params.id,
-		_name = req.params.name,
-		_image = req.params.image,
-		_himage = req.params.himage;
+		_name = req.params.name;
 
 	if(!_id){
 		res.status(500);
@@ -109,8 +104,7 @@ exports.updateCategory = function(req,res){
 			} else {
 				category.id = _id;
 			  	category.name = _name;
-			  	category.image = _image;
-			  	category.image_hover = _himage;
+			  	category.image = "url";
 			  	category.save();
 			  	res.status(200);
 			  	res.json({"success":"succeed update category."});
@@ -119,4 +113,25 @@ exports.updateCategory = function(req,res){
 	}
 	return;
 
+}
+
+export.uploadCategoryImage = function(req, res){
+	var category = req.body.category;
+	var url = path.normalize(req.body.url);
+
+    Product.findOne({'name':category}, function(err, cat){
+       if(err){
+      	 	res.status(500);
+        	res.json({"error":err});
+        }else if(!cat){
+        	res.status(404);
+        	res.json([{"error":"Product doesn't exist"}]);
+        }else{
+      		cat.image = url;
+        }
+        cat.save();
+        res.status(200);
+        res.json({"success":"Image was uploaded"});
+        }
+   });
 }

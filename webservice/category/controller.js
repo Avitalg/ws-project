@@ -120,13 +120,13 @@ exports.uploadCategoryImage = function(req, res){
 	var category = req.body.category;
 	var url = path.normalize(req.body.url);
 
-    Product.findOne({'name':category}, function(err, cat){
+    Category.findOne({'name':category}, function(err, cat){
        if(err){
       	 	res.status(500);
         	res.json({"error":err});
         }else if(!cat){
         	res.status(404);
-        	res.json([{"error":"Product doesn't exist"}]);
+        	res.json([{"error":"Category doesn't exist"}]);
         }else{
       		cat.image = url;
 	        cat.save();

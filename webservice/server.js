@@ -25,10 +25,9 @@ app.use(function(req, res, next){
 	next();
 });
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~LOOK~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~LOOK~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 app.get('/api/getAllLooks', looks.getLooks);
-app.get('/api/getLookByCategory/:category', looks.getLookByCategory);
 app.get('/api/getLook/:look', looks.getLook);
 app.post('/api/addLook', looks.addLook);
 app.post('/api/updateLook', looks.updateLook);
@@ -37,7 +36,7 @@ app.post('/api/addStepToLook', looks.addStepToLook);
 app.get('/api/removeStepFromLook/:look/:number', looks.removeStepFromLook);
 
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CATEGORY~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CATEGORY~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 app.get('/api/getAllCategories', categories.getAllCategories);
@@ -45,10 +44,10 @@ app.get('/api/getCategory/:category', categories.getCategory);
 app.get('/api/removeCategory/:category', categories.removeCategory);
 app.get('/api/addCategory/:id/:name', categories.addCategory);
 app.get('/api/updateCategory/:id/:name', categories.updateCategory);
-app.post('/api/uploadCategoryImage', products.uploadCategoryImage);
+app.post('/api/uploadCategoryImage', categories.uploadCategoryImage);
 
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~USER~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~USER~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 app.get('/api/getUsers', users.getUsers);
 app.get('/api/getUser/:username', users.getUser);
@@ -56,7 +55,7 @@ app.get('/api/removeUser/:username', users.removeUser);
 app.get('/api/addUser/:username/:admin', users.addUser);
 app.get('/api/updateUser/:username/:admin', users.updateUser);
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~PRODUCT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~PRODUCT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 app.get('/api/getAllProducts', products.getProducts);
 app.get('/api/getProduct/:id', products.getProduct);

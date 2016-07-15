@@ -1,6 +1,5 @@
 var Product = require('./schema');
 var User=require('../user/schema');
-var cloudinary = require('cloudinary');
 var path = require("path");
 
 exports.getProducts = function(req,res){

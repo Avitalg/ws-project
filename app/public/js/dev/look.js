@@ -48,6 +48,16 @@ Look.controller('lookCtrl', ['$scope','$http','$location','$window',
         for(var i=0;i<$scope.steps.length;i++){
             $scope.getProd($scope.steps[i]);
         }*/
+          $scope.getIndex = function() {
+         var totalItems = $('.item').length;
+var currentIndex = $('div.active').index() + 1;
+return currentIndex;
+//$('.num').html(''+currentIndex+'/'+totalItems+'');
+     };
+
+
+
+
     })
     .error(function(data, status){
         $window.location.href = '/index.html';

@@ -49,10 +49,14 @@ Look.controller('lookCtrl', ['$scope','$http','$location','$window',
             $scope.getProd($scope.steps[i]);
         }*/
           $scope.getIndex = function() {
-         var totalItems = $('.item').length;
-var currentIndex = $('div.active').index() + 1;
-return currentIndex;
+       //  var totalItems = $('.item').length;
+//var currentIndex = $('div.active').index() + 1;
+//console.log(currentIndex);
+//return currentIndex;
 //$('.num').html(''+currentIndex+'/'+totalItems+'');
+         var myitem = $('#myCarousel .carousel-inner .item.active');
+    console.log(myitem);
+
      };
 
 

@@ -1,0 +1,21 @@
+<IfModule mod_headers.c>
+    RequestHeader set X-Prerender-Token "0DBr4alMHKxAtl6QomPr"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !index
+    RewriteCond %{REQUEST_URI} !.*\.(css¦js|html|png)
+    RewriteRule (.*) index.html [L]
+    <IfModule mod_proxy_http.c>
+        RewriteCond %{HTTP_USER_AGENT} baiduspider|facebookexternalhit|twitterbot|rogerbot|linkedinbot|embedly|showyoubot|outbrain|pinterest [NC,OR]
+        RewriteCond %{QUERY_STRING} _escaped_fragment_
+        # Only proxy the request to Prerender if it's a request for HTML
+        RewriteRule ^(?!.*?(\.js|\.css|\.xml|\.less|\.png|\.jpg|\.jpeg|\.gif|\.pdf|\.doc|\.txt|\.ico|\.rss|\.zip|\.mp3|\.rar|\.exe|\.wmv|\.doc|\.avi|\.ppt|\.mpg|\.mpeg|\.tif|\.wav|\.mov|\.psd|\.ai|\.xls|\.mp4|\.m4a|\.swf|\.dat|\.dmg|\.iso|\.flv|\.m4v|\.torrent))(.*) http://service.prerender.io/http://promodominus.com/$2 [P,L]
+    </IfModule>
+</IfModule>
+
+RewriteCond %{HTTP_HOST} ^www\.promodominus\.com$
+RewriteRule ^/?$ "http\:\/\/promodominus\.com\/" [R=301,L]

@@ -254,25 +254,25 @@ exports.uploadImage = function(req,res, next){
 	var prodId = req.body.id;
 	var imgType = req.body.type;
 	var url = path.normalize(req.body.url);
-    Product.findOne({'id':prodId}, function(err, data){
+    Product.findOne({'id':prodId}, function(err, prod){
        if(err){
       	 	res.status(500);
         	res.json({"error":err});
-        }else if(!data){
+        }else if(!prod){
         	res.status(404);
         	res.json([{"error":"Product doesn't exist"}]);
         }else{
           switch(imgType){
         	case 'image':
-        		data.image = result.url;
+        		prod.image = url;
         		break;
         	default:
-        		data.big_image = result.url;
+        		prod.big_image = url;
                	break;
         }
-        data.save();
+        prod.save();
         res.status(200);
-        res.json({"success":"Product was updated"});
+        res.json({"success":"Image was uploaded"});
         }
    });
 

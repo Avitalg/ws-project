@@ -20,6 +20,7 @@ var Look = angular.module('Look', [
 Look.controller('lookCtrl', ['$scope','$http','$location','$window',
  function($scope, $http, $location, $window){
     console.log("control");
+    $scope.slide = 1;
     var prodlook = $location.search().look;
     $scope.prod = model;
     $scope.getProd = function(prodId) {
@@ -37,6 +38,7 @@ Look.controller('lookCtrl', ['$scope','$http','$location','$window',
     .success(function(data){
        // console.log(data);
          $scope.mylook = data.steps; //mylook=steps
+         $scope.numLooks = data.steps.length;
              console.log($scope.mylook[0].face_image);
 
           angular.forEach($scope.mylook,function(step){
@@ -48,14 +50,18 @@ Look.controller('lookCtrl', ['$scope','$http','$location','$window',
         for(var i=0;i<$scope.steps.length;i++){
             $scope.getProd($scope.steps[i]);
         }*/
-          $scope.getIndex = function() {
-       //  var totalItems = $('.item').length;
-//var currentIndex = $('div.active').index() + 1;
-//console.log(currentIndex);
-//return currentIndex;
-//$('.num').html(''+currentIndex+'/'+totalItems+'');
-         var myitem = $('#myCarousel .carousel-inner .item.active');
-    console.log(myitem);
+          $scope.getIndex = function(pos) {
+            switch(pos){
+              case "left":
+              if($scope.slide>1) $scope.slide--;
+              else $scope.slide = $scope.numLooks;
+              break;
+              case "right":
+              if($scope.slide< $scope.numLooks) $scope.slide++;
+              else $scope.slide=1;
+              break;
+            }
+         console.log($scope.slide);
 
      };
 

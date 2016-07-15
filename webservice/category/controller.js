@@ -1,4 +1,5 @@
 var Category=require('./schema');
+var path = require("path");
 
 exports.getAllCategories = function(req,res){
 	Category.find({},
@@ -115,7 +116,7 @@ exports.updateCategory = function(req,res){
 
 }
 
-export.uploadCategoryImage = function(req, res){
+exports.uploadCategoryImage = function(req, res){
 	var category = req.body.category;
 	var url = path.normalize(req.body.url);
 
@@ -128,10 +129,9 @@ export.uploadCategoryImage = function(req, res){
         	res.json([{"error":"Product doesn't exist"}]);
         }else{
       		cat.image = url;
-        }
-        cat.save();
-        res.status(200);
-        res.json({"success":"Image was uploaded"});
+	        cat.save();
+	        res.status(200);
+	        res.json({"success":"Image was uploaded"});
         }
    });
 }

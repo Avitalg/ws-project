@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"  ng-app="accountApp">
+<head>
+    <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="css/lib/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/dev/style.css">
+    <meta charset="UTF-8">
+    <title>סל קניות</title>
+    <script src="js/lib/angular/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="531479800503-6lvg1h8gotm5e80p7vcll0q3hfilbg81.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="js/dev/UserService.js"></script>
+    <script src="js/dev/account.js"></script>
+    <script>
+      function onSignIn(googleUser) {   // when user auth this function will call
+       console.log("loggedIn");
+       angular.element(document.getElementById('AccountCtrl')).scope().signIn(googleUser);
+
+      };
+    </script>
+</head>
+<body id="AccountCtrl" ng-controller="AccountCtrl">
+  <nav class="user-menu navbar">
+    <div id="user">
+        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" ></div><br>
+    </div>
+    <ul>
+        <li id="loggedIn"><span class="greeting"></span> <a class="signOut" ng-click="signOut()">התנתק</a></li>
+       <li class="account"><a href="#">סל קניות</a></li>
+      <li class="manage-page"><a href="managePage.html">עמוד ניהול</a></li>
+    </ul>
+  </nav>
+  <nav class="main-menu navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="#" class="navbar-brand" id="logo"></a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a class="active" href="index.html">עמוד הבית</a></li>
+        <li><a href="shop.html">מוצרים</a></li>
+        <li><a href="looks.html">מראות-איפור</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div id="wrapper">
+    <h2>סל קניות</h2>
+    <ul class="wish-item" ng-repeat="wish in wishList">
+    <a ng-href="product.html?id={{wish.id}}">
+      <li ><h4>{{wish.name}}</h4></li>
+      <li >{{wish.price}}</li>
+      <li ><img ng-src="{{wish.image}}"></li>
+      <li >{{wish.short_desc}}</li>
+    </a>
+    </ul>
+  </div>
+</body>
+</html>

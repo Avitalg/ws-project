@@ -1,4 +1,4 @@
-var Looks = angular.module('Looks',[]);
+var Looks = angular.module('Looks',['UserService']);
 
 
 Looks.run(function($http) {
@@ -12,20 +12,14 @@ var modelook = {
     
 };
 
-Looks.controller('LookCtrl',function($scope) {
+Looks.controller('LookCtrl',function($scope, user) {
     $scope.mylook = modelook;
 
-  /*  $scope.incompleteCount = function() {
-        var count=0;
-        angular.forEach($scope.todo.items, function(item) {
-            if(!item.done) {count++;}
-        });
-        return count;
-    };
-    $scope.warningLevel = function () {
-        return $scope.incompleteCount() < 3 ? "label-success":"label-warning";
-    };
-    $scope.addNewItem = function(actionText) {
-        $scope.todo.items.push({ action: actionText, done:false});
-    };*/
+   $scope.signOut = function(){
+        user.onSignOut($window.gapi);
+    }
+
+    $scope.signIn = function(googleUser){
+        user.onSignIn(googleUser);
+    }
 });

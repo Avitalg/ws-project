@@ -207,10 +207,10 @@ exports.addToWishList= function(req, res){
 					user.wish_list.push(_prodId);
 				  	user.save();
 				  	res.status(200);
-			  	res.json({"success":"succeed add to wish list."});
+			  		res.json({"success":"succeed add to wish list."});
 				} else {
-					res.status(404);
-					res.json({"error":"Product doesn't exist in user's wish list"});
+					res.status(200);
+					res.json({"error":"Product exist in user's wish list"});
 				}  
 			}
 		});

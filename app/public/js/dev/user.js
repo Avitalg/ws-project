@@ -1,30 +1,15 @@
-var User = angular.module('User',[]);
-4
-/*
-Looks.run(function($http) {
-    $http.get("https://webserviceproj.herokuapp.com/api/getAllLooks").success(function(data){
-        console.log(data);
-        modelUser.users = data; //add all looks categories to model
-    });
-});
 
-var modelUser = {
+var myApp = angular.module('myApp', ['UserService']);
+
+myApp.controller('UserCtrl', function ($scope, $window, user) {
+
+        $scope.signOut = function(){
+         user.onSignOut($window.gapi);
+        }
+
+        $scope.signIn = function(googleUser){
+            user.onSignIn(googleUser);
+        }
     
-};*/
-
-User.controller('UserCtrl',function($scope, $http ) {
-
-
-   // $scope.myuser = localStorage.email;
-   //$scope.addUser=function(){
-        $http.get("https://webserviceproj.herokuapp.com/api/addUser/"+localStorage.email+"/"+localStorage.admin)
-        .success(function(data){
-            $scope.User = data;
-            console.log(data);
-        })
-        .error(function(data, status){
-            console.log(data);
-        });
-//};
-
 });
+

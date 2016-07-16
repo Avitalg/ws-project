@@ -1,18 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
   <head>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <meta name="google-signin-scope" content="profile email">
+      <script src="js/lib/angular/angular.min.js"></script>
       <meta name="google-signin-client_id" content="531479800503-6lvg1h8gotm5e80p7vcll0q3hfilbg81.apps.googleusercontent.com">
       <script src="https://apis.google.com/js/platform.js" async defer></script>
-      <script src="js/dev/general.js"></script>
+      <script src="js/dev/UserService.js"></script>
       <link rel="stylesheet" href="css/lib/bootstrap.min.css">
       <link rel="stylesheet" href="css/lib/bootstrap-theme.min.css">
       <link rel="stylesheet" href="css/dev/style.css">
+      <script src="js/dev/UserService.js"></script>
+      <script src="js/dev/user.js"></script>
       <meta charset="UTF-8">
       <title>עמוד ניהול</title>
+      <script>
+        function onSignIn(googleUser) {   // when user auth this function will call
+         console.log("loggedIn");
+         angular.element(document.getElementById('UserCtrl')).scope().signIn(googleUser);
+
+        };
+      </script>
   </head>
-  <body>
+  <body id="UserCtrl" ng-controller="UserCtrl">
       <nav class="main-menu navbar navbar-default">
         <div class="container-fluid">
 

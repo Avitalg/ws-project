@@ -76,17 +76,24 @@ if (isset($_POST["submit"])) {
 
 ?>
 <!DOCTYPE HTML>
-<html>
+<html ng-app="newItem">
 <head>
     <link rel="stylesheet" href="css/lib/bootstrap.min.css">
     <link rel="stylesheet" href="css/lib/bootstrap-theme.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <link rel="stylesheet" href="css/dev/style.css">
+    <script src="js/lib/angular/angular.min.js"></script>
+    <link rel="stylesheet" href="css/dev/style.css">
     <link rel="stylesheet" href="css/dev/newItem.css">
+    <script src="js/dev/UserService.js"></script>
     <script src="js/dev/newItem.js"></script>
     <title>Upload an Image</title>
+    <script>
+      function onSignIn(googleUser) {   // when user auth this function will call
+       angular.element(document.getElementById('LookCtrl')).scope().signIn(googleUser);
+      };
+    </script>
 </head>
-<body>
+<body id="itemCtrl" ng-controller="itemCtrl">
     <nav class="main-menu navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -95,7 +102,7 @@ if (isset($_POST["submit"])) {
             <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" ></div><br>
             <div id="loggedIn">
               <span class="greeting"></span>
-              <a class="signOut">התנתק</a>
+              <a class="signOut" ng-click="signOut()">התנתק</a>
             </div> 
         </div>
       </div>

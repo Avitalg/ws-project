@@ -9,6 +9,7 @@ header, footer, main, nav, aside, section, article{
 }
 
 body{
+    font-family: Arial, sans-serif;
     direction: rtl;
 }
 
@@ -18,12 +19,35 @@ body{
     border: 1px solid white;
 }
 
-.main-menu .manage-page{
+.account{
     display: none;
 }
 
-..navbar-default{
-    background: #fff;
+.user-menu .manage-page{
+    display: none;
+}
+
+.user-menu{
+    margin: 0;
+    min-height: 10px;
+}
+
+.user-menu ul li{
+    float: right;
+    margin-left: 32px;
+}
+
+.user-menu ul{
+    list-style: none;
+}
+
+.user-menu li a, .user-menu li a:visited, .user-menu li a:hover, .user-menu li a:active {
+    color: #646568;
+    text-decoration: none;
+}
+
+.greeting{
+    font-weight: 700;
 }
 
 .main-menu ul{
@@ -45,7 +69,7 @@ body{
 }
 
 
-.main-menu li a, .main-menu li a:visited, .main-menu li a:hover, .main-menu li a:active {
+.main-menu li a, .main-menu li a:visited, .main-menu li a:active {
     color: #646568;
     text-decoration: none;
     padding: 0;
@@ -60,6 +84,10 @@ body{
     right: 0;
     z-index: 9999;
     margin: 10px;
+}
+
+.signOut{
+    cursor: pointer;
 }
 
 #logo{
@@ -188,20 +216,12 @@ body{
     position: relative;
 }
 
-.hp{
+#wrapper{
     margin: 0 auto;
     width: 80%;
     position: relative;
     text-align: center;
 }
-
-
-#wrapper{
-    margin:0px auto;
-    //width:1000px;
-   //  max-width: 1000px;
-}
-
 
 .clear{
     clear:both;
@@ -243,4 +263,28 @@ body{
      border-style:dotted;
     border-width: 1px;
     float: left;
+}
+
+
+//---------WishList--------
+
+
+
+ul.wish-item.ng-scope {
+    list-style: none;
+    font-size: 10px;
+}
+
+ul.wish-item {
+    border: 1px dashed #888;
+    list-style: none;
+    font-size: 10px;
+    width: 70%;
+    margin: 5px auto;
+
+}
+
+ul.wish-item a, ul.wish-item a:hover, ul.wish-item a:active, ul.wish-item a:visited{
+    color: #333;
+    text-decoration: none;
 }

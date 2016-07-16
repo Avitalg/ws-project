@@ -1,5 +1,4 @@
-var MakeUpApp = angular.module('MakeUpApp',[  'ngRoute'
-  ])
+var MakeUpApp = angular.module('MakeUpApp',[  'ngRoute', 'UserService'])
   .config(function ($routeProvider, $locationProvider ) {
     $routeProvider
       .when('/product.html', {
@@ -19,7 +18,7 @@ var MakeUpApp = angular.module('MakeUpApp',[  'ngRoute'
         controller: 'productCtrl'
         })
       .otherwise({
-        redirectTo: '/'
+//        redirectTo: '/'
       });
 
       
@@ -33,26 +32,33 @@ var model = {
     }
 };
 
-MakeUpApp.controller('MakeUpCtrl',['$scope','$http','$location','$window','$route',
- function($scope, $http, $location, $window, $route){
+MakeUpApp.controller('MakeUpCtrl',function($scope, $http, $location, $window, $route, user){
     var prodId = $location.search().category;
     $scope.products = model;
 
- $http.get("https://webserviceproj.herokuapp.com/api/getCategoryProducts/"+prodId)
- .success(function(data){
-        $scope.products.products = data;
-        console.log($scope.products);
+   $http.get("https://webserviceproj.herokuapp.com/api/getCategoryProducts/"+prodId)
+   .success(function(data){
+          $scope.products.products = data;
+          console.log($scope.products);
 
-    })
- .error(function (data, status, header, config) {
-                $scope.ResponseDetails = "Data: " + data +
-                    "<br />status: " + status +
-                    "<br />headers: " + jsonFilter(header) +
-                    "<br />config: " + jsonFilter(config);
-                    console.log($scope.ResponseDetails);
-            });
+      })
+   .error(function (data, status, header, config) {
+                  $scope.ResponseDetails = "Data: " + data +
+                      "<br />status: " + status +
+                      "<br />headers: " + jsonFilter(header) +
+                      "<br />config: " + jsonFilter(config);
+                      console.log($scope.ResponseDetails);
+              });
+
+   $scope.signOut = function(){
+        user.onSignOut($window.gapi);
+    }
+
+    $scope.signIn = function(googleUser){
+        user.onSignIn(googleUser);
+    }
     
-}]);
+});
 
 MakeUpApp.directive('extLink', function() {
   return {

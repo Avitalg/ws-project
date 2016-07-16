@@ -8,15 +8,22 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 	<script src="js/lib/angular/angular.min.js"></script>
   <script src="js/lib/angular/angular-route.min.js"></script>
-	<script src="js/dev/general.js"></script>
+	<script src="js/dev/UserService.js"></script>
 	<script src="js/dev/shop.js"></script>
 	<link rel="stylesheet" href="css/lib/bootstrap.min.css">
 	<link rel="stylesheet" href="css/lib/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="css/dev/style.css">
 	<link rel="stylesheet" href="css/dev/shop.css">
 	<title>Shop</title>
+  <script>
+      function onSignIn(googleUser) {   // when user auth this function will call
+       console.log("loggedIn");
+       angular.element(document.getElementById('shopCtrl')).scope().signIn(googleUser);
+
+      };
+  </script>
 </head>
-<body ng-controller="shopCtrl">
+<body id="shopCtrl" ng-controller="shopCtrl">
 	<nav class="main-menu navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -25,7 +32,7 @@
             <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" ></div><br>
             <div id="loggedIn">
               <span class="greeting"></span>
-              <a class="signOut">התנתק</a>
+              <a class="signOut" ng-click="signOut()">התנתק</a>
             </div> 
         </div>
       </div>

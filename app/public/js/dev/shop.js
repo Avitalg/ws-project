@@ -1,8 +1,6 @@
-var categories = angular.module('shop', [], function($locationProvider) {
-      $locationProvider.html5Mode(true);
-    });
+var categories = angular.module('shop', ['UserService']);
 
-categories.controller('shopCtrl', ['$scope','$http', function($scope, $http){
+categories.controller('shopCtrl', function($scope, $http, user){
 	$http.get("https://webserviceproj.herokuapp.com/api/getAllCategories")
 	.success(function(data){
 		$scope.catrgories = data;
@@ -12,5 +10,12 @@ categories.controller('shopCtrl', ['$scope','$http', function($scope, $http){
 		console.log(data);
 	});
 
+	$scope.signOut = function(){
+        user.onSignOut($window.gapi);
+    }
 
-}]);
+    $scope.signIn = function(googleUser){
+        user.onSignIn(googleUser);
+    }
+
+});

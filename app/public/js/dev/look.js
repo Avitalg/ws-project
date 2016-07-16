@@ -1,6 +1,4 @@
-var Look = angular.module('Look', [
-    'ngRoute'
-  ])
+var Look = angular.module('Look', [ 'ngRoute',  'UserService'])
   .config(function ($routeProvider, $locationProvider ) {
     $routeProvider
       .when('/product.html', {
@@ -25,13 +23,21 @@ var Look = angular.module('Look', [
 
   var model = [];
 
-Look.controller('lookCtrl', ['$scope','$http','$location','$window',
- function($scope, $http, $location, $window){
+Look.controller('lookCtrl', function($scope, $http, $location, $window, user){
     console.log("control");
     $scope.slide = 1;
     var prodlook = $location.search().look;
     $scope.prod = model;
     $scope.slide=0;
+
+    $scope.signOut = function(){
+        user.onSignOut($window.gapi);
+    }
+
+    $scope.signIn = function(googleUser){
+        user.onSignIn(googleUser);
+    }
+
     $scope.getProd = function(prodId) {
         $http.get("https://webserviceproj.herokuapp.com/api/getProduct/"+prodId)
         .success(function(data){
@@ -48,7 +54,7 @@ Look.controller('lookCtrl', ['$scope','$http','$location','$window',
        // console.log(data);
          $scope.mylook = data.steps; //mylook=steps
          $scope.numLooks = data.steps.length;
-             console.log($scope.mylook[0].face_image);
+          console.log($scope.mylook[0].face_image);
 
           angular.forEach($scope.mylook,function(step){
              $scope.getProd(step.product_id); //in a loop getprod gets id of product
@@ -57,12 +63,12 @@ Look.controller('lookCtrl', ['$scope','$http','$location','$window',
           $scope.getIndex = function(pos) {
             switch(pos){
               case "left":
-              if($scope.slide>1) $scope.slide--;
-              else $scope.slide = $scope.numLooks;
+              if($scope.slide>0) $scope.slide--;
+              else $scope.slide = $scope.numLooks-1;
               break;
               case "right":
-              if($scope.slide< $scope.numLooks) $scope.slide++;
-              else $scope.slide=1;
+              if($scope.slide< $scope.numLooks-1) $scope.slide++;
+              else $scope.slide=0;
               break;
             }
          console.log($scope.slide);
@@ -70,15 +76,6 @@ Look.controller('lookCtrl', ['$scope','$http','$location','$window',
           document.getElementById("prodItem").innerHTML = 
           $scope.prod[i].image;
          }
-         // switch($scope.slide){
-         // case "1":
-         // result=1;
-         // break;
-         // case "1":
-         // result=2;
-         // break;
-         //}
-
      };
 
 
@@ -90,7 +87,20 @@ Look.controller('lookCtrl', ['$scope','$http','$location','$window',
     });
 
 
-}]);
+});
+
+Look.filter('range', function() {
+  return function(input, total) {
+    total = parseInt(total);
+
+    for (var i=0; i<total; i++) {
+      input.push(i);
+    }
+
+    return input;
+  };
+});
+
 
 Look.directive('extLink', function() {
   return {

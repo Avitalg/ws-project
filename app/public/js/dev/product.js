@@ -1,6 +1,4 @@
-var categories = angular.module('product', [
-    'ngRoute'
-  ])
+var categories = angular.module('product', ['ngRoute', 'UserService'])
   .config(function ($routeProvider, $locationProvider ) {
     $routeProvider
       .when('/product.html', {
@@ -23,8 +21,8 @@ var categories = angular.module('product', [
        $locationProvider.html5Mode(true);
   });
 
-categories.controller('productCtrl', ['$scope','$http','$location','$window','$route',
- function($scope, $http, $location, $window, $route){
+categories.controller('productCtrl', ['$scope','$http','$location','$window','$route','user',
+ function($scope, $http, $location, $window, $route, user){
 
 	var prodId = $location.search().id;
 
@@ -35,6 +33,27 @@ categories.controller('productCtrl', ['$scope','$http','$location','$window','$r
 	.error(function(data, status){
 		$window.location.href = '/index.html';
 	});
+
+    $scope.signOut = function(){
+        user.onSignOut($window.gapi);
+    }
+
+    $scope.signIn = function(googleUser){
+        user.onSignIn(googleUser);
+    }
+
+    $scope.addToCart= function(){
+      if(localStorage["email"]){
+        $http.get("https://webserviceproj.herokuapp.com/api/addToWishList/"+localStorage["email"]+"/"+prodId)
+        .success(function(data){
+          console.log(data);
+          $('.cart-msg').html("נוסף בהצלחה.");
+        })
+      } else {
+         $('.cart-msg').html("עליך להתחבר.");
+      }
+    }
+
 }]);
 
 categories.directive('extLink', function() {

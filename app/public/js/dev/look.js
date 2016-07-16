@@ -13,6 +13,10 @@ var Look = angular.module('Look', [ 'ngRoute',  'UserService'])
         templateUrl: 'looks.html',
         controller: 'LookCtrl'
         })
+      .when('/account.html', {
+        templateUrl: 'account.html',
+        controller: 'AccountCtrl'
+        })
       .otherwise({
         redirectTo: '/'
       });
@@ -26,11 +30,10 @@ var Look = angular.module('Look', [ 'ngRoute',  'UserService'])
 Look.controller('lookCtrl', ['$scope','$http','$location','$window','user',
  function($scope,$http,$location,$window, user){
 
-    console.log("control");
     $scope.slide = 1;
     var prodlook = $location.search().look;
     $scope.prod = model;
-    $scope.slide=0;
+    $scope.slide=1;
 
     $scope.signOut = function(){
         user.onSignOut($window.gapi);
@@ -44,8 +47,7 @@ Look.controller('lookCtrl', ['$scope','$http','$location','$window','user',
         $http.get("https://webserviceproj.herokuapp.com/api/getProduct/"+prodId)
         .success(function(data){
             $scope.prod.push({product:data}); // prod is an array of products
-            console.log($scope.prod);
-
+            $('#prodItem-1').fadeIn();
         })
         .error(function(data, status){
             console.log(data);
@@ -56,29 +58,35 @@ Look.controller('lookCtrl', ['$scope','$http','$location','$window','user',
        // console.log(data);
          $scope.mylook = data.steps; //mylook=steps
          $scope.numLooks = data.steps.length;
-          console.log($scope.mylook[0].face_image);
-
           angular.forEach($scope.mylook,function(step){
              $scope.getProd(step.product_id); //in a loop getprod gets id of product
           });
 
+
           $scope.getIndex = function(pos) {
             switch(pos){
               case "left":
-              if($scope.slide>0) $scope.slide--;
-              else $scope.slide = $scope.numLooks-1;
-              break;
+                if($scope.slide>1) {
+                  $('#prodItem-'+$scope.slide).fadeOut();
+                  $scope.slide--;
+                }
+                else $scope.slide = $scope.numLooks;
+                break;
               case "right":
-              if($scope.slide< $scope.numLooks-1) $scope.slide++;
-              else $scope.slide=0;
-              break;
-            }
-         console.log($scope.slide);
+                if($scope.slide< $scope.numLooks) {
+                  $scope.slide++;
+                  $('#prodItem-'+$scope.slide).fadeIn();
 
-          for(var i=0;i<$scope.slide;i++){
-         document.getElementById('prodItem').style.visibility = 'visible'
-          // $scope.prod[i].image;
-          }
+                }
+                else{
+                  $scope.slide=1;
+                  $('.prodItem').fadeOut();
+                  $('#prodItem-1').fadeIn();
+                } 
+                break;
+            }
+
+        
      };
 
 
@@ -109,7 +117,6 @@ Look.directive('extLink', function() {
   return {
     restrict: 'A',
     link: function(scope, elem) {
-      console.log(elem);
       elem.bind('click', function(e) {
         location.reload();
       })

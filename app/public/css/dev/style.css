@@ -230,21 +230,18 @@ body{
 #prodLook{
      border-style:dotted;
     border-width: 1px;
-    width: 900px;
     float: left;
     position: relative;
     margin-top: 60px;
-    margin-right: 8%;
-    margin-left: 8%;
 }
 
-#prodItem{
+.prodItem{
      height: 111px;
-    width: 111px;
+     width: 111px;
      border-style:dotted;
     border-width: 1px;
     float: left;
-    visibility: hidden;
+    display: none;
 }
 
 

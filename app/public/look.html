@@ -60,8 +60,8 @@
         <!-- Indicators -->
         <ol class="carousel-indicators">
           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" ng-repeat="n in [] | range: numLooks" ng-if="$index >= 1" data-slide-to={{n}}></li>
-      </ol>
+          <li data-target="#myCarousel" ng-repeat="n in [] | range: numLooks" ng-if="$index >= 1" data-slide-to={{n}}></li>
+        </ol>
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
@@ -90,9 +90,9 @@
 
    </div>
      
-      <div id ="prodLook" >
-        <div id="prodItem" ng-repeat="products in prod">
-          <img ng-src={{products.prod.image}}
+      <div id ="prodLook">
+        <div ng-repeat="products in prod" class="prodItem" id="prodItem-{{$index + 1}}">
+          <img ng-src={{products.product.image}}>
         </div>
       </div>
   </div>

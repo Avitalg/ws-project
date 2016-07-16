@@ -44,14 +44,14 @@
       </ul>
     </div>
   </nav>
-    <div class ="looksItems">
-        <div ng-repeat="looks in mylook.looks">
-            <a href="look.html?look={{looks.look}}">
-                <div id={{looks.look}}>
-                    <img ng-src=images/{{looks.image}}>
-                </div>
+    <div id="wrapper">
+      <div class="looks-items">
+        <div ng-repeat="looks in mylook.looks"  class="looks-pics">
+            <a href="look.html?look={{looks.look}}">   
+                <img ng-src={{looks.image}}>
             </a>
         </div>
+      </div>
       </div>
 </body>
 </html>

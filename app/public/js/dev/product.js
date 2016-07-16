@@ -17,10 +17,13 @@ var categories = angular.module('product', ['ngRoute', 'UserService'])
         templateUrl: 'looks.html',
         controller: 'LookCtrl'
         })
+      .when('/account.html', {
+        templateUrl: 'account.html',
+        controller: 'AccountCtrl'
+        })
       .otherwise({
         redirectTo: '/'
       });
-
        $locationProvider.html5Mode(true);
   });
 

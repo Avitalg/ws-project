@@ -89,7 +89,7 @@ if (isset($_POST["submit"])) {
     <link rel="stylesheet" href="css/dev/style.css">
     <link rel="stylesheet" href="css/dev/newItem.css">
     <script src="js/dev/newItem.js"></script>
-    <title>Upload an Image</title>
+    <title>הוספת פריט</title>
     <script>
     function onSignOut(gapi) {
     var auth2 = gapi.auth2.getAuthInstance();

@@ -39,12 +39,13 @@ exports.getLook = function(req, res){
 
 exports.updateLook= function(req,res){
 	var _look = req.body.look,
-		_image = path.normalize(req.body.url);
+		_image = req.body.url;
 
 	if(!_look){
 		res.status(500);
 		res.json({"error":"No look name was entered"});
 	} else {
+		_image = path.normalize(_image);
 		Look.findOne({ "look": _look }, function (err, look){
 			if(!look){
 				res.status(404);
@@ -116,14 +117,16 @@ exports.addLook = function(req,res){
 exports.addStepToLook = function(req,res){
 	var _number = req.body.number,
 		_look = req.body.look,
-		_image = path.normalize(req.body.url),
+		_image = req.body.url,
 		_desc = req.body.desc,
 		_prod = req.body.prodId;
 
-	if(!_look){
+
+	if(!_look||!_image){
 		res.status(500);
 		res.json({"error":"No look name was entered"});
 	} else {
+		_image = path.normalize(_image);
 		Look.findOne({ "look": _look }, function (err, look){
 			if(!look){
 				res.status(404);

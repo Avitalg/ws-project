@@ -4,9 +4,9 @@ require 'php/cloudinary/Cloudinary.php';
 require 'php/cloudinary/Uploader.php';
 
 Cloudinary::config(array(
-    "cloud_name" => "XXX",
-    "api_key" => "XXXXX",
-    "api_secret" => "XXX-3rHME"
+     "cloud_name" => "desbjknxm",
+    "api_key" => "513781999244473",
+    "api_secret" => "gvOtr37u4QK9jv6Nl4lWO-3rHME"
 ));
 
 

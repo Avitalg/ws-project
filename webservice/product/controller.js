@@ -251,25 +251,33 @@ exports.removeFromWishList= function(req, res){
 
 exports.uploadProdImage = function(req,res, next){
 	var prodId = req.body.id;
-	var url1 = path.normalize(req.body.image);
-	var url2 = path.normalize(req.body.bimage);
+	var url1 = req.body.image;
+	var url2 = req.body.bimage;
 
-    Product.findOne({'id':prodId}, function(err, prod){
-       if(err){
-      	 	res.status(500);
-        	res.json({"error":err});
-        }else if(!prod){
-        	res.status(404);
-        	res.json([{"error":"Product doesn't exist"}]);
-        }else{
-        	prod.image = url1;
-        	prod.big_image = url2;
-  
-	        prod.save();
-	        res.status(200);
-	        res.json({"success":"Image was uploaded"});
-        }
-   });
+	if(!url1||!url2){
+		res.status(200);
+		res.json({"error": "You need to enter image"});
+
+	} else{
+		url1 = path.normalize(url1);
+		url2 = path.normalize(url2);
+	    Product.findOne({'id':prodId}, function(err, prod){
+	       if(err){
+	      	 	res.status(500);
+	        	res.json({"error":err});
+	        }else if(!prod){
+	        	res.status(404);
+	        	res.json([{"error":"Product doesn't exist"}]);
+	        }else{
+	        	prod.image = url1;
+	        	prod.big_image = url2;
+	  
+		        prod.save();
+		        res.status(200);
+		        res.json({"success":"Image was uploaded"});
+	        }
+	   });
+	}
 
  };
 

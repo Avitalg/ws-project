@@ -118,20 +118,28 @@ exports.updateCategory = function(req,res){
 
 exports.uploadCategoryImage = function(req, res){
 	var category = req.body.category;
-	var url = path.normalize(req.body.url);
+	var url = req.body.url;
 
-    Category.findOne({'name':category}, function(err, cat){
-       if(err){
-      	 	res.status(500);
-        	res.json({"error":err});
-        }else if(!cat){
-        	res.status(404);
-        	res.json([{"error":"Category doesn't exist"}]);
-        }else{
-      		cat.image = url;
-	        cat.save();
-	        res.status(200);
-	        res.json({"success":"Image was uploaded"});
-        }
-   });
+	if(!url){
+		res.status(200);
+		res.json({"error": "You need to enter image"});
+
+	} else{
+		url = path.normalize(req.body.url);
+
+	    Category.findOne({'name':category}, function(err, cat){
+	       if(err){
+	      	 	res.status(500);
+	        	res.json({"error":err});
+	        }else if(!cat){
+	        	res.status(404);
+	        	res.json([{"error":"Category doesn't exist"}]);
+	        }else{
+	      		cat.image = url;
+		        cat.save();
+		        res.status(200);
+		        res.json({"success":"Image was uploaded"});
+	        }
+	   });
+	}
 }

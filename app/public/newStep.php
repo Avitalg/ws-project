@@ -13,18 +13,19 @@ Cloudinary::config(array(
 if (isset($_POST["submit"])) {
     $look = $_POST["look"];
     $url = $_FILES["fileToUpload"]['tmp_name'];
-
+    $number = $_POST["number"];
+    $desc = $_POST["desc"];
+    $id = $_POST["prodId"];
 
     $cloudUpload = \Cloudinary\Uploader::upload($url);
     //if upload image secceed
     if($cloudUpload){ 
-        $url = 'http://webserviceproj.herokuapp.com/api/addLook';
+        $url = 'http://webserviceproj.herokuapp.com/api/addStepToLook';
   
-        $myvars = 'look=' . rawurlencode($look) .'&url=' . rawurlencode($cloudUpload['secure_url']);
+        $myvars = 'number='.rawurlencode($number).'&look=' . rawurlencode($look) .'&url=' . rawurlencode($cloudUpload['secure_url']).'&desc='.rawurlencode($desc).'&prodId='.rawurlencode($id);
     
-        
         $ch = curl_init();
-        curl_setopt ($ch, CURLOPT_URL, $url );
+        curl_setopt ($ch, CURLOPT_URL, $url);
         curl_setopt( $ch, CURLOPT_POST, 1);
         curl_setopt( $ch, CURLOPT_POSTFIELDS, $myvars);
         curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
@@ -54,7 +55,7 @@ if (isset($_POST["submit"])) {
     <link rel="stylesheet" href="css/dev/style.css">
     <link rel="stylesheet" href="css/dev/newItem.css">
     <script src="js/dev/newItem.js"></script>
-    <title>הוספת מראה איפור</title>
+    <title>הוספת מוצר למראה איפור</title>
 </head>
 <body id="itemCtrl" ng-controller="itemCtrl">
     <nav class="user-menu navbar">
@@ -82,9 +83,12 @@ if (isset($_POST["submit"])) {
 
    <div class="container">
         <div class="addItem">
-            <h1>מראה חדש</h1>
+            <h1>הוספת מוצר למראה איפור</h1>
             <form method="post" enctype="multipart/form-data">
+                <input class="form-control input" type="number" name="number" placeholder="הכנס מזהה מוצר" required>
+                <input class="form-control input" type="number" name="number" placeholder="הכנס מספר שלב" required>
                 <input class="form-control input" type="text" name="look" placeholder="הכנס שם של מראה איפור" required>
+                <textarea class="form-control input" rows="4" cols="50" placeholder="הכנס תיאור שלב" required></textarea>   
                 <div class="form-control input">    
                     <label>בחר תמונה</label>
                     <input type="file" name="fileToUpload" id="fileToUpload" required>

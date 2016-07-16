@@ -74,10 +74,11 @@ Look.controller('lookCtrl', ['$scope','$http','$location','$window','user',
               break;
             }
          console.log($scope.slide);
-         // for(var i=0;i<$scope.slide;i++){
-         //  document.getElementById("prodItem").innerHTML = 
-         //  $scope.prod[i].image;
-         // }
+
+          for(var i=0;i<$scope.slide;i++){
+         document.getElementById('prodItem').style.visibility = 'visible'
+          // $scope.prod[i].image;
+          }
      };
 
 

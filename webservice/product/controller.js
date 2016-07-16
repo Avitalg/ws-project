@@ -141,7 +141,7 @@ exports.getCategoryProducts = function(req, res){
 		res.status(404);
 		res.json({"error":"Category name wasn't entered"});
 	}else{
-		Product.findOne({'category':category}, function(err, data){
+		Product.find({'category':category}, function(err, data){
 			if(err){
 				res.status(500);
 				res.json({"error":err});

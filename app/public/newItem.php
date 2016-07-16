@@ -88,18 +88,26 @@ if (isset($_POST["submit"])) {
 </head>
 <body>
     <nav class="main-menu navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a href="#" class="navbar-brand" id="logo"></a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li><a href="index.html">עמוד הבית</a></li>
-                <li><a href="shop.html">מוצרים</a></li>
-                <li><a href="looks.html">מראות-איפור</a></li>
-                <li><a href="#">חשבון אישי</a></li>
-            </ul>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="#" class="navbar-brand" id="logo"></a>
+        <div id="user">
+            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" ></div><br>
+            <div id="loggedIn">
+              <span class="greeting"></span>
+              <a class="signOut">התנתק</a>
+            </div> 
         </div>
-    </nav>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">עמוד הבית</a></li>
+        <li><a href="shop.html">מוצרים</a></li>
+        <li><a href="looks.html">מראות-איפור</a></li>
+        <li><a href="#">חשבון אישי</a></li>
+        <li class="manage-page"><a href="managePage.html">עמוד ניהול</a></li>
+      </ul>
+    </div>
+  </nav>
 
     <div class="container">
         <div class="addItem">

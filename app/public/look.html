@@ -1,34 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="Look">
 <head>
-    <base href="/" />
-    <script src="js/lib/angular/angular.min.js"></script>
-    <script src="js/lib/angular/angular-route.min.js"></script>
-    <script src="js/dev/look.js"></script>
-    <link rel="stylesheet" href="css/lib/bootstrap.min.css">
-    <link rel="stylesheet" href="css/lib/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="css/dev/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <base href="/" />
+  <script src="js/lib/angular/angular.min.js"></script>
+  <script src="js/lib/angular/angular-route.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="531479800503-6lvg1h8gotm5e80p7vcll0q3hfilbg81.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src="js/dev/general.js"></script>
+  <script src="js/dev/look.js"></script>
+  <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+  <link rel="stylesheet" href="css/lib/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/dev/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <meta charset="UTF-8">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>מראה איפור</title>
 </head>
 <body ng-controller="lookCtrl">
-  <div >
-    <a href="index.html" alt="Logo" title="Logo" id="logo"></a>
-  </div>
-  <nav class="navbar navbar-default">
+ <nav class="main-menu navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">MakeUp house</a>
+        <a href="#" class="navbar-brand" id="logo"></a>
+        <div id="user">
+            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" ></div><br>
+            <div id="loggedIn">
+              <span class="greeting"></span>
+              <a class="signOut">התנתק</a>
+            </div> 
+        </div>
       </div>
       <ul class="nav navbar-nav">
-        <li><a href="products.html">Products</a></li>
-        <li class="active"><a href="looks.html">Looks</a></li>
-        <li><a href="shop.html">Workshop</a></li> 
-        <li><a href="#">wishList</a></li> 
+        <li><a href="index.html">עמוד הבית</a></li>
+        <li><a href="shop.html">מוצרים</a></li>
+        <li><a href="looks.html">מראות-איפור</a></li>
+        <li><a href="#">חשבון אישי</a></li>
+        <li class="manage-page"><a href="managePage.html">עמוד ניהול</a></li>
       </ul>
     </div>
   </nav>

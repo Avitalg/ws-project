@@ -1,34 +1,66 @@
-var MakeUpApp = angular.module('MakeUpApp',[]);
+var MakeUpApp = angular.module('MakeUpApp',[  'ngRoute'
+  ])
+  .config(function ($routeProvider, $locationProvider ) {
+    $routeProvider
+      .when('/product.html', {
+        templateUrl: 'product.html',
+        controller: 'productCtrl'
+        })
+      .when('/shop.html', {
+        templateUrl: 'shop.html',
+        controller: 'shopCtrl'
+        })
+      .when('/looks.html', {
+        templateUrl: 'looks.html',
+        controller: 'LookCtrl'
+        })
+      .when('/product.html?:id', {
+        templateUrl: 'product.html?:id',
+        controller: 'productCtrl'
+        })
+      .otherwise({
+        redirectTo: '/'
+      });
 
+      
+       $locationProvider.html5Mode(true);
+  });
 
-MakeUpApp.run(function($http) {
-    $http.get("https://webserviceproj.herokuapp.com/api/getAllProducts").success(function(data){
-        console.log(data);
-        model.products = data;
-    });
-});
 
 var model = {
-    
+    products:{
+
+    }
 };
 
-MakeUpApp.controller('MakeUpCtrl',function($scope) {
-    $scope.product = model;
+MakeUpApp.controller('MakeUpCtrl',['$scope','$http','$location','$window','$route',
+ function($scope, $http, $location, $window, $route){
+    var prodId = $location.search().category;
+    $scope.products = model;
 
+ $http.get("https://webserviceproj.herokuapp.com/api/getCategoryProducts/"+prodId)
+ .success(function(data){
+        $scope.products.products = data;
+        console.log($scope.products);
 
+    })
+ .error(function (data, status, header, config) {
+                $scope.ResponseDetails = "Data: " + data +
+                    "<br />status: " + status +
+                    "<br />headers: " + jsonFilter(header) +
+                    "<br />config: " + jsonFilter(config);
+                    console.log($scope.ResponseDetails);
+            });
     
+}]);
 
-  /*  $scope.incompleteCount = function() {
-        var count=0;
-        angular.forEach($scope.todo.items, function(item) {
-            if(!item.done) {count++;}
-        });
-        return count;
-    };
-    $scope.warningLevel = function () {
-        return $scope.incompleteCount() < 3 ? "label-success":"label-warning";
-    };
-    $scope.addNewItem = function(actionText) {
-        $scope.todo.items.push({ action: actionText, done:false});
-    };*/
-});
+MakeUpApp.directive('extLink', function() {
+  return {
+    restrict: 'A',
+    link: function(scope, elem) {
+      console.log(elem);
+      elem.bind('click', function(e) {
+        location.reload();
+      })
+    }
+  }});

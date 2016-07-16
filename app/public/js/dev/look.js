@@ -3,9 +3,17 @@ var Look = angular.module('Look', [
   ])
   .config(function ($routeProvider, $locationProvider ) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'look.html',
-        controller: 'lookCtrl'
+      .when('/product.html', {
+        templateUrl: 'product.html',
+        controller: 'productCtrl'
+        })
+      .when('/shop.html', {
+        templateUrl: 'shop.html',
+        controller: 'shopCtrl'
+        })
+      .when('/looks.html', {
+        templateUrl: 'looks.html',
+        controller: 'LookCtrl'
         })
       .otherwise({
         redirectTo: '/'
@@ -84,3 +92,13 @@ Look.controller('lookCtrl', ['$scope','$http','$location','$window',
 
 }]);
 
+Look.directive('extLink', function() {
+  return {
+    restrict: 'A',
+    link: function(scope, elem) {
+      console.log(elem);
+      elem.bind('click', function(e) {
+        location.reload();
+      })
+    }
+  }});

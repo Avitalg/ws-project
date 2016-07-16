@@ -12,9 +12,5 @@ categories.controller('shopCtrl', ['$scope','$http', function($scope, $http){
 		console.log(data);
 	});
 
-	$scope.getUrl = function( count){
-		console.log(count);
-		return  (count)? image:"images/"+category.image_hover, "images/"+category.image;
-}
 
 }]);

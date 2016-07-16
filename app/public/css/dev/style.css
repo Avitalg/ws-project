@@ -18,6 +18,10 @@ body{
     border: 1px solid white;
 }
 
+.main-menu .manage-page{
+    display: none;
+}
+
 ..navbar-default{
     background: #fff;
 }
@@ -49,6 +53,15 @@ body{
 
 }
 
+#user{
+    position: relative;
+    display: inline-block;
+    bottom: 0;
+    right: 0;
+    z-index: 9999;
+    margin: 10px;
+}
+
 #logo{
     display: block;
     background: url('../../images/logo1.jpg'); 
@@ -59,6 +72,15 @@ body{
 .container-fluid{
     background: #fff;
     border: 1px solid #fff;
+}
+
+#loggedIn{
+    display: none;
+}
+
+//-----manage page--------
+.manage-nav a {
+    color: black;
 }
 
 //------shop page---------
@@ -107,7 +129,7 @@ body{
     border-width: 5px;
 }
 
-a{
+#prodDiv a{
     color: rgba(255,255,255,.15);
     text-decoration: none;
 }

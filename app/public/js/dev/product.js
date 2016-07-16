@@ -3,9 +3,17 @@ var categories = angular.module('product', [
   ])
   .config(function ($routeProvider, $locationProvider ) {
     $routeProvider
-      .when('/', {
+      .when('/product.html', {
         templateUrl: 'product.html',
         controller: 'productCtrl'
+        })
+      .when('/shop.html', {
+        templateUrl: 'shop.html',
+        controller: 'shopCtrl'
+        })
+      .when('/looks.html', {
+        templateUrl: 'looks.html',
+        controller: 'LookCtrl'
         })
       .otherwise({
         redirectTo: '/'
@@ -15,9 +23,9 @@ var categories = angular.module('product', [
        $locationProvider.html5Mode(true);
   });
 
-categories.controller('productCtrl', ['$scope','$http','$location','$window',
- function($scope, $http, $location, $window){
-	
+categories.controller('productCtrl', ['$scope','$http','$location','$window','$route',
+ function($scope, $http, $location, $window, $route){
+
 	var prodId = $location.search().id;
 
 	$http.get("https://webserviceproj.herokuapp.com/api/getProduct/"+prodId)
@@ -28,3 +36,14 @@ categories.controller('productCtrl', ['$scope','$http','$location','$window',
 		$window.location.href = '/index.html';
 	});
 }]);
+
+categories.directive('extLink', function() {
+  return {
+    restrict: 'A',
+    link: function(scope, elem) {
+      console.log(elem);
+      elem.bind('click', function(e) {
+        location.reload();
+      })
+    }
+  }});

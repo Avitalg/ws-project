@@ -17,13 +17,15 @@ if (isset($_POST["submit"])) {
     $desc = $_POST["desc"];
     $id = $_POST["prodId"];
 
+
+
     $cloudUpload = \Cloudinary\Uploader::upload($url);
     //if upload image secceed
     if($cloudUpload){ 
         $url = 'http://webserviceproj.herokuapp.com/api/addStepToLook';
   
         $myvars = 'number='.rawurlencode($number).'&look=' . rawurlencode($look) .'&url=' . rawurlencode($cloudUpload['secure_url']).'&desc='.rawurlencode($desc).'&prodId='.rawurlencode($id);
-    
+
         $ch = curl_init();
         curl_setopt ($ch, CURLOPT_URL, $url);
         curl_setopt( $ch, CURLOPT_POST, 1);
@@ -31,9 +33,9 @@ if (isset($_POST["submit"])) {
         curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
 
         $response = curl_exec( $ch );
+        $result = json_decode($response, true);
 
         //show information regarding the request
-        $result = json_decode($response, true);
         //close the connection
         curl_close($ch);
     }
@@ -85,10 +87,10 @@ if (isset($_POST["submit"])) {
         <div class="addItem">
             <h1>הוספת מוצר למראה איפור</h1>
             <form method="post" enctype="multipart/form-data">
-                <input class="form-control input" type="number" name="number" placeholder="הכנס מזהה מוצר" required>
+                <input class="form-control input" type="number" name="prodId" placeholder="הכנס מזהה מוצר" required>
                 <input class="form-control input" type="number" name="number" placeholder="הכנס מספר שלב" required>
                 <input class="form-control input" type="text" name="look" placeholder="הכנס שם של מראה איפור" required>
-                <textarea class="form-control input" rows="4" cols="50" placeholder="הכנס תיאור שלב" required></textarea>   
+                <textarea class="form-control input" rows="4" name="desc" cols="50" placeholder="הכנס תיאור שלב" required></textarea>   
                 <div class="form-control input">    
                     <label>בחר תמונה</label>
                     <input type="file" name="fileToUpload" id="fileToUpload" required>
@@ -96,8 +98,8 @@ if (isset($_POST["submit"])) {
                 <input type="submit" class="btn btn-default input" value="שלח" name="submit">
             </form>
             <span><?php 
-            if($result) echo "הפריט עלה בהצלחה";
-            else "תקלה"
+            if($result['success']) echo "הפריט עלה בהצלחה";
+            else "תקלה במערכת."
              ?></span>
         </div>        
     </div>

@@ -23,7 +23,9 @@ var Look = angular.module('Look', [ 'ngRoute',  'UserService'])
 
   var model = [];
 
-Look.controller('lookCtrl', function($scope, $http, $location, $window, user){
+Look.controller('lookCtrl', ['$scope','$http','$location','$window','user',
+ function($scope,$http,$location,$window, user){
+
     console.log("control");
     $scope.slide = 1;
     var prodlook = $location.search().look;
@@ -72,10 +74,10 @@ Look.controller('lookCtrl', function($scope, $http, $location, $window, user){
               break;
             }
          console.log($scope.slide);
-         for(var i=0;i<$scope.slide;i++){
-          document.getElementById("prodItem").innerHTML = 
-          $scope.prod[i].image;
-         }
+         // for(var i=0;i<$scope.slide;i++){
+         //  document.getElementById("prodItem").innerHTML = 
+         //  $scope.prod[i].image;
+         // }
      };
 
 
@@ -87,7 +89,7 @@ Look.controller('lookCtrl', function($scope, $http, $location, $window, user){
     });
 
 
-});
+}]);
 
 Look.filter('range', function() {
   return function(input, total) {

@@ -8,6 +8,11 @@ header, footer, main, nav, aside, section, article{
     display : block;
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body{
     font-family: Arial, sans-serif;
     direction: rtl;
@@ -281,10 +286,26 @@ ul.wish-item {
     font-size: 10px;
     width: 70%;
     margin: 5px auto;
+    position: relative;
 
+}
+
+ul.wish-item span{
+    position: absolute;
+    right: 12px;
+    top: 7px;
+    font-size: 15px;
+    color: #333;
+    cursor: pointer;
 }
 
 ul.wish-item a, ul.wish-item a:hover, ul.wish-item a:active, ul.wish-item a:visited{
     color: #333;
     text-decoration: none;
+}
+
+#AccountCtrl .msg{
+    margin: 20px;
+    font-weight: 700;
+    font-size: 15px;
 }

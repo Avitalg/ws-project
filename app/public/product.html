@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<base href="/" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="js/lib/angular/angular.min.js"></script>
 	<script src="js/lib/angular/angular-route.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -23,24 +24,25 @@
     </script>
 </head>
 <body id="productCtrl" ng-controller="productCtrl">
-	<nav class="main-menu navbar navbar-default">
+	<nav class="user-menu navbar">
+    <div id="user">
+        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" ></div><br>
+    </div>
+    <ul>
+      <li id="loggedIn"><span class="greeting"></span> <a class="signOut" ng-click="signOut()">התנתק</a></li>
+      <li class="account"><a ext-link href="account.html">סל קניות</a></li>
+      <li class="manage-page"><a ext-link href="managePage.html">עמוד ניהול</a></li>
+    </ul>
+  </nav>
+  <nav class="main-menu navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
         <a href="#" class="navbar-brand" id="logo"></a>
-        <div id="user">
-            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" ></div><br>
-            <div id="loggedIn">
-              <span class="greeting"></span>
-              <a class="signOut" ng-click="signOut()">התנתק</a>
-            </div> 
-        </div>
       </div>
       <ul class="nav navbar-nav">
-        <li><a ext-link href="index.html">עמוד הבית</a></li>
+        <li><a ext-link class="active" href="index.html">עמוד הבית</a></li>
         <li><a ext-link href="shop.html">מוצרים</a></li>
         <li><a ext-link href="looks.html">מראות-איפור</a></li>
-        <li><a href="#">חשבון אישי</a></li>
-        <li class="manage-page"><a ext-link href="managePage.html">עמוד ניהול</a></li>
       </ul>
     </div>
   </nav>
@@ -60,16 +62,17 @@
 			<div class="prodPic">
 				<img ng-src={{prod.big_image}}>
 			</div>
-			<div class="buyProd">
-				<p>
-					<h6>{{prod.name}}</h6>
-					<p>{{prod.price}}</p>
-				</p>
-				<p id="cart">
+
+			<div class="cart">
+				<div class="desc">	
+					<span>{{prod.name}}</span><br>
+					<span>{{prod.price}}</span>
+				</div>
+				<p id="add_cart">
 					<a  href="#" ng-click="addToCart()"></a>
+					<span class="cart-msg"></span>
 				</p>
-				
-			</div>
+			</div>			
 		</section>
 		
 	</div>

@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <title>סל קניות</title>
     <script src="js/lib/angular/angular.min.js"></script>
+    <script src="js/lib/angular/angular-route.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="531479800503-6lvg1h8gotm5e80p7vcll0q3hfilbg81.apps.googleusercontent.com">
@@ -22,13 +23,13 @@
     </script>
 </head>
 <body id="AccountCtrl" ng-controller="AccountCtrl">
-  <nav class="user-menu navbar">
+ <nav class="user-menu navbar">
     <div id="user">
         <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" ></div><br>
     </div>
     <ul>
-        <li id="loggedIn"><span class="greeting"></span> <a class="signOut" ng-click="signOut()">התנתק</a></li>
-       <li class="account"><a href="#">סל קניות</a></li>
+      <li id="loggedIn"><span class="greeting"></span> <a class="signOut" ng-click="signOut()">התנתק</a></li>
+      <li class="account"><a href="account.html">סל קניות</a></li>
       <li class="manage-page"><a href="managePage.html">עמוד ניהול</a></li>
     </ul>
   </nav>
@@ -44,9 +45,10 @@
       </ul>
     </div>
   </nav>
-  <div id="wrapper">
+  <div id="wrapper" ng-show="checkUser()">
     <h2>סל קניות</h2>
     <ul class="wish-item" ng-repeat="wish in wishList">
+    <span ng-click="rmoveFromCart(wish.id)">X</span>
     <a ng-href="product.html?id={{wish.id}}">
       <li ><h4>{{wish.name}}</h4></li>
       <li >{{wish.price}}</li>

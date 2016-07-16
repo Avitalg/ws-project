@@ -76,47 +76,46 @@ if (isset($_POST["submit"])) {
 
 ?>
 <!DOCTYPE HTML>
-<html ng-app="newItem">
+<html ng-app="myApp">
 <head>
     <link rel="stylesheet" href="css/lib/bootstrap.min.css">
     <link rel="stylesheet" href="css/lib/bootstrap-theme.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/lib/angular/angular.min.js"></script>
+
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="531479800503-6lvg1h8gotm5e80p7vcll0q3hfilbg81.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
     <link rel="stylesheet" href="css/dev/style.css">
     <link rel="stylesheet" href="css/dev/newItem.css">
-    <script src="js/dev/UserService.js"></script>
     <script src="js/dev/newItem.js"></script>
     <title>Upload an Image</title>
-    <script>
-      function onSignIn(googleUser) {   // when user auth this function will call
-       angular.element(document.getElementById('LookCtrl')).scope().signIn(googleUser);
-      };
-    </script>
 </head>
-<body id="itemCtrl" ng-controller="itemCtrl">
-    <nav class="main-menu navbar navbar-default">
+<body ng-controller="UserCtrl">
+    <nav class="user-menu navbar">
+    <div id="user">
+        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" ></div><br>
+    </div>
+    <ul>
+      <li id="loggedIn"><span class="greeting"></span> <a class="signOut" onclick="onSignOut()">התנתק</a></li>
+      <li class="account"><a href="account.html">סל קניות</a></li>
+      <li class="manage-page"><a href="managePage.html">עמוד ניהול</a></li>
+    </ul>
+  </nav>
+  <nav class="main-menu navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
         <a href="#" class="navbar-brand" id="logo"></a>
-        <div id="user">
-            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" ></div><br>
-            <div id="loggedIn">
-              <span class="greeting"></span>
-              <a class="signOut" ng-click="signOut()">התנתק</a>
-            </div> 
-        </div>
       </div>
       <ul class="nav navbar-nav">
-        <li><a href="index.html">עמוד הבית</a></li>
+        <li><a class="active" href="index.html">עמוד הבית</a></li>
         <li><a href="shop.html">מוצרים</a></li>
         <li><a href="looks.html">מראות-איפור</a></li>
-        <li><a href="#">חשבון אישי</a></li>
-        <li class="manage-page"><a href="managePage.html">עמוד ניהול</a></li>
       </ul>
     </div>
   </nav>
 
-    <div class="container">
+   <div class="container">
         <div class="addItem">
             <h1>פריט חדש</h1>
             <form method="post" enctype="multipart/form-data">
@@ -129,6 +128,7 @@ if (isset($_POST["submit"])) {
              <div class="prodValues">
                  <input type="text" name="price" placeholder="מחיר" class="form-control input">
                  <input type="text" name="category" placeholder="קטגוריה" class="form-control input">
+                 <!-- <input type -->
                  <input type="text" name="sdesc" placeholder="תיאור קצר" maxlength="50" class="form-control input">
                  <textarea rows="4" cols="50" name="desc" placeholder="תיאור מלא" class="form-control input"></textarea>
              </div>

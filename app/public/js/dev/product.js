@@ -5,6 +5,10 @@ var categories = angular.module('product', ['ngRoute', 'UserService'])
         templateUrl: 'product.html',
         controller: 'productCtrl'
         })
+      .when('/product.html?id=', {
+        templateUrl: 'product.html',
+        controller: 'productCtrl'
+        })
       .when('/shop.html', {
         templateUrl: 'shop.html',
         controller: 'shopCtrl'
@@ -17,7 +21,6 @@ var categories = angular.module('product', ['ngRoute', 'UserService'])
         redirectTo: '/'
       });
 
-      
        $locationProvider.html5Mode(true);
   });
 
@@ -47,7 +50,11 @@ categories.controller('productCtrl', ['$scope','$http','$location','$window','$r
         $http.get("https://webserviceproj.herokuapp.com/api/addToWishList/"+localStorage["email"]+"/"+prodId)
         .success(function(data){
           console.log(data);
-          $('.cart-msg').html("נוסף בהצלחה.");
+          if(data["success"]){
+           $('.cart-msg').html("נוסף בהצלחה.");
+          } else {
+            $('.cart-msg').html("קיים בעגלה.");
+          }
         })
       } else {
          $('.cart-msg').html("עליך להתחבר.");

@@ -57,25 +57,37 @@ body{
     padding: 38px 48px 0px 0px;
 }
 
-#cart a{
+#add_cart a{
 	background: url('../../images/cart.jpg') 0 0;
     display: block;
     width: 92px;
     height: 29px;
 }
 
-#cart a:hover{
+#add_cart a:hover{
     background: url('../../images/cart.jpg') 82px 0;
     display: block;
     width: 92px;
     height: 29px;
 }
 
-#cart {
-    position: absolute;
-    /* top: 0px; */
-    /* padding: 0px 129px; */
-    margin: -28px 115px;
-    border: 1px dotted gray;
-    /* padding: 2px; */
+.cart #add_cart{
+    float:left;
+}
+
+.cart .desc{
+    float: right;
+}
+
+.cart{
+    width: 197px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 11px;
+    float: left;
+}
+
+.cart-msg{
+    font-weight: 700;
+}
 }

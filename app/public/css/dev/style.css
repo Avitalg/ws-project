@@ -234,7 +234,7 @@ body{
     float: left;
 }
 
-.prodLook{
+#prodLook{
      border-style:dotted;
     border-width: 1px;
     width: 900px;
@@ -245,12 +245,13 @@ body{
     margin-left: 8%;
 }
 
-.prodItem{
+#prodItem{
      height: 111px;
     width: 111px;
      border-style:dotted;
     border-width: 1px;
     float: left;
+    visibility: hidden;
 }
 
 

@@ -59,16 +59,21 @@
         <div id="myCarousel" class="carousel slide" data-interval="false">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-          <li data-target="#myCarousel" ng-repeat="n in [] | range: numLooks" data-slide-to={{n}} class="active"></li>
-        </ol>
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" ng-repeat="n in [] | range: numLooks" ng-if="$index >= 1" data-slide-to={{n}}></li>
+      </ol>
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-          <div class="item active" ng-repeat="look in mylook">
-          <img ng-src=images/{{look.face_image}}>
+        <div class="item active" >
+          <img ng-src={{mylook[0].face_image}}>
+          </div>
+
+          <div class="item" ng-repeat="look in mylook" ng-if="$index >= 1">
+          <img ng-src={{look.face_image}}>
           </div>
         </div>
-
+        
         <!-- Left and right controls -->
         <a class="left carousel-control" href="#myCarousel" role="button" ng-click="getIndex('left')" data-slide="prev">
           <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -85,8 +90,9 @@
 
    </div>
      
-      <div id ="prodLook">
-        <div id="prodItem" >
+      <div id ="prodLook" >
+        <div id="prodItem" ng-repeat="products in prod">
+          <img ng-src={{products.prod.image}}
         </div>
       </div>
   </div>

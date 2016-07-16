@@ -9,13 +9,13 @@ header, footer, main, nav, aside, section, article{
 }
 
 html, body {
+
     max-width: 100%;
     overflow-x: hidden;
 }
 
 body{
     font-family: Arial, sans-serif;
-    direction: rtl;
 }
 
 //----Main Nav-------
@@ -109,6 +109,7 @@ body{
 
 #loggedIn{
     display: none;
+    direction: rtl;
 }
 
 //-----manage page--------
@@ -124,14 +125,6 @@ body{
 
 .shop_menu ul{
 	 list-style-type: none;
-}
-
-.image-hover{
-    width: 340px;
-    height: 70px;
-    background: green;
-    position: absolute;
-    transform: translate(0%, -100%);
 }
 
 

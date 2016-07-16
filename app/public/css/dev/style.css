@@ -126,6 +126,14 @@ body{
 	 list-style-type: none;
 }
 
+.image-hover{
+    width: 340px;
+    height: 70px;
+    background: green;
+    position: absolute;
+    transform: translate(0%, -100%);
+}
+
 
 //------product page---------
 

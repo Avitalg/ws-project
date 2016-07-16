@@ -2,10 +2,11 @@
 <html lang="en" ng-app="shop">
 <head>
 	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="531479800503-6lvg1h8gotm5e80p7vcll0q3hfilbg81.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="531479800503-6lvg1h8gotm5e80p7vcll0q3hfilbg81.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
 	<script src="js/lib/angular/angular.min.js"></script>
   <script src="js/lib/angular/angular-route.min.js"></script>
 	<script src="js/dev/UserService.js"></script>
@@ -49,7 +50,12 @@
 
 		<div class="shop_menu">
 			<ul>
-				<li ng-repeat="category in catrgories" id ={{category.name}}><a href="products.html?category={{category.name}}"><img ng-src="{{category.image}}" alt="{{category.name}}" title="{{category.name}}"></a> </li>
+				<li ng-repeat="category in catrgories" id ={{category.name}}>
+          <a href="products.html?category={{category.name}}">
+            <img ng-src="{{category.image}}" alt="{{category.name}}" title="{{category.name}}">
+            <div hover-class="image-hover"></div>
+          </a>
+       </li>
 			</ul>
 		</div>
 	</div>

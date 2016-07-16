@@ -7,10 +7,9 @@ var UserService = angular.module('UserService', [])
                $('.account').show();
                 var profile = googleUser.getBasicProfile();
                 $('#loggedIn .greeting').html("שלום "+profile.getName());
-                this.loggedIn=true; 
 
                 localStorage.setItem("email",profile.getEmail());
-                console.log(localStorage.email);
+
                 if(localStorage["email"]=="avitalg91@gmail.com"){
                     localStorage.setItem("admin",true);
                     $(".manage-page").show();
@@ -31,17 +30,12 @@ var UserService = angular.module('UserService', [])
                         }
                     });
 	            }
-	        })
-	        .error(function(data, status){
-	            console.log(data);
 	        });
     };
     this.onSignOut = function(gapi) {
      var auth2 = gapi.auth2.getAuthInstance();
                 auth2.disconnect().then(function () {
-                    console.log('User signed out.');
                     $('#loggedIn').hide();
-                    this.loggedIn=false; 
                     $('.g-signin2').show();
                     $('.account').hide();
                     $('.manage-page').hide();
@@ -49,7 +43,6 @@ var UserService = angular.module('UserService', [])
                     localStorage.removeItem("admin");
                 });
 
-     console.log(gapi);
     };
 
 }]);

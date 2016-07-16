@@ -76,7 +76,6 @@ Look.controller('lookCtrl', ['$scope','$http','$location','$window','user',
                 if($scope.slide< $scope.numLooks) {
                   $scope.slide++;
                   $('#prodItem-'+$scope.slide).fadeIn();
-
                 }
                 else{
                   $scope.slide=1;

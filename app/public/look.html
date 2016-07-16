@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="css/dev/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <meta charset="UTF-8">
   <title>מראה איפור</title>
    <script>
@@ -52,8 +53,8 @@
   <div class="container">
   
   <div id= "wrapper">
-    <div class ="lookDetails">
-        <p>{{prod.product.description}}</p>
+    <div class ="lookDetails" >
+        <p>{{mylook[slide-1].description}}</p>
     </div>
         <div id="mygallery">
         <div id="myCarousel" class="carousel slide" data-interval="false">
@@ -91,7 +92,7 @@
    </div>
      
       <div id ="prodLook">
-        <div ng-repeat="products in prod" class="prodItem" id="prodItem-{{$index + 1}}">
+        <div ng-repeat="products in prod " class="prodItem" id="prodItem-{{$index + 1}}">
           <img ng-src={{products.product.image}}>
         </div>
       </div>

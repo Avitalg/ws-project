@@ -1,4 +1,5 @@
 var Look=require('./schema');
+var path = require("path");
 
 exports.getLooks = function(req,res){
 	Look.find({},

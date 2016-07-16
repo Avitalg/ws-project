@@ -34,6 +34,11 @@ function onSignIn(googleUser) {
                     localStorage.setItem("admin",false);
                 }
 
+                 $.get("https://webserviceproj.herokuapp.com/api/addUser/"+localStorage.email+"/"+localStorage.admin, function(data, status){
+                    alert("Data: " + data + "\nStatus: " + status);
+                });
+
+
           //  $http.get("https://webserviceproj.herokuapp.com/api/addUser/"+localStorage.email+"/"+localStorage.admin)
           // .success(function(data){
           //     if(data["success"]){
@@ -53,16 +58,5 @@ function onSignIn(googleUser) {
           // });
 };
 
-function onSignOut(gapi) {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.disconnect().then(function () {
-    console.log('User signed out.');
-    $('#loggedIn').hide();
-    $('.g-signin2').show();
-    $('.account').hide();
-    $('.manage-page').hide();
-    localStorage.removeItem("email");
-    localStorage.removeItem("admin");
-    });
-    };
+
 

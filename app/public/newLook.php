@@ -43,12 +43,12 @@ if (isset($_POST["submit"])) {
     //     if(!strcmp($item_type, "prod")){
     //         $cloudUpload2 = \Cloudinary\Uploader::upload($_FILES["fileToUpload2"]['tmp_name']);
 
-    //         $url = 'http://webserviceproj.herokuapp.com/api/uploadProdImage';
+        $url = 'http://webserviceproj.herokuapp.com/api/addLook';
     //         $myvars = 'id=' . rawurlencode($_POST['id']) .'&image=' . rawurlencode($cloudUpload['secure_url']).
     //         '&bimage=' . rawurlencode($cloudUpload2['secure_url']);
     //     } else {
     //          $url = 'http://webserviceproj.herokuapp.com/api/uploadCategoryImage';
-        $myvars = 'look=' . rawurlencode($look) .'&image=' . rawurlencode($cloudUpload['secure_url']);
+        $myvars = 'look=' . rawurlencode($look) .'&url=' . rawurlencode($cloudUpload['secure_url']);
     //     }
         
         $ch = curl_init();
@@ -61,7 +61,7 @@ if (isset($_POST["submit"])) {
 
         //show information regarding the request
         $result = json_decode($response, true);
-
+        echo $result;
         //close the connection
         curl_close($ch);
 
@@ -121,6 +121,7 @@ if (isset($_POST["submit"])) {
                 </div>
                 <input type="submit" class="btn btn-default input" value="שלח" name="submit">
             </form>
+            <span><?php if($result) echo "הפריט עלה בהצלחה" ?></span>
         </div>        
     </div>
 </body>

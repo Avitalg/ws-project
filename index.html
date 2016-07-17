@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Ws-project by Avitalg</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/Avitalg/ws-project">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/Avitalg/ws-project/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/Avitalg/ws-project/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Ws-project</h1>
+          <p></p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/Avitalg">Avitalg</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h3>
+<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+
+<p>This is our formal API for Node.js service that was bulid with express module for a school project. </p>
+
+<h3>
+<a id="looks" class="anchor" href="#looks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Looks</h3>
+
+<h4>
+<a id="get-all-looks" class="anchor" href="#get-all-looks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get All Looks</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/getAllLooks</code>
+Result: All looks, including their steps
+Method: GET
+Example: </p>
+
+<pre><code>{
+  look: "fresh",
+  image: "http://res.cloudinary.com/desbjknxm/image/upload/v1468704051/rsz_3fresh_eovzbd.jpg",
+  __v: 13,
+  steps: [
+  {
+    number: 1,
+    face_image: "http://res.cloudinary.com/desbjknxm/image/upload/v1468700970/htijb01e02otjh6ozf24.jpg",
+    description: "description",
+    product_id: 4
+  }]
+}
+</code></pre>
+
+<h4>
+<a id="get-look" class="anchor" href="#get-look" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get Look</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/getLook/:look</code>
+Result: Specific Look.
+Method: GET
+Example: Like above.</p>
+
+<h4>
+<a id="add-look" class="anchor" href="#add-look" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Add Look</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/addLook</code>
+Result: JSON with message - success/error.
+Method: POST
+Params: look, url.</p>
+
+<h4>
+<a id="add-look-1" class="anchor" href="#add-look-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Add Look</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/updateLook</code>
+Result: JSON with message - success/error.
+Method: POST
+Params: look, url.</p>
+
+<h4>
+<a id="remove-look" class="anchor" href="#remove-look" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remove Look</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/removeLook/:look</code>
+Result: JSON with message - success/error.
+Method: GET
+Params: look.</p>
+
+<h4>
+<a id="add-step-to-look" class="anchor" href="#add-step-to-look" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Add Step To Look</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/addStepToLook</code>
+Result: JSON with message - success/error.
+Method: POST
+Params: look, number, url, desc, prodId.
+Explain: look- look's name, number - step number, url -image, desc - description, prodId- product id.</p>
+
+<h4>
+<a id="remove-step-from-look" class="anchor" href="#remove-step-from-look" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remove Step From Look</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/removeStepFromLook/:look/:number</code>
+Result: JSON with message - success/error.
+Method: GET
+Params: look-name of look, number- step number.</p>
+
+<h4>
+<a id="remove-step-from-look-1" class="anchor" href="#remove-step-from-look-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remove Step From Look</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/getLookSteps/:look</code>
+Result: JSON with message - success/error.
+Method: GET</p>
+
+<h3>
+<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating pages manually</h3>
+
+<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+
+<h3>
+<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<p>You can <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/#mentioning-users-and-teams" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+
+<h3>
+<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>

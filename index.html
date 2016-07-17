@@ -125,14 +125,114 @@ Result: JSON with message - success/error.
 Method: GET</p>
 
 <h3>
-<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating pages manually</h3>
+<a id="categories" class="anchor" href="#categories" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CATEGORIES</h3>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<h4>
+<a id="get-all-categories" class="anchor" href="#get-all-categories" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get All Categories</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/getAllCategories</code>
+Result: JSON all categories that was saved in DB.
+Method: GET
+Example:</p>
+
+<pre><code>[{
+  _id: "578938251d4e340300fd3e81",
+  id: 1,
+  name: "eyes",
+  image: "https:/res.cloudinary.com/desbjknxm/image/upload/v1468610599/piecsqzxmknbnzbinxed.jpg",
+  __v: 0
+}]
+</code></pre>
+
+<h4>
+<a id="get-category" class="anchor" href="#get-category" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get Category</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/getCategory/:category</code>
+Result: JSON specific category, like shown above.
+Method: GET</p>
+
+<h4>
+<a id="remove-category" class="anchor" href="#remove-category" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remove Category</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/removeCategory/:category</code>
+Result: JSON with message - success/error.
+Method: GET.</p>
+
+<h4>
+<a id="add-category" class="anchor" href="#add-category" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Add Category</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/addCategory/:id/:name</code>
+Result: JSON with message - success/error.
+Method: GET.</p>
+
+<h4>
+<a id="update-category" class="anchor" href="#update-category" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Update Category</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/updateCategory/:id/:name</code>
+Result: JSON with message - success/error.
+Method: GET.</p>
+
+<h4>
+<a id="update-category-1" class="anchor" href="#update-category-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Update Category</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/uploadCategoryImage</code>
+Result: JSON with message - success/error.
+Method: POST.
+Params: category - category name, url - url to image.</p>
+
+<h3>
+<a id="user" class="anchor" href="#user" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>USER</h3>
+
+<h4>
+<a id="get-all-users" class="anchor" href="#get-all-users" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get All Users</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/getUsers</code>
+Result: JSON with all users that was saved in DB.
+Method: GET
+Example:</p>
+
+<pre><code>[
+  _id: "578a0ad1fa8650030052eedb",
+  username: "tryt5475@gmail.com",
+  admin: false,
+  __v: 0,
+  wish_list: [ ]
+]
+</code></pre>
+
+<h4>
+<a id="get-user" class="anchor" href="#get-user" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get User</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/getUser/:username</code>
+Result: JSON specific user, like shown above.
+Method: GET</p>
+
+<h4>
+<a id="remove-user" class="anchor" href="#remove-user" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remove User</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/removeUser/:username</code>
+Result: JSON with message - success/error.
+Method: GET.</p>
+
+<h4>
+<a id="add-user" class="anchor" href="#add-user" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Add User</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/addUser/:username/:admin</code>
+Result: JSON with message - success/error.
+Method: GET.
+Params: username- email, admin- boolean.</p>
+
+<h4>
+<a id="update-user" class="anchor" href="#update-user" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Update User</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/updateUser/:username/:admin</code>
+Result: JSON with message - success/error.
+Method: GET.</p>
 
 <h3>
 <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
 
-<p>You can <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/#mentioning-users-and-teams" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<p>In 2016, Avital Glazer (<a href="https://github.com/avitalg" class="user-mention">@avitalg</a>)and Zohar Tzfania created this app.</p>
 
 <h3>
 <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>

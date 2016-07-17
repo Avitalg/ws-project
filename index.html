@@ -1,44 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Ws-project by Avitalg</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-dark.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
     <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
+    <title>Ws-project by Avitalg</title>
   </head>
+
   <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/Avitalg/ws-project">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/Avitalg/ws-project/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/Avitalg/ws-project/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
+    <div id="container">
+      <div class="inner">
 
-    <div class="wrapper">
-
-      <section>
-        <div id="title">
+        <header>
           <h1>Ws-project</h1>
-          <p></p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/Avitalg">Avitalg</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
-        </div>
+          <h2></h2>
+        </header>
 
-        <h3>
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/Avitalg/ws-project/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/Avitalg/ws-project/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/Avitalg/ws-project" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h3>
 <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
 
 <p>This is our formal API for Node.js service that was bulid with express module for a school project. </p>
@@ -49,10 +42,10 @@
 <h4>
 <a id="get-all-looks" class="anchor" href="#get-all-looks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get All Looks</h4>
 
-<p>URL: <code>https://webserviceproj.herokuapp.com/api/getAllLooks</code>
-Result: All looks, including their steps
-Method: GET
-Example: </p>
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/getAllLooks</code><br>
+Result: All looks, including their steps<br>
+Method: GET<br>
+Example:   </p>
 
 <pre><code>{
   look: "fresh",
@@ -71,58 +64,58 @@ Example: </p>
 <h4>
 <a id="get-look" class="anchor" href="#get-look" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get Look</h4>
 
-<p>URL: <code>https://webserviceproj.herokuapp.com/api/getLook/:look</code>
-Result: Specific Look.
-Method: GET
-Example: Like above.</p>
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/getLook/:look</code><br>
+Result: Specific Look.<br>
+Method: GET<br>
+Example: Like above.  </p>
 
 <h4>
 <a id="add-look" class="anchor" href="#add-look" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Add Look</h4>
 
-<p>URL: <code>https://webserviceproj.herokuapp.com/api/addLook</code>
-Result: JSON with message - success/error.
-Method: POST
-Params: look, url.</p>
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/addLook</code><br>
+Result: JSON with message - success/error.<br>
+Method: POST<br>
+Params: look, url.  </p>
 
 <h4>
 <a id="add-look-1" class="anchor" href="#add-look-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Add Look</h4>
 
-<p>URL: <code>https://webserviceproj.herokuapp.com/api/updateLook</code>
-Result: JSON with message - success/error.
-Method: POST
-Params: look, url.</p>
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/updateLook</code><br>
+Result: JSON with message - success/error.<br>
+Method: POST<br>
+Params: look, url.  </p>
 
 <h4>
 <a id="remove-look" class="anchor" href="#remove-look" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remove Look</h4>
 
-<p>URL: <code>https://webserviceproj.herokuapp.com/api/removeLook/:look</code>
-Result: JSON with message - success/error.
-Method: GET
-Params: look.</p>
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/removeLook/:look</code><br>
+Result: JSON with message - success/error.<br>
+Method: GET<br>
+Params: look.  </p>
 
 <h4>
 <a id="add-step-to-look" class="anchor" href="#add-step-to-look" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Add Step To Look</h4>
 
-<p>URL: <code>https://webserviceproj.herokuapp.com/api/addStepToLook</code>
-Result: JSON with message - success/error.
-Method: POST
-Params: look, number, url, desc, prodId.
-Explain: look- look's name, number - step number, url -image, desc - description, prodId- product id.</p>
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/addStepToLook</code><br>
+Result: JSON with message - success/error.<br>
+Method: POST<br>
+Params: look, number, url, desc, prodId.<br>
+Explain: look- look's name, number - step number, url -image, desc - description, prodId- product id.  </p>
 
 <h4>
 <a id="remove-step-from-look" class="anchor" href="#remove-step-from-look" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remove Step From Look</h4>
 
-<p>URL: <code>https://webserviceproj.herokuapp.com/api/removeStepFromLook/:look/:number</code>
-Result: JSON with message - success/error.
-Method: GET
-Params: look-name of look, number- step number.</p>
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/removeStepFromLook/:look/:number</code><br>
+Result: JSON with message - success/error.<br>
+Method: GET<br>
+Params: look-name of look, number- step number.  </p>
 
 <h4>
 <a id="remove-step-from-look-1" class="anchor" href="#remove-step-from-look-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remove Step From Look</h4>
 
-<p>URL: <code>https://webserviceproj.herokuapp.com/api/getLookSteps/:look</code>
-Result: JSON with message - success/error.
-Method: GET</p>
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/getLookSteps/:look</code><br>
+Result: JSON with message - success/error.<br>
+Method: GET  </p>
 
 <h3>
 <a id="categories" class="anchor" href="#categories" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CATEGORIES</h3>
@@ -130,10 +123,10 @@ Method: GET</p>
 <h4>
 <a id="get-all-categories" class="anchor" href="#get-all-categories" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get All Categories</h4>
 
-<p>URL: <code>https://webserviceproj.herokuapp.com/api/getAllCategories</code>
-Result: JSON all categories that was saved in DB.
-Method: GET
-Example:</p>
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/getAllCategories</code><br>
+Result: JSON all categories that was saved in DB.<br>
+Method: GET<br>
+Example:  </p>
 
 <pre><code>[{
   _id: "578938251d4e340300fd3e81",
@@ -147,38 +140,38 @@ Example:</p>
 <h4>
 <a id="get-category" class="anchor" href="#get-category" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get Category</h4>
 
-<p>URL: <code>https://webserviceproj.herokuapp.com/api/getCategory/:category</code>
-Result: JSON specific category, like shown above.
-Method: GET</p>
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/getCategory/:category</code><br>
+Result: JSON specific category, like shown above.<br>
+Method: GET  </p>
 
 <h4>
 <a id="remove-category" class="anchor" href="#remove-category" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remove Category</h4>
 
-<p>URL: <code>https://webserviceproj.herokuapp.com/api/removeCategory/:category</code>
-Result: JSON with message - success/error.
-Method: GET.</p>
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/removeCategory/:category</code><br>
+Result: JSON with message - success/error.<br>
+Method: GET.  </p>
 
 <h4>
 <a id="add-category" class="anchor" href="#add-category" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Add Category</h4>
 
-<p>URL: <code>https://webserviceproj.herokuapp.com/api/addCategory/:id/:name</code>
-Result: JSON with message - success/error.
-Method: GET.</p>
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/addCategory/:id/:name</code><br>
+Result: JSON with message - success/error.<br>
+Method: GET.  </p>
 
 <h4>
 <a id="update-category" class="anchor" href="#update-category" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Update Category</h4>
 
-<p>URL: <code>https://webserviceproj.herokuapp.com/api/updateCategory/:id/:name</code>
-Result: JSON with message - success/error.
-Method: GET.</p>
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/updateCategory/:id/:name</code><br>
+Result: JSON with message - success/error.<br>
+Method: GET.  </p>
 
 <h4>
 <a id="update-category-1" class="anchor" href="#update-category-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Update Category</h4>
 
-<p>URL: <code>https://webserviceproj.herokuapp.com/api/uploadCategoryImage</code>
-Result: JSON with message - success/error.
-Method: POST.
-Params: category - category name, url - url to image.</p>
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/uploadCategoryImage</code><br>
+Result: JSON with message - success/error.<br>
+Method: POST.<br>
+Params: category - category name, url - url to image.  </p>
 
 <h3>
 <a id="user" class="anchor" href="#user" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>USER</h3>
@@ -186,10 +179,10 @@ Params: category - category name, url - url to image.</p>
 <h4>
 <a id="get-all-users" class="anchor" href="#get-all-users" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get All Users</h4>
 
-<p>URL: <code>https://webserviceproj.herokuapp.com/api/getUsers</code>
-Result: JSON with all users that was saved in DB.
-Method: GET
-Example:</p>
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/getUsers</code><br>
+Result: JSON with all users that was saved in DB.<br>
+Method: GET<br>
+Example:  </p>
 
 <pre><code>[
   _id: "578a0ad1fa8650030052eedb",
@@ -203,31 +196,31 @@ Example:</p>
 <h4>
 <a id="get-user" class="anchor" href="#get-user" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get User</h4>
 
-<p>URL: <code>https://webserviceproj.herokuapp.com/api/getUser/:username</code>
-Result: JSON specific user, like shown above.
-Method: GET</p>
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/getUser/:username</code><br>
+Result: JSON specific user, like shown above.<br>
+Method: GET  </p>
 
 <h4>
 <a id="remove-user" class="anchor" href="#remove-user" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remove User</h4>
 
-<p>URL: <code>https://webserviceproj.herokuapp.com/api/removeUser/:username</code>
-Result: JSON with message - success/error.
-Method: GET.</p>
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/removeUser/:username</code><br>
+Result: JSON with message - success/error.<br>
+Method: GET.  </p>
 
 <h4>
 <a id="add-user" class="anchor" href="#add-user" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Add User</h4>
 
-<p>URL: <code>https://webserviceproj.herokuapp.com/api/addUser/:username/:admin</code>
-Result: JSON with message - success/error.
-Method: GET.
-Params: username- email, admin- boolean.</p>
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/addUser/:username/:admin</code><br>
+Result: JSON with message - success/error.<br>
+Method: GET.<br>
+Params: username- email, admin- boolean.  </p>
 
 <h4>
 <a id="update-user" class="anchor" href="#update-user" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Update User</h4>
 
-<p>URL: <code>https://webserviceproj.herokuapp.com/api/updateUser/:username/:admin</code>
-Result: JSON with message - success/error.
-Method: GET.</p>
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/updateUser/:username/:admin</code><br>
+Result: JSON with message - success/error.<br>
+Method: GET.  </p>
 
 <h3>
 <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
@@ -238,10 +231,15 @@ Method: GET.</p>
 <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
 
 <p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
-      </section>
+        </section>
 
+        <footer>
+          Ws-project is maintained by <a href="https://github.com/Avitalg">Avitalg</a><br>
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
   </body>
 </html>

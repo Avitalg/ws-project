@@ -204,6 +204,8 @@ body{
     float: left;
     margin: 4px;
     border: 1px solid #000;
+    position: relative;
+
 }
 
 .looks-items{
@@ -292,22 +294,22 @@ ul.wish-item a, ul.wish-item a:hover, ul.wish-item a:active, ul.wish-item a:visi
     font-size: 15px;
 }
 
-.text{
-    width:400px;
-    height: 20px;
-    background:  #ffa366;
+.looks-items .text{
+    width: 100%;
+    height: 40px;
+    background: #ffa366;
     opacity: 0;
+    position: absolute;
+    z-index: 8;
 
 }
 
 
 
-.looks-pics:hover  .text {
+.looks-pics:hover .text {
   opacity: 0.6;
   text-align: center;
   color: black;
-  font-size: 27px;
-  font-family: "Times New Roman";
-  
+  font-size: 27px;    
+  transform: translate(0,-100%);
 }
-

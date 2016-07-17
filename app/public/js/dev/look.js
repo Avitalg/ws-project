@@ -13,12 +13,16 @@ var Look = angular.module('Look', [ 'ngRoute',  'UserService'])
         templateUrl: 'looks.html',
         controller: 'LookCtrl'
         })
+      .when('/look.html', {
+        templateUrl: 'look.html',
+        controller: 'lookCtrl'
+        })
       .when('/account.html', {
         templateUrl: 'account.html',
         controller: 'AccountCtrl'
         })
       .otherwise({
-        redirectTo: '/'
+  //      redirectTo: '/'
       });
 
       

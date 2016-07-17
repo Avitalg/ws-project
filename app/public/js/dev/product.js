@@ -5,9 +5,9 @@ var categories = angular.module('product', ['ngRoute', 'UserService'])
         templateUrl: 'product.html',
         controller: 'productCtrl'
         })
-      .when('/product.html?id=', {
-        templateUrl: 'product.html',
-        controller: 'productCtrl'
+      .when('/look.html', {
+        templateUrl: 'look.html',
+        controller: 'lookCtrl'
         })
       .when('/shop.html', {
         templateUrl: 'shop.html',

@@ -34,6 +34,7 @@ app.post('/api/updateLook', looks.updateLook);
 app.get('/api/removeLook/:look', looks.removeLook);
 app.post('/api/addStepToLook', looks.addStepToLook);
 app.get('/api/removeStepFromLook/:look/:number', looks.removeStepFromLook);
+app.get('/api/getLookSteps/:look', looks.getLookSteps);
 
 
 // //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CATEGORY~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

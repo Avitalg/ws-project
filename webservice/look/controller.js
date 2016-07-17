@@ -182,3 +182,35 @@ exports.removeStepFromLook = function(req,res){
 	}
 	return;
 }
+
+exports.getLookSteps = function(req, res){
+	var _look = req.params.look;
+
+	if(!_look){
+		res.status(404);
+		res.json({"error":"Look name wasn't entered"});
+	}else{
+		Look.findOne({'look':_look}, function(err, steps){
+			if(err){
+				res.status(500);
+				res.json({"error":err});
+			}else if(!steps){
+				res.status(404);
+				res.json([{"error":"Look doesn't exist"}]);
+			}else{
+				
+				var sortArray = steps['steps'];
+				sortArray.sort(function(a,b) {
+				    if ( a.number < b.number )
+				        return -1;
+				    if ( a.number > b.number )
+				        return 1;
+				    return 0;
+				} );
+				res.status(200);
+				res.json(sortArray);
+			}
+		});
+	}
+	return;
+}

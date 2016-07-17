@@ -158,7 +158,11 @@ exports.getCategoryProducts = function(req, res){
 };
 
 exports.getWishList = function(req,res){
-	username= req.params.username;
+	var username= req.params.username;
+	var numsort = function (a, b) {
+	    return a - b;
+	}
+
 	if(!username){
 		res.status(404);
 		res.json({"error":"Username wasn't supplied"});
@@ -171,12 +175,14 @@ exports.getWishList = function(req,res){
 				res.status(404);
 				res.json({"error":"User doesn't exist"});
 			}else{	
+				wishList.wish_list.sort(numsort);
 				Product.find({"id":{$in:wishList.wish_list}},function(err,data){
 					if(err){
 						res.status(500);
 						res.json({"error": err});
 					}else{
 						res.status(200);
+
 						res.json(data);
 					}
 					

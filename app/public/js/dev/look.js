@@ -57,47 +57,43 @@ Look.controller('lookCtrl', ['$scope','$http','$location','$window','user',
             console.log(data);
         });
     };
-    $http.get("https://webserviceproj.herokuapp.com/api/getLook/"+prodlook)
+
+    $scope.buttons = function(pos) {
+      switch(pos){
+        case "left":
+          if($scope.slide>1) {
+            $('#prodItem-'+$scope.slide).fadeOut();
+            $scope.slide--;
+          }
+          else{
+            $('.prodItem').fadeIn();
+            $scope.slide = $scope.numLooks;
+          }  
+          break;
+        case "right":
+          if($scope.slide< $scope.numLooks) {
+            $scope.slide++;
+            $('#prodItem-'+$scope.slide).fadeIn();
+          }
+          else{
+            $scope.slide=1;
+            $('.prodItem').fadeOut();
+            $('#prodItem-1').fadeIn();
+          } 
+          break;
+      }
+ 
+  };
+
+  $http.get("https://webserviceproj.herokuapp.com/api/getLookSteps/"+prodlook)
     .success(function(data){
        // console.log(data);
-         $scope.mylook = data.steps; //mylook=steps
-         $scope.numLooks = data.steps.length;
+         $scope.mylook = data; //mylook=steps
+         $scope.numLooks = data.length;
           angular.forEach($scope.mylook,function(step){
              $scope.getProd(step.product_id); //in a loop getprod gets id of product
           });
-
-
-          $scope.getIndex = function(pos) {
-            switch(pos){
-              case "left":
-                if($scope.slide>1) {
-                  $('#prodItem-'+$scope.slide).fadeOut();
-                  $scope.slide--;
-                }
-                else{
-                $('.prodItem').fadeIn();
-                 $scope.slide = $scope.numLooks;
-                }  
-                break;
-              case "right":
-                if($scope.slide< $scope.numLooks) {
-                  $scope.slide++;
-                  $('#prodItem-'+$scope.slide).fadeIn();
-                }
-                else{
-                  $scope.slide=1;
-                  $('.prodItem').fadeOut();
-                  $('#prodItem-1').fadeIn();
-                } 
-                break;
-            }
-
-        
-     };
-
-
-    
-
+ 
     })
     .error(function(data, status){
         $window.location.href = '/index.html';

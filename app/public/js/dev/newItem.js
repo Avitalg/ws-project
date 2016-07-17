@@ -13,6 +13,10 @@ $(document).ready(function(){
 
     }
   });
+
+  if(!localStorage['admin']){
+    $('.new-item').html('הדף אינו זמין');
+  }
 });
 
 
@@ -26,7 +30,7 @@ function onSignIn(googleUser) {
                 this.loggedIn=true; 
 
                 localStorage.setItem("email",profile.getEmail());
-                console.log(localStorage.email);
+
                 if(localStorage["email"]=="avitalg91@gmail.com"){
                     localStorage.setItem("admin",true);
                     $(".manage-page").show();
@@ -34,29 +38,24 @@ function onSignIn(googleUser) {
                     localStorage.setItem("admin",false);
                 }
 
-                 $.get("https://webserviceproj.herokuapp.com/api/addUser/"+localStorage.email+"/"+localStorage.admin, function(data, status){
-                    alert("Data: " + data + "\nStatus: " + status);
-                });
+                if(!localStorage["email"]){
+                   $.get("https://webserviceproj.herokuapp.com/api/addUser/"+localStorage.email+"/"+localStorage.admin, function(data, status){
+                  });
+                }
 
 
-          //  $http.get("https://webserviceproj.herokuapp.com/api/addUser/"+localStorage.email+"/"+localStorage.admin)
-          // .success(function(data){
-          //     if(data["success"]){
-          //       $(".hello-user").html("תודה על הצטרפותך");
-          //     } else if(data["error"]){
-          //       $(".hello-user").html("שמחים שחזרת אלינו");
-          //           $http.get("https://webserviceproj.herokuapp.com/api/getUser/"+localStorage.email)
-          //           .success(function(data){
-          //               if(data["admin"]){
-          //                   $(".manage-page").show();
-          //               }
-          //           });
-          //     }
-          // })
-          // .error(function(data, status){
-          //     console.log(data);
-          // });
 };
 
 
+ function onSignOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.disconnect().then(function () {
+    $('#loggedIn').hide();
+    $('.g-signin2').show();
+    $('.account').hide();
+    $('.manage-page').hide();
+    localStorage.removeItem("email");
+    localStorage.removeItem("admin");
+    });
 
+  };

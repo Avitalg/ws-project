@@ -121,6 +121,10 @@ body{
     direction: rtl;
 }
 
+.new-item{
+    direction: rtl;
+}
+
 //------shop page---------
 
 .shop_menu li{

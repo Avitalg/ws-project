@@ -3,6 +3,8 @@
 require 'php/cloudinary/Cloudinary.php';
 require 'php/cloudinary/Uploader.php';
 
+error_reporting(0);
+
 Cloudinary::config(array(
      "cloud_name" => "desbjknxm",
     "api_key" => "513781999244473",
@@ -76,7 +78,7 @@ if (isset($_POST["submit"])) {
 
 ?>
 <!DOCTYPE HTML>
-<html ng-app="myApp">
+<html>
 <head>
     <link rel="stylesheet" href="css/lib/bootstrap.min.css">
     <link rel="stylesheet" href="css/lib/bootstrap-theme.min.css">
@@ -90,46 +92,8 @@ if (isset($_POST["submit"])) {
     <link rel="stylesheet" href="css/dev/newItem.css">
     <script src="js/dev/newItem.js"></script>
     <title>הוספת פריט</title>
-    <script>
-    function onSignOut(gapi) {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.disconnect().then(function () {
-    console.log('User signed out.');
-    $('#loggedIn').hide();
-    $('.g-signin2').show();
-    $('.account').hide();
-    $('.manage-page').hide();
-    localStorage.removeItem("email");
-    localStorage.removeItem("admin");
-    });
-  };
-
-  function onSignIn(googleUser) {
-         // Useful data for your client-side scripts:
-               $('#loggedIn').show();
-               $('.g-signin2').hide();
-               $('.account').show();
-                var profile = googleUser.getBasicProfile();
-                $('#loggedIn .greeting').html("שלום "+profile.getName());
-                this.loggedIn=true; 
-
-                localStorage.setItem("email",profile.getEmail());
-                console.log(localStorage.email);
-                if(localStorage["email"]=="avitalg91@gmail.com"){
-                    localStorage.setItem("admin",true);
-                    $(".manage-page").show();
-                }else{
-                    localStorage.setItem("admin",false);
-                }
-
-                 $.get("https://webserviceproj.herokuapp.com/api/addUser/"+localStorage.email+"/"+localStorage.admin, function(data, status){
-                    alert("Data: " + data + "\nStatus: " + status);
-                });
-               }
-
-    </script>
 </head>
-<body ng-controller="UserCtrl">
+<body >
     <nav class="user-menu navbar">
     <div id="user">
         <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" ></div><br>
@@ -153,7 +117,7 @@ if (isset($_POST["submit"])) {
     </div>
   </nav>
 
-   <div class="container">
+   <div class="container new-item">
         <div class="addItem">
             <h1>פריט חדש</h1>
             <form method="post" enctype="multipart/form-data">

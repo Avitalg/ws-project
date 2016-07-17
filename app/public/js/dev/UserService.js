@@ -27,6 +27,7 @@ var UserService = angular.module('UserService', [])
                     .success(function(data){
                         if(data["admin"]){
                             $(".manage-page").show();
+                            localStorage["admin"] = data["admin"];
                         }
                     });
 	            }

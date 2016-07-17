@@ -60,26 +60,31 @@ if (isset($_POST["submit"])) {
 </head>
 <body id="itemCtrl">
     <nav class="user-menu navbar">
-    <div id="user">
-        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" ></div><br>
-    </div>
-    <ul>
-      <li id="loggedIn"><span class="greeting"></span> <a class="signOut" onclick="onSignOut()">התנתק</a></li>
-      <li class="account"><a href="account.html">סל קניות</a></li>
-      <li class="manage-page"><a href="managePage.html">עמוד ניהול</a></li>
-    </ul>
-  </nav>
-  <nav class="main-menu navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a href="#" class="navbar-brand" id="logo"></a>
+      <div id="user">
+          <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" ></div><br>
       </div>
-      <ul class="nav navbar-nav">
-        <li><a class="active" href="index.html">עמוד הבית</a></li>
-        <li><a href="shop.html">מוצרים</a></li>
-        <li><a href="looks.html">מראות-איפור</a></li>
+      <ul>
+        <li id="loggedIn"><span class="greeting"></span> <a class="signOut" ng-click="signOut()">התנתק</a></li>
+        <li class="account"><a ext-link href="account.html">סל קניות</a></li>
+        <li><a href="#">צור קשר</a></li>
+        <li><a href="#">מועדון הלקוחות</a></li>
+        <li class="manage-page"><a ext-link href="managePage.html">עמוד ניהול</a></li>
       </ul>
-    </div>
+    </nav>
+    <nav class="main-menu navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand" id="logo"></a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a ext-link href="index.html">בית של אופנה</a></li>
+          <li><a href="#">פוטפוליו</a></li>
+          <li><a ext-link href="shop.html">מוצרים</a></li>
+          <li><a ext-link href="looks.html">מראות-איפור</a></li>
+          <li><a href="#">סדנאות</a></li>
+          <li><a href="#">תקשורת</a></li>
+        </ul>
+      </div>
   </nav>
 
    <div id="managePage" class="container">

@@ -15,7 +15,6 @@
   <link rel="stylesheet" href="css/dev/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <meta charset="UTF-8">
   <title>מראה איפור</title>
    <script>
@@ -28,28 +27,32 @@
 </head>
 <body  id="lookCtrl" ng-controller="lookCtrl">
   <nav class="user-menu navbar">
-    <div id="user">
-        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" ></div><br>
-    </div>
-    <ul>
-      <li id="loggedIn"><span class="greeting"></span> <a class="signOut" ng-click="signOut()">התנתק</a></li>
-      <li class="account"><a href="account.html" ext-link>סל קניות</a></li>
-      <li class="manage-page"><a href="managePage.html" ext-link>עמוד ניהול</a></li>
-    </ul>
-  </nav>
-  <nav class="main-menu navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a href="index.html" class="navbar-brand" id="logo"></a>
+      <div id="user">
+          <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" ></div><br>
       </div>
-      <ul class="nav navbar-nav">
-        <li><a ext-link class="active" href="index.html">עמוד הבית</a></li>
-        <li><a ext-link href="shop.html">מוצרים</a></li>
-        <li><a ext-link href="looks.html">מראות-איפור</a></li>
+      <ul>
+        <li id="loggedIn"><span class="greeting"></span> <a class="signOut" ng-click="signOut()">התנתק</a></li>
+        <li class="account"><a ext-link href="account.html">סל קניות</a></li>
+        <li><a href="#">צור קשר</a></li>
+        <li><a href="#">מועדון הלקוחות</a></li>
+        <li class="manage-page"><a ext-link href="managePage.html">עמוד ניהול</a></li>
       </ul>
-    </div>
+    </nav>
+    <nav class="main-menu navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand" id="logo"></a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a ext-link href="index.html">בית של אופנה</a></li>
+          <li><a href="#">פוטפוליו</a></li>
+          <li><a ext-link href="shop.html">מוצרים</a></li>
+          <li><a ext-link href="looks.html">מראות-איפור</a></li>
+          <li><a href="#">סדנאות</a></li>
+          <li><a href="#">תקשורת</a></li>
+        </ul>
+      </div>
   </nav>
-
   <div class="container">
   
   <div id= "wrapper">
@@ -68,34 +71,39 @@
         <div class="carousel-inner" role="listbox">
         <div class="item active" >
           <img ng-src={{mylook[0].face_image}}>
-          </div>
+        </div>
 
           <div class="item" ng-repeat="look in mylook" ng-if="$index >= 1">
-          <img ng-src={{look.face_image}}>
+            <img ng-src={{look.face_image}}>
           </div>
         </div>
         
         <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" role="button" ng-click="getIndex('left')" data-slide="prev">
+        <a class="left carousel-control gallery-arrow" href="#myCarousel" role="button" ng-click="getIndex('left')" data-slide="prev">
           <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
         </a>
-        <a class="right carousel-control" href="#myCarousel" role="button"  ng-click="getIndex('right')" data-slide="next">
+        <a class="right carousel-control gallery-arrow" href="#myCarousel" role="button"  ng-click="getIndex('right')" data-slide="next">
           <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
            </a>
           </div>
         </div>
-        
+
       <div class="clear"></div>
+      <div id ="prodLook">
+        <div ng-repeat="products in prod " class="prodItem" id="prodItem-{{$index + 1}}">
+          <img ng-src={{products.product.image}}>
+          <div class="prod-details">
+            <span class="item-title">{{products.product.name}}</span><br>
+            <span class="item-price">{{products.product.price}}</span>
+          </div>
+        </div>
+      </div>
 
    </div>
      
-      <div id ="prodLook">
-        <div ng-repeat="products in prod " class="prodItem" id="prodItem-{{$index + 1}}">
-          <a ext-link href="#"><img ng-src={{products.product.image}}></a>
-        </div>
-      </div>
+      
   </div>
   <script>
    

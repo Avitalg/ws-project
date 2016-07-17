@@ -15,7 +15,7 @@ html, body {
 }
 
 body{
-    font-family: Arial, sans-serif;
+    font-family: Arial,Helvetica,sans-serif;
 }
 
 //----Main Nav-------
@@ -48,10 +48,17 @@ body{
 
 .user-menu li a, .user-menu li a:visited, .user-menu li a:hover, .user-menu li a:active {
     color: #646568;
+    font-size: 12px;
     text-decoration: none;
 }
 
+.user-menu li a:hover{
+    color:#333;
+}
+
 .greeting{
+    color: #646568;
+    font-size: 12px;
     font-weight: 700;
 }
 
@@ -63,7 +70,7 @@ body{
 
 .main-menu li {
     float: right;
-    margin-left: 24px;
+    margin-left: 17px;
     width: 100px;
     text-align: center;
     font-size: 15px;
@@ -74,11 +81,12 @@ body{
 }
 
 
-.main-menu li a, .main-menu li a:visited, .main-menu li a:active {
+.main-menu li a, .main-menu li a:visited, .main-menu li a:active,.main-menu li a:hover, .main-menu li a:focus {
     color: #646568;
     text-decoration: none;
     padding: 0;
     margin-top: 30px;
+    outline: 0;
 
 }
 
@@ -224,12 +232,20 @@ body{
   }
 
 .lookDetails{
-    height: 100%;
     width: 100px;
     float: left;
     text-align: right;
     font-size: 11px;
-  }
+    background: linear-gradient(#fff,#f3f2ee);
+    color: #58595B;
+    margin: 0;
+    bottom: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    vertical-align: bottom;
+    transform: translateX(-100%);
+}
 
 #mygallery{
     width: 80%;
@@ -246,14 +262,41 @@ body{
 }
 
 .prodItem{
-     height: 111px;
-     width: 111px;
-     border-style:dotted;
+    text-align: center;
+    border-style:dotted;
     border-width: 1px;
     float: left;
     display: none;
 }
 
+.prodItem img{
+    border: 1px dotted #666;
+}
+
+.prodItem a{
+    cursor: pointer;
+    text-decoration: none;
+    color: #646568;
+}
+
+.prod-details{
+     text-align: right;
+     padding-right: 4px;
+     border: 1px dotted #666;
+     font-size: 11px;
+}
+
+.gallery-arrow{    
+    width: 17px;
+    background: linear-gradient(#fff,#f3f2ee);
+    border: 1px dotted rgba(0,0,0,0.5);
+}
+
+.gallery-arrow span.glyphicon{
+    font-size: 20px;
+    margin: -13px;
+    color: #231
+}
 
 //---------WishList--------
 
@@ -299,6 +342,7 @@ ul.wish-item a, ul.wish-item a:hover, ul.wish-item a:active, ul.wish-item a:visi
     height: 40px;
     background: #ffa366;
     opacity: 0;
+    color: #222;
     position: absolute;
     z-index: 8;
 

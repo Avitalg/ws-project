@@ -286,3 +286,23 @@ ul.wish-item a, ul.wish-item a:hover, ul.wish-item a:active, ul.wish-item a:visi
     font-size: 15px;
 }
 
+.text{
+    width:200px;
+    height: 20px;
+    background: #FFF;
+    opacity: 0;
+}
+
+
+
+.looks-pics:hover  .text {
+  opacity: 0.6;
+  text-align: center;
+  color: black;
+  font-size: 20px;
+ /*font-weight: 700;*/
+  font-family: "Times New Roman";
+  /*background-color:  #ffa366;*/
+
+}
+

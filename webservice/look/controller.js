@@ -40,7 +40,6 @@ exports.getLook = function(req, res){
 exports.updateLook= function(req,res){
 	var _look = req.body.look,
 		_image = req.body.url;
-		_image_hover=req.body.url;
 
 	if(!_look){
 		res.status(500);
@@ -57,7 +56,6 @@ exports.updateLook= function(req,res){
 			} else {
 				look.look = _look;
 			  	look.image = _image;
-			  	look.image_hover=_image_hover;
 			  	look.save();
 			  	res.status(200);
 			  	res.json({"success":"succeed update look."});
@@ -89,7 +87,6 @@ exports.removeLook = function(req,res){
 exports.addLook = function(req,res){
 	var _look = req.body.look,
 		_image = path.normalize(req.body.url);
-		_image_hover=path.normalize(req.body.url);
 
 	if(!_look){
 		res.status(500);
@@ -98,7 +95,6 @@ exports.addLook = function(req,res){
 		var look = new Look({
 		  look: _look,
 		  image: _image,
-		  image_hover=_image_hover;
 		  steps: []
 		});
 
@@ -122,7 +118,6 @@ exports.addStepToLook = function(req,res){
 	var _number = req.body.number,
 		_look = req.body.look,
 		_image = req.body.url,
-		_image_hover= req.body.url,
 		_desc = req.body.desc,
 		_prod = req.body.prodId;
 

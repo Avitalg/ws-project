@@ -3,6 +3,8 @@
 require 'php/cloudinary/Cloudinary.php';
 require 'php/cloudinary/Uploader.php';
 
+error_reporting(0);
+
 Cloudinary::config(array(
     "cloud_name" => "desbjknxm",
     "api_key" => "513781999244473",
@@ -59,13 +61,13 @@ if (isset($_POST["submit"])) {
     <script src="js/dev/newItem.js"></script>
     <title>הוספת מוצר למראה איפור</title>
 </head>
-<body id="itemCtrl" ng-controller="itemCtrl">
+<body id="itemCtrl">
     <nav class="user-menu navbar">
     <div id="user">
         <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" ></div><br>
     </div>
     <ul>
-      <li id="loggedIn"><span class="greeting"></span> <a class="signOut" ng-click="signOut()">התנתק</a></li>
+      <li id="loggedIn"><span class="greeting"></span> <a class="signOut" onclick="onSignOut()">התנתק</a></li>
       <li class="account"><a href="account.html">סל קניות</a></li>
       <li class="manage-page"><a href="managePage.html">עמוד ניהול</a></li>
     </ul>

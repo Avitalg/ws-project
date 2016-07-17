@@ -70,7 +70,10 @@ Look.controller('lookCtrl', ['$scope','$http','$location','$window','user',
                   $('#prodItem-'+$scope.slide).fadeOut();
                   $scope.slide--;
                 }
-                else $scope.slide = $scope.numLooks;
+                else{
+                $('.prodItem').fadeIn();
+                 $scope.slide = $scope.numLooks;
+                }  
                 break;
               case "right":
                 if($scope.slide< $scope.numLooks) {

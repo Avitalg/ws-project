@@ -64,7 +64,7 @@ if (isset($_POST["submit"])) {
         <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" ></div><br>
     </div>
     <ul>
-      <li id="loggedIn"><span class="greeting"></span> <a class="signOut" ng-click="signOut()">התנתק</a></li>
+      <li id="loggedIn"><span class="greeting"></span> <a class="signOut" onclick="onSignOut()">התנתק</a></li>
       <li class="account"><a href="account.html">סל קניות</a></li>
       <li class="manage-page"><a href="managePage.html">עמוד ניהול</a></li>
     </ul>

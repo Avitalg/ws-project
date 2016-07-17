@@ -117,6 +117,10 @@ body{
     color: black;
 }
 
+#UserCtrl .container{
+    direction: rtl;
+}
+
 //------shop page---------
 
 .shop_menu li{
@@ -144,28 +148,24 @@ body{
     width: 110px;
     float: left;
 }
-#prodDiv{
-   border-style: solid;
-    border-width: 5px;
-    width: 117px;
+.prodDiv{
+    border: 1px solid #000;
+    text-align: center;
+    margin: 5px;
+    min-width: 150px;
     float: left;
     position: relative;
-    margin-top: 60px;
-    margin-right: -2%;
-    margin-left: 8%;
+    cursor: pointer;
 }
 
-
-#prodImg{
-     height: 111px;
-    width: 111px;
-    border-style: solid;
-    border-width: 5px;
-}
-
-#prodDiv a{
+.prodDiv a{
     color: rgba(255,255,255,.15);
     text-decoration: none;
+}
+
+#prodsWrap{
+    width:90%;
+    margin: 0 auto;
 }
 
 //-------looks page--------
@@ -201,6 +201,7 @@ body{
 }
 
 .looks-items{
+    margin: 0 auto;
     width:80%;
 }
 
@@ -214,7 +215,7 @@ body{
       margin: auto;
   }
 
-  .lookDetails{
+.lookDetails{
     height: 100%;
     width: 100px;
     float: left;

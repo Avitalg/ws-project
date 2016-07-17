@@ -18,7 +18,7 @@ var MakeUpApp = angular.module('MakeUpApp',[  'ngRoute', 'UserService'])
         controller: 'productCtrl'
         })
       .otherwise({
-//        redirectTo: '/'
+ //        redirectTo: '/'
       });
 
       

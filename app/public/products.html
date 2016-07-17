@@ -44,10 +44,10 @@
       </ul>
     </div>
   </nav>
-    <div ng-repeat="product in products.products" >
-        <div id="prodDiv">
-          <a ext-link href="product.html?id={{product.id}}"><div id ="prodImg"><img ng-src={{product.image}}></div></a>
-          <div id="prodDes">{{product.name}}</div>
+    <div id="prodsWrap" ng-repeat="product in products.products" >
+        <div class="prodDiv">
+          <a ext-link href="product.html?id={{product.id}}"><div class="prodImg"><img ng-src={{product.image}}></div></a>
+          <div class="prodDes">{{product.name}}</div>
         </div>
     </div>
 

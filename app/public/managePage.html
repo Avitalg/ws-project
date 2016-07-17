@@ -17,7 +17,6 @@
       <title>עמוד ניהול</title>
       <script>
         function onSignIn(googleUser) {   // when user auth this function will call
-         console.log("loggedIn");
          angular.element(document.getElementById('UserCtrl')).scope().signIn(googleUser);
 
         };

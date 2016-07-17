@@ -16,7 +16,6 @@
     <title>מראות איפור</title>
     <script>
       function onSignIn(googleUser) {   // when user auth this function will call
-       console.log("loggedIn");
        angular.element(document.getElementById('LookCtrl')).scope().signIn(googleUser);
 
       };
@@ -52,7 +51,7 @@
   </nav>
     <div id="wrapper">
       <div class="looks-items">
-        <div ng-repeat="looks in mylook.looks"  class="looks-pics">
+        <div ng-repeat="looks in mylook.looks"  class="looks-pics" id="look_{{looks.look}}">
             <a href="look.html?look={{looks.look}}">   
                 <img ng-src={{looks.image}}>
                 <p class="text">{{looks.look}}</p>

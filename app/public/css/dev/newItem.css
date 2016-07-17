@@ -19,4 +19,6 @@ input[type="file"]{
 .addItem{
     float: right;
     width: 50%;
+    direction: rtl;
+
 }

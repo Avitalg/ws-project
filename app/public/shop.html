@@ -18,7 +18,6 @@
 	<title>Shop</title>
   <script>
       function onSignIn(googleUser) {   // when user auth this function will call
-       console.log("loggedIn");
        angular.element(document.getElementById('shopCtrl')).scope().signIn(googleUser);
 
       };

@@ -17,7 +17,6 @@
     <script src="js/dev/user.js"></script>
     <script>
       function onSignIn(googleUser) {   // when user auth this function will call
-       console.log("loggedIn");
        angular.element(document.getElementById('userCtrl')).scope().signIn(googleUser);
 
       };

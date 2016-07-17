@@ -339,8 +339,8 @@ ul.wish-item a, ul.wish-item a:hover, ul.wish-item a:active, ul.wish-item a:visi
 
 .looks-items .text{
     width: 100%;
-    height: 40px;
-    background: #ffa366;
+    height: 45px;
+    line-height: 45px;
     opacity: 0;
     color: #222;
     position: absolute;
@@ -348,10 +348,29 @@ ul.wish-item a, ul.wish-item a:hover, ul.wish-item a:active, ul.wish-item a:visi
 
 }
 
+#look_fresh .text {
+    background: #FBFBFB;
+    color: #2AB0A9;
+}
 
+#look_smoky .text {
+    background: #EEE6FB;
+    color: #2B2725;
+}
+
+
+#look_color .text {
+    background: #FAEDE5;
+    color: #EF2F5B;
+}
+
+#look_glam .text {
+    background: #FBEFFB;
+    color: #CC459E;
+}
 
 .looks-pics:hover .text {
-  opacity: 0.6;
+  opacity: 0.7;
   text-align: center;
   color: black;
   font-size: 27px;    

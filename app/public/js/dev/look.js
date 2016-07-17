@@ -87,7 +87,6 @@ Look.controller('lookCtrl', ['$scope','$http','$location','$window','user',
 
   $http.get("https://webserviceproj.herokuapp.com/api/getLookSteps/"+prodlook)
     .success(function(data){
-       // console.log(data);
          $scope.mylook = data; //mylook=steps
          $scope.numLooks = data.length;
           angular.forEach($scope.mylook,function(step){

@@ -44,10 +44,16 @@ exports.addProduct = function(req,res){
 		Product.findOneAndUpdate({'id': _id}, prod, {upsert:true}, 
 			function(err, doc){
    				if (err){
-   					res.status(500);
-   					res.json({ error: err });
+   					console.log(err);
+   					if(err.code==66){
+   						res.status(200);
+   						res.json({ error: "Product already exists" });
+   					}else{
+   						res.status(500);
+   						res.json({ error: err });
+   					}
+   						
    				}else{
-   					console.log(prod);
    					res.status(200);
    					res.json({"success":"Product was saved"});
    				}

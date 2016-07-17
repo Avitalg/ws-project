@@ -15,6 +15,23 @@ li{
     margin: 0 auto;
 }
 
-#face, #eyes, #tools, #lips{
-    margin: 10px;
+#face, #eyes, #tools, #lips {
+    margin: 11px;
+}
+
+#face :hover {
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+#tools :hover{
+     opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+#eyes :hover{
+     opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+#lips :hover{
+     opacity: 0.8;
+    filter: alpha(opacity=80);
 }

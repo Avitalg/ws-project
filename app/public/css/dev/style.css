@@ -18,6 +18,11 @@ body{
     font-family: Arial,Helvetica,sans-serif;
 }
 
+//-----Account----
+div.err-msg{
+    float: right;
+}
+
 //----Main Nav-------
 .main-menu{
     background: #fff;
@@ -135,15 +140,103 @@ body{
     direction: rtl;
 }
 
+.manage-nav li{
+    border-bottom: 1px black dotted;
+    max-width: 300px;
+  }
+
+ ul.manage-nav {
+    list-style: none;
+}
+
+.manage-nav a {
+    color: #777;
+    font-size: 14px;
+}
+
+
+.form-control{
+    height:inherit;
+}
+
+.input{
+    margin-bottom: 10px;
+}
+
+input[type="file"]{
+   width: inherit;
+}
+
+.imageUpload{
+    float: left;
+    width: 45%;
+    margin-top: 5px;
+}
+
+.addItem{
+    float: right;
+    width: 50%;
+    direction: rtl;
+
+}
+
 //------shop page---------
 
-.shop_menu li{
+#shopCtrl .shop_menu li{
 	float: left;
+    list-style-type: none;
+
 }
 
-.shop_menu ul{
+#shopCtrl .shop_menu ul{
 	 list-style-type: none;
 }
+
+
+#shopCtrl .shop_menu li{
+    float: left;
+}
+
+#shopCtrl li{
+    float:right;
+    list-style-type: none;
+}
+
+#shopCtrl .shop_menu{
+    width: 80%;
+    margin: 0 auto;
+    transform: translate(-50%,-50%);
+    position: relative;
+    left: 50%;
+    text-align: right;
+
+}
+
+#shopCtrl .container{
+    margin: 0 auto;
+}
+
+#shopCtrl .cateory-space {
+    margin: 11px;
+}
+
+#shopCtrl #face :hover {
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+#shopCtrl #tools :hover{
+     opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+#shopCtrl #eyes :hover{
+     opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+#shopCtrl #lips :hover{
+     opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+
 
 
 //------product page---------
@@ -156,6 +249,103 @@ body{
 	float:right;
 	border-bottom: 3px solid black;
 }
+
+
+
+#productCtrl{
+     direction: rtl;
+}
+
+#productCtrl .productDetails{
+    width: 35%;
+}
+
+#productCtrl .productHead{
+    border-bottom: 1px solid gray;
+}
+
+#productCtrl .productHead h4{
+    font-weight: 700;
+}
+
+#productCtrl .buyProd {
+    /* width: 128px; */
+    border: 1px dotted gray;
+    /* float: right; */
+    position: absolute;
+    padding: 0px 0px 2px 36px;
+    margin: 7px 141px;
+}
+
+#productCtrl .buyProd p{
+    padding: 0;
+    margin: 0;
+}
+
+#productCtrl .buyProd h6{
+    margin: 0;
+    font-size: 12px;
+}
+
+#productCtrl .container section{
+    float: right;
+}
+
+#productCtrl .buyProd p{
+    font-size: 10px;
+}
+
+#productCtrl .prodData p{
+        padding-top: 8px;
+        height: 158px;
+}
+
+#productCtrl .prodPic img{
+    border: 1px dotted gray;
+}
+
+#productCtrl .prodPic{
+    padding: 38px 48px 0px 0px;
+}
+
+#productCtrl #add_cart a{
+    background: url('../../images/cart.jpg') 0 0;
+    display: block;
+    width: 92px;
+    border: 1px dotted gray;
+    height: 30px;
+}
+
+#productCtrl #add_cart a:hover{
+    background: url('../../images/cart.jpg') 82px 0;
+    display: block;
+    width: 92px;
+    height: 30px;
+}
+
+#productCtrl .cart #add_cart{
+    float:left;
+}
+
+#productCtrl .cart .desc{
+    float: left;
+    border: 1px dotted gray;
+    height: 30px;
+    padding: 0 7px;
+}
+
+#productCtrl .cart{
+    width: 197px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 11px;
+    float: left;
+}
+
+#productCtrl .cart-msg{
+    font-weight: 700;
+}
+
 
 //-------products page--------
 .container{
@@ -170,6 +360,10 @@ body{
     float: left;
     position: relative;
     cursor: pointer;
+}
+
+.prodsWrap{
+    direction: rtl;
 }
 
 .prodDiv a{

@@ -16,7 +16,6 @@ account.controller('AccountCtrl', function($scope, $http, $window, user){
         user.onSignIn(googleUser);
     }
     $scope.checkUser = function(){
-    	console.log("user");
     	if(localStorage["email"]){
     		return true;
     	}
@@ -26,8 +25,6 @@ account.controller('AccountCtrl', function($scope, $http, $window, user){
     $scope.rmoveFromCart = function(prodId){
     	$http.get("https://webserviceproj.herokuapp.com/api/removeFromWishList/"+localStorage.email+"/"+prodId)
 		.success(function(wishList){
-			console.log("wish");
-			console.log(wishList);
 			for(var i=0; i<$scope.wishList.length;i++){
 				if($scope.wishList[i].id == prodId){
 					$scope.wishList.splice(i,1);
@@ -36,7 +33,7 @@ account.controller('AccountCtrl', function($scope, $http, $window, user){
 			}
 		})
 		.error(function(err, status){
-			console.log(err);
+			$('.err-msg').html("תקלה במחיקת פריט");
 		});
     }
 
@@ -44,11 +41,9 @@ account.controller('AccountCtrl', function($scope, $http, $window, user){
     	$http.get("https://webserviceproj.herokuapp.com/api/getWishList/"+localStorage.email)
 		.success(function(wishList){
 			$scope.wishList = wishList;
-			console.log("wish");
-			console.log(wishList);
 		})
 		.error(function(err, status){
-			console.log(err);
+			$('.err-msg').html("תקלה מערכתית");
 		});
     } else {
     	var msg = angular.element("<p class='msg'>אינך מחובר.</p>");

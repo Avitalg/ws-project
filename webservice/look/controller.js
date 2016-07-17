@@ -167,10 +167,8 @@ exports.removeStepFromLook = function(req,res){
 				res.status(500);
 				res.json({error:err});
 			} else {
-				console.log("look::"+lookRes.steps[0]);
 				for(var i=0; i<lookRes.steps.length;i++){
 					if(lookRes.steps[i].number == _number){
-						console.log("here");
 						lookRes.steps.pull(lookRes.steps[i]);
 					}
 				}

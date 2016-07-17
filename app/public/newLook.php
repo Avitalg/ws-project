@@ -54,8 +54,7 @@ if (isset($_POST["submit"])) {
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     <link rel="stylesheet" href="css/dev/style.css">
-    <link rel="stylesheet" href="css/dev/newItem.css">
-    <script src="js/dev/newItem.js"></script>
+    <script src="js/dev/manager.js"></script>
     <title>הוספת מראה איפור</title>
 </head>
 <body id="itemCtrl">
@@ -88,7 +87,7 @@ if (isset($_POST["submit"])) {
   </nav>
 
    <div id="managePage" class="container">
-        <div class="addItem">
+        <div class="addItem new-item">
             <h1>מראה חדש</h1>
             <form method="post" enctype="multipart/form-data">
                 <input class="form-control input" type="text" name="look" placeholder="הכנס שם של מראה איפור" required>

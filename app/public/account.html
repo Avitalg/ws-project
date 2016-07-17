@@ -16,7 +16,6 @@
     <script src="js/dev/account.js"></script>
     <script>
       function onSignIn(googleUser) {   // when user auth this function will call
-       console.log("loggedIn");
        angular.element(document.getElementById('AccountCtrl')).scope().signIn(googleUser);
 
       };
@@ -62,5 +61,6 @@
     </a>
     </ul>
   </div>
+  <div class="err-msg"></div>
 </body>
 </html>

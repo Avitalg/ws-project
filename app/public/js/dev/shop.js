@@ -4,10 +4,9 @@ categories.controller('shopCtrl', function($scope, $http, user){
 	$http.get("https://webserviceproj.herokuapp.com/api/getAllCategories")
 	.success(function(data){
 		$scope.catrgories = data;
-		console.log(data);
 	})
 	.error(function(data, status){
-		console.log(data);
+		$('.shop_menu').html('.תקלה מערכתית');
 	});
 
 	$scope.signOut = function(){

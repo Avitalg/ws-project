@@ -52,7 +52,6 @@ categories.controller('productCtrl', ['$scope','$http','$location','$window','$r
       if(localStorage["email"]){
         $http.get("https://webserviceproj.herokuapp.com/api/addToWishList/"+localStorage["email"]+"/"+prodId)
         .success(function(data){
-          console.log(data);
           if(data["success"]){
            $('.cart-msg').html("נוסף בהצלחה.");
           } else {
@@ -70,7 +69,6 @@ categories.directive('extLink', function() {
   return {
     restrict: 'A',
     link: function(scope, elem) {
-      console.log(elem);
       elem.bind('click', function(e) {
         location.reload();
       })

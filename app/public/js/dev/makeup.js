@@ -39,16 +39,11 @@ MakeUpApp.controller('MakeUpCtrl',function($scope, $http, $location, $window, $r
    $http.get("https://webserviceproj.herokuapp.com/api/getCategoryProducts/"+prodId)
    .success(function(data){
           $scope.products.products = data;
-          console.log($scope.products);
 
       })
    .error(function (data, status, header, config) {
-                  $scope.ResponseDetails = "Data: " + data +
-                      "<br />status: " + status +
-                      "<br />headers: " + jsonFilter(header) +
-                      "<br />config: " + jsonFilter(config);
-                      console.log($scope.ResponseDetails);
-              });
+           $('.prodsWrap').html("תקלה במערכת");
+      });
 
    $scope.signOut = function(){
         user.onSignOut($window.gapi);
@@ -64,7 +59,6 @@ MakeUpApp.directive('extLink', function() {
   return {
     restrict: 'A',
     link: function(scope, elem) {
-      console.log(elem);
       elem.bind('click', function(e) {
         location.reload();
       })

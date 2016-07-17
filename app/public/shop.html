@@ -14,7 +14,6 @@
 	<link rel="stylesheet" href="css/lib/bootstrap.min.css">
 	<link rel="stylesheet" href="css/lib/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="css/dev/style.css">
-	<link rel="stylesheet" href="css/dev/shop.css">
 	<title>Shop</title>
   <script>
       function onSignIn(googleUser) {   // when user auth this function will call
@@ -53,7 +52,7 @@
   </nav>
 		<div class="shop_menu">
 			<ul>
-				<li ng-repeat="category in catrgories" id ={{category.name}}>
+				<li ng-repeat="category in catrgories" id={{category.name}} class="cateory-space">
           <a href="products.html?category={{category.name}}">
             <img ng-src="{{category.image}}" alt="{{category.name}}" title="{{category.name}}" >
             <div class="shophover"></div>

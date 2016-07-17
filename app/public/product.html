@@ -2,7 +2,7 @@
 <html lang="en" ng-app="product">
 <head>
 	<meta charset="UTF-8">
-    <base href="/2015-2016/ws1/dev_193/">
+	<base href="/2015-2016/ws1/dev_193/">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="js/lib/angular/angular.min.js"></script>
 	<script src="js/lib/angular/angular-route.min.js"></script>
@@ -15,8 +15,7 @@
 	<link rel="stylesheet" href="css/lib/bootstrap.min.css">
 	<link rel="stylesheet" href="css/lib/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="css/dev/style.css">
-	<link rel="stylesheet" href="css/dev/product.css">
-	<title>Product</title>
+	<title>עמוד מוצר</title>
 	<script>
       function onSignIn(googleUser) {   // when user auth this function will call
        angular.element(document.getElementById('productCtrl')).scope().signIn(googleUser);
@@ -69,14 +68,14 @@
 			</div>
 
 			<div class="cart">
-				<div class="desc">	
-					<span>{{prod.name}}</span><br>
-					<span>{{prod.price}}</span>
-				</div>
 				<p id="add_cart">
 					<a  href="#" ng-click="addToCart()"></a>
 					<span class="cart-msg"></span>
 				</p>
+				<div class="desc">	
+					<span>{{prod.name}}</span><br>
+					<span>{{prod.price}}</span>
+				</div>
 			</div>			
 		</section>
 		

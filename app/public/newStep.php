@@ -37,6 +37,7 @@ if (isset($_POST["submit"])) {
         $response = curl_exec( $ch );
         $result = json_decode($response, true);
 
+   
         //show information regarding the request
         //close the connection
         curl_close($ch);
@@ -57,8 +58,7 @@ if (isset($_POST["submit"])) {
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     <link rel="stylesheet" href="css/dev/style.css">
-    <link rel="stylesheet" href="css/dev/newItem.css">
-    <script src="js/dev/newItem.js"></script>
+    <script src="js/dev/manager.js"></script>
     <title>הוספת מוצר למראה איפור</title>
 </head>
 <body id="itemCtrl">
@@ -90,7 +90,7 @@ if (isset($_POST["submit"])) {
       </div>
   </nav>
    <div class="container">
-        <div class="addItem">
+        <div class="addItem new-item">
             <h1>הוספת מוצר למראה איפור</h1>
             <form method="post" enctype="multipart/form-data">
                 <input class="form-control input" type="number" name="prodId" placeholder="הכנס מזהה מוצר" required>
@@ -103,9 +103,12 @@ if (isset($_POST["submit"])) {
                 </div>
                 <input type="submit" class="btn btn-default input" value="שלח" name="submit">
             </form>
-            <span><?php 
-            if($result['success']) echo "הפריט עלה בהצלחה";
-            else "תקלה במערכת."
+            <span><?php
+            if($_POST["submit"]){
+              if($result['success']) echo "הפריט עלה בהצלחה";
+            else if(!$result) echo "תקלה במערכת.";
+            else if($result["error"])echo "מראה איפור אינו קיים.";
+            }  
              ?></span>
         </div>        
     </div>

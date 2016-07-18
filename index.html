@@ -173,6 +173,98 @@ Result: JSON with message - success/error.<br>
 Method: POST.<br>
 Params: category - category name, url - url to image.  </p>
 
+<h2>
+<a id="products" class="anchor" href="#products" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PRODUCTS</h2>
+
+<h4>
+<a id="get-all-products" class="anchor" href="#get-all-products" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get All products</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/getAllProducts</code><br>
+Result: JSON with all products that was saved in DB.<br>
+Method: GET<br>
+Example:  </p>
+
+<pre><code>[
+{
+  _id: "5789305c1d4e340300fd3e7b",
+  id: 1,
+  name: "shadow",
+  price: "75.00 ₪",
+  image: "http://res.cloudinary.com/desbjknxm/image/upload/v1468609553/shadow-20-small-new_ef1kou.jpg",
+  big_image: "http://res.cloudinary.com/desbjknxm/image/upload/v1468609620/shadow-20-a-new_p5rigt.jpg",
+  short_desc: "shadow desc",
+  description: "description about this product",
+  category: "eyes",
+  __v: 0
+}
+]
+</code></pre>
+
+<h4>
+<a id="get-product" class="anchor" href="#get-product" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get Product</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/getProduct/:id</code><br>
+Result: JSON specific product, like shown above.<br>
+Method: GET   </p>
+
+<h4>
+<a id="remove-product" class="anchor" href="#remove-product" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remove Product</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/removeProduct/:id</code><br>
+Result: JSON with message - success/error.<br>
+Method: GET.  </p>
+
+<h4>
+<a id="add-product" class="anchor" href="#add-product" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Add Product</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/addProduct/:id/:name/:price/:sdesc/:desc/:category</code><br>
+Result: JSON with message - success/error.<br>
+Method: GET.<br>
+Params: sdesc- short description, desc - full description.  </p>
+
+<h4>
+<a id="update-product" class="anchor" href="#update-product" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Update Product</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/updateProduct/:id/:name/:price/:sdesc/:desc/:category</code><br>
+Result: JSON with message - success/error.<br>
+Method: GET.  </p>
+
+<h4>
+<a id="get-category-products" class="anchor" href="#get-category-products" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get Category Products</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/getCategoryProducts/:category</code><br>
+Result: JSON with products from specific category.<br>
+Method: GET  </p>
+
+<h4>
+<a id="get-wish-list" class="anchor" href="#get-wish-list" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get Wish List</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/getWishList/:username</code><br>
+Result: JSON with products of specific user.<br>
+Method: GET  </p>
+
+<h4>
+<a id="add-to-wish-list" class="anchor" href="#add-to-wish-list" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Add To Wish List</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/addToWishList/:username/:prodId</code><br>
+Result: JSON with message - success/error.<br>
+Method: GET. </p>
+
+<h4>
+<a id="remove-from-wish-list" class="anchor" href="#remove-from-wish-list" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remove From Wish List</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/removeFromWishList/:username/:prodId</code><br>
+Result: JSON with message - success/error.<br>
+Method: GET. </p>
+
+<h4>
+<a id="upload-product-image" class="anchor" href="#upload-product-image" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>upload Product Image</h4>
+
+<p>URL: <code>https://webserviceproj.herokuapp.com/api/uploadProdImage</code><br>
+Result: JSON with message - success/error.<br>
+Method: POST.
+Params: id - product id, image - image, bimage - big image.</p>
+
 <h3>
 <a id="user" class="anchor" href="#user" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>USER</h3>
 
@@ -220,7 +312,7 @@ Params: username- email, admin- boolean.  </p>
 
 <p>URL: <code>https://webserviceproj.herokuapp.com/api/updateUser/:username/:admin</code><br>
 Result: JSON with message - success/error.<br>
-Method: GET.  </p>
+Method: GET.</p>
 
 <h3>
 <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>

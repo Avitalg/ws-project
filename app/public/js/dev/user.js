@@ -13,3 +13,8 @@ myApp.controller('UserCtrl', function ($scope, $window, user) {
     
 });
 
+
+function onSignIn(googleUser) {   // when user auth this function will call
+       angular.element(document.getElementById('userCtrl')).scope().signIn(googleUser);
+
+};

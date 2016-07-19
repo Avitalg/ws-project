@@ -51,3 +51,9 @@ account.controller('AccountCtrl', function($scope, $http, $window, user){
     }
 
 });
+
+
+function onSignIn(googleUser) {   // when user auth this function will call
+       angular.element(document.getElementById('AccountCtrl')).scope().signIn(googleUser);
+
+};

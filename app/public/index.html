@@ -15,12 +15,6 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="js/dev/UserService.js"></script>
     <script src="js/dev/user.js"></script>
-    <script>
-      function onSignIn(googleUser) {   // when user auth this function will call
-       angular.element(document.getElementById('userCtrl')).scope().signIn(googleUser);
-
-      };
-    </script>
 </head>
 <body id="userCtrl" ng-controller="UserCtrl">
   <nav class="user-menu navbar">
@@ -53,7 +47,7 @@
   <div id="wrapper">
     <h3>ברוכים הבאים</h3>
     <section class="hello-user"></section>
-    <img src="images/homepage_pic.jpg">
+    <img id="homePic" src="images/homepage_pic.jpg">
   </div>
 </body>
 </html>

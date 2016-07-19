@@ -21,6 +21,10 @@ var categories = angular.module('product', ['ngRoute', 'UserService'])
         templateUrl: 'account.html',
         controller: 'AccountCtrl'
         })
+      .when('/managePage.html', {
+        templateUrl: 'managePage.html',
+        controller: 'UserCtrl'
+        })
       .otherwise({
         redirectTo: '/'
       });
@@ -37,7 +41,7 @@ categories.controller('productCtrl', ['$scope','$http','$location','$window','$r
 		$scope.prod = data;
 	})
 	.error(function(data, status){
-		$window.location.href = '/index.html';
+		$window.location.href = 'index.html';
 	});
 
     $scope.signOut = function(){
@@ -74,3 +78,8 @@ categories.directive('extLink', function() {
       })
     }
   }});
+  
+  
+  function onSignIn(googleUser) {   // when user auth this function will call
+       angular.element(document.getElementById('productCtrl')).scope().signIn(googleUser);
+      };

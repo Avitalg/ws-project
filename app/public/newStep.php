@@ -52,7 +52,7 @@ if (isset($_POST["submit"])) {
     <link rel="stylesheet" href="css/lib/bootstrap.min.css">
     <link rel="stylesheet" href="css/lib/bootstrap-theme.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
+	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="531479800503-6lvg1h8gotm5e80p7vcll0q3hfilbg81.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -67,7 +67,7 @@ if (isset($_POST["submit"])) {
           <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" ></div><br>
       </div>
       <ul>
-        <li id="loggedIn"><span class="greeting"></span> <a class="signOut" ng-click="signOut()">התנתק</a></li>
+        <li id="loggedIn"><span class="greeting"></span> <a class="signOut" onclick="onSignOut()">התנתק</a></li>
         <li class="account"><a ext-link href="account.html">סל קניות</a></li>
         <li><a href="#">צור קשר</a></li>
         <li><a href="#">מועדון הלקוחות</a></li>

@@ -21,6 +21,10 @@ var Look = angular.module('Look', [ 'ngRoute',  'UserService'])
         templateUrl: 'account.html',
         controller: 'AccountCtrl'
         })
+      .when('/managePage.html', {
+        templateUrl: 'managePage.html',
+        controller: 'UserCtrl'
+        })
       .otherwise({
   //      redirectTo: '/'
       });
@@ -34,7 +38,6 @@ var Look = angular.module('Look', [ 'ngRoute',  'UserService'])
 Look.controller('lookCtrl', ['$scope','$http','$location','$window','user',
  function($scope,$http,$location,$window, user){
 
-    $scope.slide = 1;
     var prodlook = $location.search().look;
     $scope.prod = model;
     $scope.slide=1;
@@ -54,7 +57,7 @@ Look.controller('lookCtrl', ['$scope','$http','$location','$window','user',
             $('#prodItem-1').fadeIn();
         })
         .error(function(data, status){
-            console.log(data);
+            $window.location.href = 'index.html';
         });
     };
 
@@ -123,3 +126,9 @@ Look.directive('extLink', function() {
       })
     }
   }});
+  
+  
+ function onSignIn(googleUser) {   // when user auth this function will call
+       angular.element(document.getElementById('lookCtrl')).scope().signIn(googleUser);
+
+ };

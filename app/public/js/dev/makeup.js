@@ -17,6 +17,10 @@ var MakeUpApp = angular.module('MakeUpApp',[  'ngRoute', 'UserService'])
         templateUrl: 'product.html?:id',
         controller: 'productCtrl'
         })
+      .when('/managePage.html', {
+        templateUrl: 'managePage.html',
+        controller: 'UserCtrl'
+        })
       .otherwise({
  //        redirectTo: '/'
       });
@@ -64,3 +68,8 @@ MakeUpApp.directive('extLink', function() {
       })
     }
   }});
+  
+  
+function onSignIn(googleUser) {   // when user auth this function will call
+         angular.element(document.getElementById('MakeUpCtrl')).scope().signIn(googleUser);
+   };

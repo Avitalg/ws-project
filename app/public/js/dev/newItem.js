@@ -16,7 +16,7 @@ $(document).ready(function(){
 
   if(!localStorage['admin']){
     $('.new-item').html('הדף אינו זמין');
-  } 
+  }
 });
 
 

@@ -8,8 +8,8 @@
 	<script src="js/lib/angular/angular-route.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="531479800503-6lvg1h8gotm5e80p7vcll0q3hfilbg81.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+	<meta name="google-signin-client_id" content="531479800503-6lvg1h8gotm5e80p7vcll0q3hfilbg81.apps.googleusercontent.com">
+    	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<script src="js/dev/UserService.js"></script>
 	<script src="js/dev/product.js"></script>
 	<link rel="stylesheet" href="css/lib/bootstrap.min.css">
@@ -18,7 +18,7 @@
 	<title>עמוד מוצר</title>
 </head>
 <body id="productCtrl" ng-controller="productCtrl">
-	<nav class="user-menu navbar">
+      <nav class="user-menu navbar">
       <div id="user">
           <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" ></div><br>
       </div>
@@ -45,35 +45,32 @@
         </ul>
       </div>
   </nav>
-
-
-	<div class="container">
-		<div class ="productDetails">
-			<header class="productHead">
-				<h4>{{prod.name}}</h4>
-				<p>{{prod.short_desc}}</p>
-			</header>
-			<div class="prodData">
-				<p>{{prod.description}}</p>
-			</div>
+  <div class="container">
+	<div class ="productDetails">
+		<header class="productHead">
+			<h4>{{prod.name}}</h4>
+			<p>{{prod.short_desc}}</p>
+		</header>
+		<div class="prodData">
+			<p>{{prod.description}}</p>
 		</div>
-		<section>
-			<div class="prodPic">
-				<img ng-src={{prod.big_image}}>
-			</div>
-
-			<div class="cart">
-				<p id="add_cart">
-					<a  href="#" ng-click="addToCart()"></a>
-					<span class="cart-msg"></span>
-				</p>
-				<div class="desc">	
-					<span>{{prod.name}}</span><br>
-					<span>{{prod.price}}</span>
-				</div>
-			</div>			
-		</section>
-		
 	</div>
+	<section>
+		<div class="prodPic">
+			<img ng-src={{prod.big_image}}>
+		</div>
+			<div class="cart">
+			<p id="add_cart">
+				<a  href="#" ng-click="addToCart()"></a>
+				<span class="cart-msg"></span>
+			</p>
+			<div class="desc">	
+				<span>{{prod.name}}</span><br>
+				<span>{{prod.price}}</span>
+			</div>
+		</div>			
+	</section>
+		
+</div>
 </body>
 </html>
